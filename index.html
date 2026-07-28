@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total App GT | Desarrollo SaaS y Automatizaciones</title>
+    
+    <!-- Tailwind CSS (CDN for styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Configuration for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            900: '#1e3a8a',
+                        },
+                        dark: {
+                            800: '#111827',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Smooth fade-in animation for elements */
+        .fade-in { animation: fadeIn 1s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-100 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed w-full z-50 bg-dark-900/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo Area -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-500 to-blue-700 flex items-center justify-center shadow-lg shadow-brand-500/30">
+                        <i class="fa-solid fa-code text-white text-xl"></i>
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight text-white">Total App <span class="text-brand-500">GT</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Inicio</a>
+                    <a href="#servicios" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Servicios</a>
+                    <a href="#nosotros" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Por qué elegirnos</a>
+                    <a href="#contacto" class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-all shadow-lg shadow-brand-500/30">
+                        Contactar
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-gray-700">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#inicio" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Inicio</a>
+                <a href="#servicios" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Servicios</a>
+                <a href="#nosotros" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Por qué elegirnos</a>
+                <a href="#contacto" class="block px-3 py-2 mt-4 text-center rounded-md bg-brand-600 text-white font-medium">Contactar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background decorative blobs -->
+        <div class="absolute top-0 left-1/2 w-full -translate-x-1/2 h-full overflow-hidden -z-10">
+            <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+            <div class="absolute top-40 -left-40 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center fade-in">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-500/10 text-brand-400 text-sm font-semibold mb-6 border border-brand-500/20">
+                Soluciones de Software de Alto Nivel
+            </span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-8">
+                Transformamos tu visión en <br class="hidden md:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-blue-600">
+                    Sistemas Inteligentes
+                </span>
+            </h1>
+            <p class="mt-4 max-w-2xl text-lg md:text-xl text-gray-400 mx-auto mb-10">
+                Especialistas en la creación de sistemas SaaS, automatizaciones a medida y ejecutables profesionales. Llevamos la eficiencia de tu negocio al siguiente nivel.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#servicios" class="px-8 py-4 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all shadow-lg shadow-brand-500/25 flex items-center justify-center gap-2">
+                    Ver Servicios <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#contacto" class="px-8 py-4 rounded-full bg-transparent border border-gray-600 hover:border-gray-400 text-white font-semibold transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-phone"></i> +502 58303182
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 bg-dark-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Nuestras Especialidades</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Desarrollamos herramientas robustas y escalables adaptadas a las necesidades específicas de cada industria.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-dark-900 border border-gray-800 rounded-2xl p-8 hover:border-brand-500/50 transition-all group hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-brand-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-500 group-hover:text-white text-brand-500 transition-colors">
+                        <i class="fa-solid fa-cloud text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Sistemas SaaS</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Desarrollo de Software as a Service. Plataformas en la nube seguras, con gestión de usuarios, suscripciones y arquitecturas escalables.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-dark-900 border border-gray-800 rounded-2xl p-8 hover:border-brand-500/50 transition-all group hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-brand-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-500 group-hover:text-white text-brand-500 transition-colors">
+                        <i class="fa-solid fa-robot text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Automatizaciones</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Eliminamos tareas repetitivas. Creamos scripts y flujos de trabajo automatizados que ahorran tiempo y reducen el error humano.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-dark-900 border border-gray-800 rounded-2xl p-8 hover:border-brand-500/50 transition-all group hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-brand-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-500 group-hover:text-white text-brand-500 transition-colors">
+                        <i class="fa-solid fa-laptop-code text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Programas Ejecutables</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Software de escritorio a medida. Soluciones de alto rendimiento diseñadas para sistemas operativos específicos con integración local.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Infrastructure -->
+    <section id="nosotros" class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:flex lg:items-center lg:justify-between gap-12">
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Infraestructura Confiable y Segura</h2>
+                    <p class="text-gray-400 text-lg mb-6 leading-relaxed">
+                        En <strong class="text-gray-200">Total App GT</strong>, sabemos que tus datos son el activo más importante. Proveemos soluciones enlazadas con infraestructuras seguras como Drive y servicios en la nube de alta disponibilidad.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fa-solid fa-circle-check text-brand-500 mr-3"></i> Arquitecturas modernas y eficientes.
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fa-solid fa-circle-check text-brand-500 mr-3"></i> Integración fluida con APIs de terceros.
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <i class="fa-solid fa-circle-check text-brand-500 mr-3"></i> Soporte técnico especializado.
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Mock Dashboard Visual -->
+                <div class="lg:w-1/2">
+                    <div class="bg-dark-800 rounded-2xl border border-gray-700 shadow-2xl p-2">
+                        <div class="flex items-center gap-2 px-4 py-3 border-b border-gray-700 mb-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="px-4 pb-4 grid grid-cols-2 gap-4">
+                            <div class="h-24 bg-dark-900 rounded-lg flex items-center justify-center flex-col">
+                                <span class="text-gray-500 text-xs uppercase font-bold tracking-wider">Uptime</span>
+                                <span class="text-2xl font-bold text-brand-400">99.9%</span>
+                            </div>
+                            <div class="h-24 bg-dark-900 rounded-lg flex items-center justify-center flex-col">
+                                <span class="text-gray-500 text-xs uppercase font-bold tracking-wider">Proyectos</span>
+                                <span class="text-2xl font-bold text-white">+50</span>
+                            </div>
+                            <div class="col-span-2 h-32 bg-gradient-to-r from-dark-900 to-gray-800 rounded-lg p-4 border border-gray-700 flex items-end">
+                                <!-- Mock Chart Bars -->
+                                <div class="w-full flex justify-between items-end gap-2 h-full opacity-60">
+                                    <div class="w-1/6 bg-brand-600 rounded-t-sm" style="height: 40%"></div>
+                                    <div class="w-1/6 bg-brand-600 rounded-t-sm" style="height: 60%"></div>
+                                    <div class="w-1/6 bg-brand-600 rounded-t-sm" style="height: 35%"></div>
+                                    <div class="w-1/6 bg-brand-600 rounded-t-sm" style="height: 80%"></div>
+                                    <div class="w-1/6 bg-brand-500 rounded-t-sm" style="height: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20 bg-dark-800 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <!-- Contact Info -->
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Iniciemos tu próximo gran proyecto</h2>
+                    <p class="text-gray-400 mb-10">¿Tienes una idea en mente o necesitas optimizar tus procesos actuales? Contáctanos para recibir una asesoría técnica especializada.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-dark-900 border border-gray-700 rounded-xl flex items-center justify-center text-brand-500 mr-4 shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Teléfono / WhatsApp</h4>
+                                <p class="text-gray-400 mt-1">+502 58303182</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-dark-900 border border-gray-700 rounded-xl flex items-center justify-center text-brand-500 mr-4 shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Correo Electrónico</h4>
+                                <p class="text-gray-400 mt-1">totalappgt@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-dark-900 border border-gray-700 rounded-xl flex items-center justify-center text-brand-500 mr-4 shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Ubicación</h4>
+                                <p class="text-gray-400 mt-1">Guatemala, GT</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-dark-900 border border-gray-800 rounded-2xl p-8">
+                    <form onsubmit="event.preventDefault(); alert('¡Mensaje enviado de prueba! En producción, esto se conectará a tu backend.');" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Nombre completo</label>
+                                <input type="text" required class="w-full bg-dark-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" placeholder="Ej. Juan Pérez">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Empresa</label>
+                                <input type="text" class="w-full bg-dark-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" placeholder="Opcional">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Correo electrónico</label>
+                            <input type="email" required class="w-full bg-dark-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" placeholder="tu@correo.com">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">¿Cómo podemos ayudarte?</label>
+                            <textarea required rows="4" class="w-full bg-dark-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" placeholder="Describe brevemente tu proyecto o necesidad..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-lg bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all flex justify-center items-center gap-2">
+                            Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-code text-brand-500 text-xl"></i>
+                <span class="font-bold text-xl text-white">Total App <span class="text-brand-500">GT</span></span>
+            </div>
+            
+            <p class="text-gray-500 text-sm text-center md:text-left">
+                &copy; <span id="year"></span> Total App GT. Todos los derechos reservados.
+            </p>
+
+            <div class="flex space-x-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-600 transition-all">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-600 transition-all">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle Logic
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
