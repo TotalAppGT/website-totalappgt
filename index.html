@@ -2,221 +2,487 @@
 <html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Total App GT | Desarrollo SaaS y Automatizaciones</title>
-    
-    <!-- Tailwind CSS (CDN for styling) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Total App GT | Desarrollo SaaS y Automatizaciones Profesionales</title>
+    <meta name="description" content="Total App GT - Sistemas SaaS, automatizaciones y software a medida en Guatemala.">
+    <meta name="keywords" content="SaaS, automatizaciones, software, Guatemala, Apps Script, sistemas">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Tailwind Configuration for Custom Colors/Fonts -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        brand: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            900: '#1e3a8a',
-                        },
-                        dark: {
-                            800: '#111827',
-                            900: '#0f172a',
-                        }
+                        brand: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' },
+                        dark: { 700: '#1e293b', 800: '#111827', 850: '#0f172a', 900: '#0a0f1e' }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'typing': 'typing 3.5s steps(40,end)',
+                        'blink': 'blink .75s step-end infinite',
+                    },
+                    keyframes: {
+                        float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } },
+                        typing: { from: { width: '0' }, to: { width: '100%' } },
+                        blink: { '50%': { borderColor: 'transparent' } }
                     }
                 }
             }
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        /* Smooth fade-in animation for elements */
-        .fade-in { animation: fadeIn 1s ease-in-out; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0a0f1e; overflow-x: hidden; }
+        #particles-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+        .glass { background: rgba(17,24,39,0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(59,130,246,0.1); }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.23,1,0.32,1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .gradient-text { background: linear-gradient(135deg,#60a5fa,#2563eb,#1e40af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .typing-text { overflow: hidden; border-right: 3px solid #3b82f6; white-space: nowrap; animation: typing 3.5s steps(40,end), blink .75s step-end infinite; width: 0; display: inline-block; max-width: 100%; }
+        .btn-glow { position: relative; overflow: hidden; }
+        .btn-glow::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle,rgba(59,130,246,0.3) 0%,transparent 70%); opacity: 0; transition: opacity .4s; }
+        .btn-glow:hover::after { opacity: 1; }
+        .whatsapp-btn { position: fixed; bottom: 24px; right: 24px; z-index: 999; width: 60px; height: 60px; border-radius: 50%; background: #25D366; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: all .3s; animation: pulse 2s infinite; }
+        .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.6); }
+        .nav-scrolled { background: rgba(10,15,30,0.95) !important; border-bottom-color: rgba(59,130,246,0.2) !important; }
+        .gradient-bar { width: 80px; height: 4px; background: linear-gradient(90deg,#3b82f6,#60a5fa); border-radius: 2px; margin: 0 auto; }
+        .parallax-shape { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; pointer-events: none; }
+        .shape-1 { width: 500px; height: 500px; background: #3b82f6; top: -200px; right: -200px; animation: float 8s ease-in-out infinite; }
+        .shape-2 { width: 400px; height: 400px; background: #1d4ed8; bottom: -150px; left: -150px; animation: float 10s ease-in-out infinite reverse; }
+        .shape-3 { width: 300px; height: 300px; background: #60a5fa; top: 30%; left: 70%; animation: float 7s ease-in-out infinite; }
+        .form-input:focus { box-shadow: 0 0 0 3px rgba(59,130,246,0.2); outline: none; }
+
+        .sys-card { position: relative; border-radius: 1.25rem; overflow: hidden; background: rgba(17,24,39,0.6); backdrop-filter: blur(20px); border: 1px solid rgba(59,130,246,0.08); transition: all 0.5s cubic-bezier(0.23,1,0.32,1); }
+        .sys-card:hover { transform: translateY(-8px); border-color: rgba(59,130,246,0.3); box-shadow: 0 25px 60px -15px rgba(59,130,246,0.2); }
+        .sys-card-img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.7s ease; }
+        .sys-card:hover .sys-card-img { transform: scale(1.08); }
+        .sys-card-badge { position: absolute; top: 16px; left: 16px; z-index: 5; padding: 4px 14px; border-radius: 999px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; background: rgba(59,130,246,0.25); backdrop-filter: blur(8px); color: #93c5fd; border: 1px solid rgba(59,130,246,0.2); }
+        .sys-card-gradient { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(10,15,30,0.85) 85%, #0a0f1e 100%); z-index: 1; }
+        .sys-card-content { position: relative; z-index: 2; padding: 1.25rem; }
+        .sys-card-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1rem; backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); }
+        .sys-card h3 { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+        .sys-card p { font-size: 0.85rem; color: #9ca3af; line-height: 1.5; }
+        .sys-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.85rem; }
+        .sys-card-tags span { padding: 3px 10px; border-radius: 999px; font-size: 0.65rem; font-weight: 500; background: rgba(255,255,255,0.06); color: #6b7280; border: 1px solid rgba(255,255,255,0.06); }
+
+        @media (max-width: 640px) {
+            .typing-text { font-size: 1rem; white-space: normal; border-right: none; animation: none; width: auto; display: inline; }
+            .sys-card-img { height: 160px; }
+            .sys-card { margin-bottom: 0; }
+            .whatsapp-btn { width: 50px; height: 50px; font-size: 24px; bottom: 16px; right: 16px; }
+        }
+        @media (min-width: 641px) and (max-width: 768px) {
+            .typing-text { font-size: 1.25rem; }
         }
     </style>
 </head>
-<body class="bg-dark-900 text-gray-100 antialiased selection:bg-brand-500 selection:text-white">
+<body>
 
-    <!-- Navigation Bar -->
-    <nav class="fixed w-full z-50 bg-dark-900/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300">
+    <canvas id="particles-canvas"></canvas>
+
+    <a href="https://wa.me/50258303182" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- NAV -->
+    <nav id="navbar" class="fixed w-full z-50 bg-dark-900/80 backdrop-blur-xl border-b border-gray-800/50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo Area -->
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-500 to-blue-700 flex items-center justify-center shadow-lg shadow-brand-500/30">
-                        <i class="fa-solid fa-code text-white text-xl"></i>
-                    </div>
-                    <span class="font-bold text-2xl tracking-tight text-white">Total App <span class="text-brand-500">GT</span></span>
-                </div>
-                
-                <!-- Desktop Menu -->
+                <a href="#inicio" class="flex items-center gap-3 group shrink-0">
+                    <img src="1000191404.jpg" alt="Total App GT"
+                         class="w-11 h-11 rounded-xl shadow-lg shadow-brand-500/30 object-cover ring-2 ring-brand-500/20 group-hover:ring-brand-500/40 transition-all"
+                         onerror="this.outerHTML='<div class=\'w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500 to-blue-700 flex items-center justify-center shadow-lg shadow-brand-500/30\'><i class=\'fa-solid fa-code text-white text-xl\'></i></div>'">
+                    <span class="font-bold text-xl sm:text-2xl tracking-tight text-white whitespace-nowrap">Total App <span class="text-brand-500">GT</span></span>
+                </a>
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#inicio" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Inicio</a>
                     <a href="#servicios" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Servicios</a>
-                    <a href="#nosotros" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Por qué elegirnos</a>
-                    <a href="#contacto" class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-all shadow-lg shadow-brand-500/30">
-                        Contactar
+                    <a href="#sistemas" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Sistemas</a>
+                    <a href="#nosotros" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Nosotros</a>
+                    <a href="#contacto" class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-all shadow-lg shadow-brand-500/30 btn-glow">
+                        Contactar <i class="fa-solid fa-arrow-right ml-1"></i>
                     </a>
                 </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
             </div>
         </div>
-        
-        <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-gray-700">
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800/95 backdrop-blur-xl border-b border-gray-700">
             <div class="px-4 pt-2 pb-6 space-y-2">
                 <a href="#inicio" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Inicio</a>
                 <a href="#servicios" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Servicios</a>
-                <a href="#nosotros" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Por qué elegirnos</a>
+                <a href="#sistemas" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Sistemas</a>
+                <a href="#nosotros" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Nosotros</a>
                 <a href="#contacto" class="block px-3 py-2 mt-4 text-center rounded-md bg-brand-600 text-white font-medium">Contactar</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <!-- Background decorative blobs -->
-        <div class="absolute top-0 left-1/2 w-full -translate-x-1/2 h-full overflow-hidden -z-10">
-            <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-            <div class="absolute top-40 -left-40 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center fade-in">
-            <span class="inline-block py-1 px-3 rounded-full bg-brand-500/10 text-brand-400 text-sm font-semibold mb-6 border border-brand-500/20">
-                Soluciones de Software de Alto Nivel
-            </span>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-8">
-                Transformamos tu visión en <br class="hidden md:block" />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-blue-600">
-                    Sistemas Inteligentes
-                </span>
-            </h1>
-            <p class="mt-4 max-w-2xl text-lg md:text-xl text-gray-400 mx-auto mb-10">
-                Especialistas en la creación de sistemas SaaS, automatizaciones a medida y ejecutables profesionales. Llevamos la eficiencia de tu negocio al siguiente nivel.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#servicios" class="px-8 py-4 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all shadow-lg shadow-brand-500/25 flex items-center justify-center gap-2">
-                    Ver Servicios <i class="fa-solid fa-arrow-right"></i>
-                </a>
-                <a href="#contacto" class="px-8 py-4 rounded-full bg-transparent border border-gray-600 hover:border-gray-400 text-white font-semibold transition-all flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-phone"></i> +502 58303182
-                </a>
+    <!-- HERO -->
+    <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden pt-20">
+        <div class="parallax-shape shape-1"></div>
+        <div class="parallax-shape shape-2"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-12 lg:py-0">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                <div class="reveal text-center lg:text-left">
+                    <span class="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-brand-500/10 text-brand-400 text-xs sm:text-sm font-semibold mb-5 border border-brand-500/20">
+                        <i class="fa-solid fa-bolt"></i> Innovación Tecnológica en Guatemala
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-5 leading-tight">
+                        Transformamos tu visión en <br class="hidden sm:block">
+                        <span class="gradient-text">Sistemas Inteligentes</span>
+                    </h1>
+                    <div class="h-10 sm:h-12 mb-6 flex justify-center lg:justify-start">
+                        <span class="text-base sm:text-lg md:text-2xl text-gray-400 typing-container">
+                            <span class="typing-text" id="typing-text">Creamos SaaS, Automatizaciones y Software a Medida</span>
+                        </span>
+                    </div>
+                    <p class="text-base sm:text-lg text-gray-400 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        Especialistas en <strong class="text-gray-200">SaaS, automatizaciones y ejecutables</strong> sobre Google Apps Script, Python y más. <strong class="text-gray-200">+50 proyectos</strong> entregados.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4">
+                        <a href="#sistemas" class="px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all shadow-lg shadow-brand-500/25 flex items-center justify-center gap-2 btn-glow text-sm sm:text-base">
+                            Ver sistemas <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#contacto" class="px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl border border-gray-600 hover:border-brand-500 text-white font-semibold transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
+                            <i class="fa-solid fa-phone text-brand-500"></i> +502 58303182
+                        </a>
+                    </div>
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 mt-10 pt-6 border-t border-gray-800">
+                        <div class="flex items-center gap-2 text-gray-500 text-xs sm:text-sm"><i class="fa-solid fa-shield-halved text-brand-500"></i> 99.9% Uptime</div>
+                        <div class="flex items-center gap-2 text-gray-500 text-xs sm:text-sm"><i class="fa-solid fa-users text-brand-500"></i> +50 Clientes</div>
+                        <div class="flex items-center gap-2 text-gray-500 text-xs sm:text-sm"><i class="fa-solid fa-clock text-brand-500"></i> Soporte 24/7</div>
+                    </div>
+                </div>
+                <div class="hidden lg:block reveal">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-brand-500/20 to-blue-600/20 rounded-3xl blur-2xl"></div>
+                        <div class="relative glass rounded-3xl p-2 shadow-2xl">
+                            <div class="flex items-center gap-2 px-5 py-4 border-b border-gray-700/50">
+                                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                <span class="ml-3 text-gray-500 text-xs">totalappgt.com</span>
+                            </div>
+                            <div class="p-6">
+                                <img src="panel-saas.png" alt="Dashboard Total App GT" class="w-full rounded-xl border border-gray-700/50 shadow-lg" onerror="this.style.display='none'">
+                                <div class="grid grid-cols-2 gap-4 mt-4">
+                                    <div class="bg-dark-800/80 rounded-xl p-4 text-center border border-gray-700/30">
+                                        <span class="text-3xl font-bold text-brand-400 counter-num" data-target="50">0</span>
+                                        <p class="text-gray-500 text-xs uppercase tracking-wider mt-1 font-medium">Proyectos</p>
+                                    </div>
+                                    <div class="bg-dark-800/80 rounded-xl p-4 text-center border border-gray-700/30">
+                                        <span class="text-3xl font-bold text-brand-400 counter-num" data-target="8">0</span>
+                                        <p class="text-gray-500 text-xs uppercase tracking-wider mt-1 font-medium">Sistemas Activos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce hidden sm:block">
+            <i class="fa-solid fa-chevron-down text-gray-600 text-xl"></i>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="servicios" class="py-20 bg-dark-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Nuestras Especialidades</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">Desarrollamos herramientas robustas y escalables adaptadas a las necesidades específicas de cada industria.</p>
+    <!-- SERVICES -->
+    <section id="servicios" class="relative py-16 sm:py-24 overflow-hidden">
+        <div class="parallax-shape shape-3" style="top:30%;left:70%"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <span class="text-brand-400 font-semibold text-xs sm:text-sm uppercase tracking-widest">Lo que hacemos</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-3">Nuestras Especialidades</h2>
+                <div class="gradient-bar"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-5 text-sm sm:text-base">Desarrollamos herramientas robustas y escalables sobre tecnologías modernas para impulsar tu negocio.</p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-dark-900 border border-gray-800 rounded-2xl p-8 hover:border-brand-500/50 transition-all group hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-brand-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-500 group-hover:text-white text-brand-500 transition-colors">
-                        <i class="fa-solid fa-cloud text-2xl"></i>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
+                <div class="glass rounded-2xl p-6 sm:p-8 text-center group hover:-translate-y-2 hover:border-brand-500/30 transition-all duration-300 border border-gray-800/50 reveal">
+                    <div class="w-16 h-16 mx-auto bg-gradient-to-br from-brand-500/20 to-blue-600/20 rounded-2xl flex items-center justify-center mb-5 group-hover:from-brand-500 group-hover:to-blue-600 transition-all duration-500">
+                        <i class="fa-solid fa-cloud text-3xl text-brand-500 group-hover:text-white transition-colors duration-500"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Sistemas SaaS</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Desarrollo de Software as a Service. Plataformas en la nube seguras, con gestión de usuarios, suscripciones y arquitecturas escalables.
-                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed">Plataformas en la nube con usuarios, suscripciones y arquitecturas escalables sobre Google Apps Script + Sheets + Drive.</p>
+                    <div class="flex flex-wrap justify-center gap-2 mt-5">
+                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Apps Script</span>
+                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Sheets</span>
+                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Drive</span>
+                    </div>
                 </div>
-
-                <!-- Service 2 -->
-                <div class="bg-dark-900 border border-gray-800 rounded-2xl p-8 hover:border-brand-500/50 transition-all group hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-brand-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-500 group-hover:text-white text-brand-500 transition-colors">
-                        <i class="fa-solid fa-robot text-2xl"></i>
+                <div class="glass rounded-2xl p-6 sm:p-8 text-center group hover:-translate-y-2 hover:border-brand-500/30 transition-all duration-300 border border-gray-800/50 reveal">
+                    <div class="w-16 h-16 mx-auto bg-gradient-to-br from-brand-500/20 to-blue-600/20 rounded-2xl flex items-center justify-center mb-5 group-hover:from-brand-500 group-hover:to-blue-600 transition-all duration-500">
+                        <i class="fa-solid fa-robot text-3xl text-brand-500 group-hover:text-white transition-colors duration-500"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Automatizaciones</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Eliminamos tareas repetitivas. Creamos scripts y flujos de trabajo automatizados que ahorran tiempo y reducen el error humano.
-                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed">Eliminamos tareas repetitivas con scripts y flujos automatizados que ahorran tiempo y reducen errores.</p>
+                    <div class="flex flex-wrap justify-center gap-2 mt-5">
+                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Python</span>
+                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Apps Script</span>
+                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">APIs</span>
+                    </div>
                 </div>
-
-                <!-- Service 3 -->
-                <div class="bg-dark-900 border border-gray-800 rounded-2xl p-8 hover:border-brand-500/50 transition-all group hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-brand-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-500 group-hover:text-white text-brand-500 transition-colors">
-                        <i class="fa-solid fa-laptop-code text-2xl"></i>
+                <div class="glass rounded-2xl p-6 sm:p-8 text-center group hover:-translate-y-2 hover:border-brand-500/30 transition-all duration-300 border border-gray-800/50 reveal sm:col-span-2 lg:col-span-1">
+                    <div class="w-16 h-16 mx-auto bg-gradient-to-br from-brand-500/20 to-blue-600/20 rounded-2xl flex items-center justify-center mb-5 group-hover:from-brand-500 group-hover:to-blue-600 transition-all duration-500">
+                        <i class="fa-solid fa-laptop-code text-3xl text-brand-500 group-hover:text-white transition-colors duration-500"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Programas Ejecutables</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Software de escritorio a medida. Soluciones de alto rendimiento diseñadas para sistemas operativos específicos con integración local.
-                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed">Software de escritorio a medida con interfaces modernas, alto rendimiento e integración local.</p>
+                    <div class="flex flex-wrap justify-center gap-2 mt-5">
+                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Python</span>
+                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Tkinter</span>
+                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">PyInstaller</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About / Infrastructure -->
-    <section id="nosotros" class="py-20 relative overflow-hidden">
+    <!-- PORTFOLIO - SISTEMAS (version ultra grafica) -->
+    <section id="sistemas" class="relative py-16 sm:py-24 bg-dark-800/40 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <span class="text-brand-400 font-semibold text-xs sm:text-sm uppercase tracking-widest">Portafolio</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-3">Nuestros Sistemas</h2>
+                <div class="gradient-bar"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-5 text-sm sm:text-base">Soluciones reales desplegadas y funcionando para diversos sectores en Guatemala.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+
+                <!-- REDIL -->
+                <div class="sys-card reveal">
+                    <div class="relative overflow-hidden" style="height:200px">
+                        <img src="sistema-preview.png" alt="REDIL" class="sys-card-img" onerror="this.style.display='none'">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/60 to-dark-900/90 flex items-center justify-center" style="display:none" onerror="this.parentElement.querySelector('img').style.display='none';this.style.display='flex'">
+                            <i class="fa-solid fa-church text-7xl text-purple-400/40"></i>
+                        </div>
+                        <div class="sys-card-gradient"></div>
+                        <span class="sys-card-badge" style="background:rgba(168,85,247,0.25);color:#d8b4fe;border-color:rgba(168,85,247,0.2)">Iglesias</span>
+                    </div>
+                    <div class="sys-card-content">
+                        <div class="sys-card-icon" style="background:rgba(168,85,247,0.15);color:#d8b4fe"><i class="fa-solid fa-church"></i></div>
+                        <h3>REDIL</h3>
+                        <p>Sistema integral para iglesias. Gestión de miembros, líderes, ofrendas, diezmos, reportes digitales y seguimiento de feligreses.</p>
+                        <div class="sys-card-tags">
+                            <span>v6.0</span>
+                            <span>Apps Script</span>
+                            <span>Sheets</span>
+                            <span>Reportes PDF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ContaFacil Pro -->
+                <div class="sys-card reveal">
+                    <div class="relative overflow-hidden" style="height:200px">
+                        <div class="w-full h-full bg-gradient-to-br from-emerald-900/80 to-dark-900 flex items-center justify-center">
+                            <i class="fa-solid fa-calculator text-7xl text-emerald-400/30"></i>
+                        </div>
+                        <div class="sys-card-gradient"></div>
+                        <span class="sys-card-badge" style="background:rgba(52,211,153,0.25);color:#86efac;border-color:rgba(52,211,153,0.2)">Contabilidad</span>
+                    </div>
+                    <div class="sys-card-content">
+                        <div class="sys-card-icon" style="background:rgba(52,211,153,0.15);color:#86efac"><i class="fa-solid fa-calculator"></i></div>
+                        <h3>ContaFácil Pro</h3>
+                        <p>ERP contable profesional con facturación electrónica FEL, integración SAT, flujo de caja, presupuestos y multi-empresa.</p>
+                        <div class="sys-card-tags">
+                            <span>SAT</span>
+                            <span>FEL</span>
+                            <span>Multi-empresa</span>
+                            <span>Reportes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- InvenPro -->
+                <div class="sys-card reveal">
+                    <div class="relative overflow-hidden" style="height:200px">
+                        <div class="w-full h-full bg-gradient-to-br from-amber-900/80 to-dark-900 flex items-center justify-center">
+                            <i class="fa-solid fa-warehouse text-7xl text-amber-400/30"></i>
+                        </div>
+                        <div class="sys-card-gradient"></div>
+                        <span class="sys-card-badge" style="background:rgba(251,191,36,0.25);color:#fcd34d;border-color:rgba(251,191,36,0.2)">Inventarios</span>
+                    </div>
+                    <div class="sys-card-content">
+                        <div class="sys-card-icon" style="background:rgba(251,191,36,0.15);color:#fcd34d"><i class="fa-solid fa-warehouse"></i></div>
+                        <h3>InvenPro</h3>
+                        <p>Gestión completa de inventarios y bodegas. Control de productos, movimientos, usuarios y reportes en tiempo real.</p>
+                        <div class="sys-card-tags">
+                            <span>Multi-bodega</span>
+                            <span>Movimientos</span>
+                            <span>Roles</span>
+                            <span>Reportes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ferreteria La Torre -->
+                <div class="sys-card reveal">
+                    <div class="relative overflow-hidden" style="height:200px">
+                        <div class="w-full h-full bg-gradient-to-br from-sky-900/80 to-dark-900 flex items-center justify-center">
+                            <i class="fa-solid fa-store text-7xl text-sky-400/30"></i>
+                        </div>
+                        <div class="sys-card-gradient"></div>
+                        <span class="sys-card-badge" style="background:rgba(56,189,248,0.25);color:#7dd3fc;border-color:rgba(56,189,248,0.2)">Comercio</span>
+                    </div>
+                    <div class="sys-card-content">
+                        <div class="sys-card-icon" style="background:rgba(56,189,248,0.15);color:#7dd3fc"><i class="fa-solid fa-store"></i></div>
+                        <h3>Ferretería La Torre</h3>
+                        <p>SaaS para administración comercial. POS, inventario, cotizaciones, portal público para clientes y generación de PDFs.</p>
+                        <div class="sys-card-tags">
+                            <span>POS</span>
+                            <span>Cotizaciones</span>
+                            <span>Portal público</span>
+                            <span>PDF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sistema Colegio -->
+                <div class="sys-card reveal">
+                    <div class="relative overflow-hidden" style="height:200px">
+                        <img src="sistema-colegio.png" alt="Sistema Colegio" class="sys-card-img" onerror="this.style.display='none'">
+                        <div class="w-full h-full bg-gradient-to-br from-rose-900/80 to-dark-900 flex items-center justify-center" onerror="this.parentElement.querySelector('img').style.display='none';this.style.display='flex'" style="display:none">
+                            <i class="fa-solid fa-graduation-cap text-7xl text-rose-400/30"></i>
+                        </div>
+                        <div class="sys-card-gradient"></div>
+                        <span class="sys-card-badge" style="background:rgba(244,63,94,0.25);color:#fda4af;border-color:rgba(244,63,94,0.2)">Educación</span>
+                    </div>
+                    <div class="sys-card-content">
+                        <div class="sys-card-icon" style="background:rgba(244,63,94,0.15);color:#fda4af"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h3>Sistema Colegio</h3>
+                        <p>Plataforma educativa integral. Gestión de estudiantes, asistencias, calificaciones, docentes, tareas y reportes académicos.</p>
+                        <div class="sys-card-tags">
+                            <span>Estudiantes</span>
+                            <span>Notas</span>
+                            <span>Asistencias</span>
+                            <span>Reportes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guatecompras OCDS -->
+                <div class="sys-card reveal">
+                    <div class="relative overflow-hidden" style="height:200px">
+                        <div class="w-full h-full bg-gradient-to-br from-red-900/80 to-dark-900 flex items-center justify-center">
+                            <i class="fa-solid fa-file-contract text-7xl text-red-400/30"></i>
+                        </div>
+                        <div class="sys-card-gradient"></div>
+                        <span class="sys-card-badge" style="background:rgba(239,68,68,0.25);color:#fca5a5;border-color:rgba(239,68,68,0.2)">Automatización</span>
+                    </div>
+                    <div class="sys-card-content">
+                        <div class="sys-card-icon" style="background:rgba(239,68,68,0.15);color:#fca5a5"><i class="fa-solid fa-file-contract"></i></div>
+                        <h3>Guatecompras OCDS</h3>
+                        <p>Extractor y gestor automatizado de licitaciones del gobierno de Guatemala vía API OCDS con exportación a Excel y dashboard.</p>
+                        <div class="sys-card-tags">
+                            <span>Python</span>
+                            <span>API OCDS</span>
+                            <span>Excel</span>
+                            <span>Dashboard</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- COUNTERS -->
+    <section class="relative py-12 sm:py-16 border-y border-gray-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:flex lg:items-center lg:justify-between gap-12">
-                <div class="lg:w-1/2 mb-10 lg:mb-0">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Infraestructura Confiable y Segura</h2>
-                    <p class="text-gray-400 text-lg mb-6 leading-relaxed">
-                        En <strong class="text-gray-200">Total App GT</strong>, sabemos que tus datos son el activo más importante. Proveemos soluciones enlazadas con infraestructuras seguras como Drive y servicios en la nube de alta disponibilidad.
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
+                <div class="reveal">
+                    <div class="text-3xl sm:text-5xl font-extrabold text-brand-400 counter-num" data-target="50">0</div>
+                    <p class="text-gray-500 text-xs sm:text-sm uppercase tracking-wider mt-2 font-medium">Proyectos Entregados</p>
+                </div>
+                <div class="reveal">
+                    <div class="text-3xl sm:text-5xl font-extrabold text-brand-400 counter-num" data-target="8">0</div>
+                    <p class="text-gray-500 text-xs sm:text-sm uppercase tracking-wider mt-2 font-medium">Sistemas SaaS</p>
+                </div>
+                <div class="reveal">
+                    <div class="text-3xl sm:text-5xl font-extrabold text-brand-400 counter-num" data-target="99">0</div>
+                    <p class="text-gray-500 text-xs sm:text-sm uppercase tracking-wider mt-2 font-medium">% Satisfacción</p>
+                </div>
+                <div class="reveal">
+                    <div class="text-3xl sm:text-5xl font-extrabold text-brand-400 counter-num" data-target="3">0</div>
+                    <p class="text-gray-500 text-xs sm:text-sm uppercase tracking-wider mt-2 font-medium">Años de Experiencia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNOLOGIES -->
+    <section class="relative py-16 sm:py-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-10 sm:mb-14 reveal">
+                <span class="text-brand-400 font-semibold text-xs sm:text-sm uppercase tracking-widest">Stack Tecnológico</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-3">Tecnologías que dominamos</h2>
+                <div class="gradient-bar"></div>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3 sm:gap-5 reveal">
+                <div class="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 hover:-translate-y-1 transition-all"><i class="fa-brands fa-google text-xl sm:text-2xl text-white"></i><span class="text-sm sm:text-base text-gray-300 font-medium">Apps Script</span></div>
+                <div class="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 hover:-translate-y-1 transition-all"><i class="fa-brands fa-python text-xl sm:text-2xl text-white"></i><span class="text-sm sm:text-base text-gray-300 font-medium">Python</span></div>
+                <div class="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 hover:-translate-y-1 transition-all"><i class="fa-solid fa-file-excel text-xl sm:text-2xl text-green-400"></i><span class="text-sm sm:text-base text-gray-300 font-medium">Google Sheets</span></div>
+                <div class="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 hover:-translate-y-1 transition-all"><i class="fa-solid fa-cloud text-xl sm:text-2xl text-blue-400"></i><span class="text-sm sm:text-base text-gray-300 font-medium">Google Drive</span></div>
+                <div class="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 hover:-translate-y-1 transition-all"><i class="fa-solid fa-database text-xl sm:text-2xl text-yellow-400"></i><span class="text-sm sm:text-base text-gray-300 font-medium">APIs REST</span></div>
+                <div class="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 hover:-translate-y-1 transition-all"><i class="fa-brands fa-html5 text-xl sm:text-2xl text-orange-400"></i><span class="text-sm sm:text-base text-gray-300 font-medium">HTML/CSS/JS</span></div>
+                <div class="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 hover:-translate-y-1 transition-all"><i class="fa-solid fa-robot text-xl sm:text-2xl text-purple-400"></i><span class="text-sm sm:text-base text-gray-300 font-medium">OCR / Tesseract</span></div>
+                <div class="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 hover:-translate-y-1 transition-all"><i class="fa-brands fa-telegram text-xl sm:text-2xl text-blue-300"></i><span class="text-sm sm:text-base text-gray-300 font-medium">Telegram Bot</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="nosotros" class="relative py-16 sm:py-24 bg-dark-800/40 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:flex lg:items-center lg:gap-16">
+                <div class="lg:w-1/2 reveal mb-10 lg:mb-0">
+                    <span class="text-brand-400 font-semibold text-xs sm:text-sm uppercase tracking-widest">Sobre Nosotros</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-5">Infraestructura Confiable y Segura</h2>
+                    <p class="text-gray-400 text-base sm:text-lg mb-6 leading-relaxed">
+                        En <strong class="text-gray-200">Total App GT</strong>, sabemos que tus datos son el activo más importante. Proveemos soluciones enlazadas con infraestructuras seguras como Google Drive y servicios en la nube de alta disponibilidad.
                     </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-center text-gray-300">
-                            <i class="fa-solid fa-circle-check text-brand-500 mr-3"></i> Arquitecturas modernas y eficientes.
+                    <ul class="space-y-3 sm:space-y-4 mb-8">
+                        <li class="flex items-center text-gray-300 text-sm sm:text-base">
+                            <span class="w-6 h-6 rounded-full bg-brand-500/20 flex items-center justify-center mr-3 shrink-0"><i class="fa-solid fa-check text-brand-400 text-xs"></i></span>
+                            Arquitecturas modernas y eficientes
                         </li>
-                        <li class="flex items-center text-gray-300">
-                            <i class="fa-solid fa-circle-check text-brand-500 mr-3"></i> Integración fluida con APIs de terceros.
+                        <li class="flex items-center text-gray-300 text-sm sm:text-base">
+                            <span class="w-6 h-6 rounded-full bg-brand-500/20 flex items-center justify-center mr-3 shrink-0"><i class="fa-solid fa-check text-brand-400 text-xs"></i></span>
+                            Integración fluida con APIs de terceros
                         </li>
-                        <li class="flex items-center text-gray-300">
-                            <i class="fa-solid fa-circle-check text-brand-500 mr-3"></i> Soporte técnico especializado.
+                        <li class="flex items-center text-gray-300 text-sm sm:text-base">
+                            <span class="w-6 h-6 rounded-full bg-brand-500/20 flex items-center justify-center mr-3 shrink-0"><i class="fa-solid fa-check text-brand-400 text-xs"></i></span>
+                            Soporte técnico especializado y cercano
                         </li>
                     </ul>
+                    <a href="#contacto" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-medium transition-all btn-glow">
+                        Agendar asesoría <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
-                
-                <!-- Mock Dashboard Visual -->
-                <div class="lg:w-1/2">
-                    <div class="bg-dark-800 rounded-2xl border border-gray-700 shadow-2xl p-2">
-                        <div class="flex items-center gap-2 px-4 py-3 border-b border-gray-700 mb-4">
-                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <div class="lg:w-1/2 reveal">
+                    <div class="glass rounded-2xl p-2 shadow-2xl border border-brand-500/10">
+                        <div class="flex items-center gap-2 px-5 py-4 border-b border-gray-700/50">
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
                         </div>
-                        <div class="px-4 pb-4 grid grid-cols-2 gap-4">
-                            <div class="h-24 bg-dark-900 rounded-lg flex items-center justify-center flex-col">
-                                <span class="text-gray-500 text-xs uppercase font-bold tracking-wider">Uptime</span>
-                                <span class="text-2xl font-bold text-brand-400">99.9%</span>
-                            </div>
-                            <div class="h-24 bg-dark-900 rounded-lg flex items-center justify-center flex-col">
-                                <span class="text-gray-500 text-xs uppercase font-bold tracking-wider">Proyectos</span>
-                                <span class="text-2xl font-bold text-white">+50</span>
-                            </div>
-                            <div class="col-span-2 h-32 bg-gradient-to-r from-dark-900 to-gray-800 rounded-lg p-4 border border-gray-700 flex items-end">
-                                <!-- Mock Chart Bars -->
-                                <div class="w-full flex justify-between items-end gap-2 h-full opacity-60">
-                                    <div class="w-1/6 bg-brand-600 rounded-t-sm" style="height: 40%"></div>
-                                    <div class="w-1/6 bg-brand-600 rounded-t-sm" style="height: 60%"></div>
-                                    <div class="w-1/6 bg-brand-600 rounded-t-sm" style="height: 35%"></div>
-                                    <div class="w-1/6 bg-brand-600 rounded-t-sm" style="height: 80%"></div>
-                                    <div class="w-1/6 bg-brand-500 rounded-t-sm" style="height: 100%"></div>
+                        <div class="p-4 sm:p-6">
+                            <img src="panel-saas.png" alt="Dashboard" class="w-full rounded-xl border border-gray-700/50" onerror="this.style.display='none'">
+                            <div class="grid grid-cols-2 gap-4 mt-4">
+                                <div class="bg-dark-800/80 rounded-xl p-4 sm:p-5 text-center border border-gray-700/30">
+                                    <span class="text-2xl sm:text-3xl font-bold text-brand-400">99.9%</span>
+                                    <p class="text-gray-500 text-xs uppercase tracking-wider mt-1 font-medium">Uptime</p>
+                                </div>
+                                <div class="bg-dark-800/80 rounded-xl p-4 sm:p-5 text-center border border-gray-700/30">
+                                    <span class="text-2xl sm:text-3xl font-bold text-white">+50</span>
+                                    <p class="text-gray-500 text-xs uppercase tracking-wider mt-1 font-medium">Proyectos</p>
                                 </div>
                             </div>
                         </div>
@@ -226,124 +492,197 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contacto" class="py-20 bg-dark-800 border-t border-gray-800">
+    <!-- FACEBOOK -->
+    <section class="relative py-16 sm:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                
-                <!-- Contact Info -->
-                <div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Iniciemos tu próximo gran proyecto</h2>
-                    <p class="text-gray-400 mb-10">¿Tienes una idea en mente o necesitas optimizar tus procesos actuales? Contáctanos para recibir una asesoría técnica especializada.</p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="w-12 h-12 bg-dark-900 border border-gray-700 rounded-xl flex items-center justify-center text-brand-500 mr-4 shrink-0">
-                                <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold">Teléfono / WhatsApp</h4>
-                                <p class="text-gray-400 mt-1">+502 58303182</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-12 h-12 bg-dark-900 border border-gray-700 rounded-xl flex items-center justify-center text-brand-500 mr-4 shrink-0">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold">Correo Electrónico</h4>
-                                <p class="text-gray-400 mt-1">totalappgt@gmail.com</p>
-                            </div>
-                        </div>
+            <div class="text-center mb-10 sm:mb-14 reveal">
+                <span class="text-brand-400 font-semibold text-xs sm:text-sm uppercase tracking-widest">Redes Sociales</span>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-3">Síguenos en Facebook</h2>
+                <div class="gradient-bar"></div>
+                <p class="text-gray-400 max-w-xl mx-auto mt-5 text-sm sm:text-base">Conoce nuestros proyectos, novedades y contenido técnico.</p>
+            </div>
+            <div class="flex justify-center reveal">
+                <a href="https://facebook.com/totalappgt" target="_blank" rel="noopener" class="rounded-2xl p-6 sm:p-8 text-center max-w-md w-full hover:scale-[1.03] transition-transform duration-300 shadow-xl" style="background:linear-gradient(135deg,#1877F2,#0d65d9)">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto bg-white/20 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa-brands fa-facebook-f text-2xl sm:text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-xl sm:text-2xl">@totalappgt</h3>
+                    <p class="text-white/80 mt-2 text-sm sm:text-base">Síguenos para ver nuestros proyectos y actualizaciones</p>
+                    <span class="inline-block mt-5 sm:mt-6 px-5 sm:px-6 py-2.5 sm:py-3 bg-white text-[#1877F2] font-semibold rounded-xl hover:bg-gray-100 transition-colors text-sm sm:text-base">
+                        <i class="fa-brands fa-facebook mr-2"></i> Visitar página
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-                        <div class="flex items-start">
-                            <div class="w-12 h-12 bg-dark-900 border border-gray-700 rounded-xl flex items-center justify-center text-brand-500 mr-4 shrink-0">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold">Ubicación</h4>
-                                <p class="text-gray-400 mt-1">Guatemala, GT</p>
-                            </div>
-                        </div>
+    <!-- CONTACT -->
+    <section id="contacto" class="relative py-16 sm:py-24 bg-dark-800/40 border-t border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <span class="text-brand-400 font-semibold text-xs sm:text-sm uppercase tracking-widest">Contacto</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-3">Iniciemos tu próximo proyecto</h2>
+                <div class="gradient-bar"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-5 text-sm sm:text-base">¿Tienes una idea o necesitas optimizar tus procesos? Contáctanos para una asesoría.</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-8 sm:gap-12">
+                <div class="reveal space-y-4 sm:space-y-5">
+                    <div class="glass rounded-xl p-5 sm:p-6 flex items-start group hover:border-brand-500/30 transition-all border border-gray-800/50">
+                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 mr-4 shrink-0 group-hover:bg-brand-500 group-hover:text-white transition-all"><i class="fa-solid fa-phone"></i></div>
+                        <div><h4 class="text-white font-semibold text-sm sm:text-base">Teléfono / WhatsApp</h4><a href="https://wa.me/50258303182" class="text-gray-400 text-sm sm:text-base hover:text-brand-400 transition-colors block mt-0.5">+502 58303182</a></div>
+                    </div>
+                    <div class="glass rounded-xl p-5 sm:p-6 flex items-start group hover:border-brand-500/30 transition-all border border-gray-800/50">
+                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 mr-4 shrink-0 group-hover:bg-brand-500 group-hover:text-white transition-all"><i class="fa-solid fa-envelope"></i></div>
+                        <div><h4 class="text-white font-semibold text-sm sm:text-base">Correo Electrónico</h4><a href="mailto:totalappgt@gmail.com" class="text-gray-400 text-sm sm:text-base hover:text-brand-400 transition-colors block mt-0.5">totalappgt@gmail.com</a></div>
+                    </div>
+                    <div class="glass rounded-xl p-5 sm:p-6 flex items-start group hover:border-brand-500/30 transition-all border border-gray-800/50">
+                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 mr-4 shrink-0 group-hover:bg-brand-500 group-hover:text-white transition-all"><i class="fa-solid fa-location-dot"></i></div>
+                        <div><h4 class="text-white font-semibold text-sm sm:text-base">Ubicación</h4><p class="text-gray-400 text-sm sm:text-base mt-0.5">Guatemala, GT</p></div>
+                    </div>
+                    <div class="glass rounded-xl p-5 sm:p-6 flex items-start group hover:border-brand-500/30 transition-all border border-gray-800/50">
+                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 mr-4 shrink-0 group-hover:bg-brand-500 group-hover:text-white transition-all"><i class="fa-brands fa-facebook"></i></div>
+                        <div><h4 class="text-white font-semibold text-sm sm:text-base">Facebook</h4><a href="https://facebook.com/totalappgt" target="_blank" rel="noopener" class="text-gray-400 text-sm sm:text-base hover:text-brand-400 transition-colors block mt-0.5">@totalappgt</a></div>
                     </div>
                 </div>
-
-                <!-- Contact Form -->
-                <div class="bg-dark-900 border border-gray-800 rounded-2xl p-8">
-                    <form onsubmit="event.preventDefault(); alert('¡Mensaje enviado de prueba! En producción, esto se conectará a tu backend.');" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass rounded-2xl p-6 sm:p-8 reveal border border-gray-800/50">
+                    <form id="contact-form" class="space-y-4 sm:space-y-5">
+                        <div class="grid sm:grid-cols-2 gap-4 sm:gap-5">
                             <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-2">Nombre completo</label>
-                                <input type="text" required class="w-full bg-dark-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" placeholder="Ej. Juan Pérez">
+                                <label class="block text-sm font-medium text-gray-400 mb-1.5">Nombre completo</label>
+                                <input type="text" id="form-name" required class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 transition-all" placeholder="Ej. Juan Pérez">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-2">Empresa</label>
-                                <input type="text" class="w-full bg-dark-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" placeholder="Opcional">
+                                <label class="block text-sm font-medium text-gray-400 mb-1.5">Empresa</label>
+                                <input type="text" id="form-company" class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 transition-all" placeholder="Opcional">
                             </div>
                         </div>
-                        
                         <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-2">Correo electrónico</label>
-                            <input type="email" required class="w-full bg-dark-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" placeholder="tu@correo.com">
+                            <label class="block text-sm font-medium text-gray-400 mb-1.5">Correo electrónico</label>
+                            <input type="email" id="form-email" required class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 transition-all" placeholder="tu@correo.com">
                         </div>
-
                         <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-2">¿Cómo podemos ayudarte?</label>
-                            <textarea required rows="4" class="w-full bg-dark-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors" placeholder="Describe brevemente tu proyecto o necesidad..."></textarea>
+                            <label class="block text-sm font-medium text-gray-400 mb-1.5">Teléfono</label>
+                            <input type="tel" id="form-phone" class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 transition-all" placeholder="+502 5555 5555">
                         </div>
-
-                        <button type="submit" class="w-full py-4 rounded-lg bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all flex justify-center items-center gap-2">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1.5">¿Cómo podemos ayudarte?</label>
+                            <textarea id="form-message" required rows="4" class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 transition-all" placeholder="Describe tu proyecto o necesidad..."></textarea>
+                        </div>
+                        <button type="submit" id="form-submit" class="w-full py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all flex items-center justify-center gap-2 btn-glow text-sm sm:text-base">
                             Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
                         </button>
+                        <p id="form-status" class="text-center text-sm mt-2 hidden"></p>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark-900 border-t border-gray-800 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-code text-brand-500 text-xl"></i>
-                <span class="font-bold text-xl text-white">Total App <span class="text-brand-500">GT</span></span>
+    <!-- FOOTER -->
+    <footer class="bg-dark-900 border-t border-gray-800/50 py-8 sm:py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-8">
+                <a href="#inicio" class="flex items-center gap-3 group shrink-0">
+                    <img src="1000191404.jpg" alt="Total App GT"
+                         class="w-10 h-10 rounded-lg shadow-lg shadow-brand-500/30 object-cover ring-2 ring-brand-500/20 group-hover:ring-brand-500/40 transition-all"
+                         onerror="this.outerHTML='<div class=\'w-10 h-10 rounded-lg bg-gradient-to-br from-brand-500 to-blue-700 flex items-center justify-center shadow-lg shadow-brand-500/30\'><i class=\'fa-solid fa-code text-white text-lg\'></i></div>'">
+                    <span class="font-bold text-lg sm:text-xl text-white">Total App <span class="text-brand-500">GT</span></span>
+                </a>
+                <p class="text-gray-500 text-xs sm:text-sm text-center">&copy; <span id="year"></span> Total App GT. Todos los derechos reservados.</p>
+                <div class="flex space-x-3">
+                    <a href="https://facebook.com/totalappgt" target="_blank" rel="noopener" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1877F2] transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/50258303182" target="_blank" rel="noopener" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#25D366] transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:totalappgt@gmail.com" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-600 transition-all"><i class="fa-solid fa-envelope"></i></a>
+                </div>
             </div>
-            
-            <p class="text-gray-500 text-sm text-center md:text-left">
-                &copy; <span id="year"></span> Total App GT. Todos los derechos reservados.
-            </p>
-
-            <div class="flex space-x-4">
-                <a href="#" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-600 transition-all">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-600 transition-all">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
+            <div class="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-gray-800/50 text-center">
+                <p class="text-gray-600 text-xs">Hecho con <i class="fa-solid fa-heart text-brand-500"></i> en Guatemala</p>
             </div>
         </div>
     </footer>
 
-    <!-- Interactive Scripts -->
     <script>
-        // Set current year in footer
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        class Particle {
+            constructor() { this.reset(); }
+            reset() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.size = Math.random() * 2 + 0.5; this.speedX = (Math.random() - 0.5) * 0.3; this.speedY = (Math.random() - 0.5) * 0.3; this.opacity = Math.random() * 0.5 + 0.1; }
+            update() { this.x += this.speedX; this.y += this.speedY; if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset(); }
+            draw() { ctx.fillStyle = 'rgba(59,130,246,' + this.opacity + ')'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
+        }
+        for (let i = 0; i < 80; i++) particles.push(new Particle());
+        function drawLines() { for (let i = 0; i < particles.length; i++) { for (let j = i + 1; j < particles.length; j++) { const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y, dist = Math.sqrt(dx * dx + dy * dy); if (dist < 150) { ctx.strokeStyle = 'rgba(59,130,246,' + (0.08 * (1 - dist / 150)) + ')'; ctx.lineWidth = 0.5; ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke(); } } } }
+        function animateParticles() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); drawLines(); requestAnimationFrame(animateParticles); }
+        animateParticles();
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => navbar.classList.toggle('nav-scrolled', window.scrollY > 50));
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Mobile Menu Toggle Logic
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
+        const texts = ['Creamos SaaS, Automatizaciones y Software a Medida','Expertos en Google Apps Script y Python','Sistemas para Iglesias, Contabilidad, ERP y más','Transformamos tu negocio con tecnología inteligente'];
+        let textIndex = 0;
+        const typingEl = document.getElementById('typing-text');
+        if (window.innerWidth > 640) {
+            function typeLoop() { textIndex = (textIndex + 1) % texts.length; typingEl.style.animation = 'none'; void typingEl.offsetHeight; typingEl.style.width = '0'; typingEl.textContent = texts[textIndex]; typingEl.style.animation = 'typing 3.5s steps(40,end), blink .75s step-end infinite'; }
+            setInterval(typeLoop, 6000);
+        } else {
+            typingEl.style.whiteSpace = 'normal'; typingEl.style.borderRight = 'none'; typingEl.style.width = 'auto'; typingEl.style.display = 'inline'; typingEl.textContent = 'Creamos SaaS, Automatizaciones y Software a Medida';
+        }
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+        const revealObserver = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }); }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        // Close mobile menu when a link is clicked
-        const mobileLinks = menu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
+        let countersAnimated = false;
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !countersAnimated) {
+                    countersAnimated = true;
+                    document.querySelectorAll('.counter-num').forEach(el => {
+                        const target = parseInt(el.getAttribute('data-target'));
+                        if (isNaN(target)) return;
+                        const duration = 2000;
+                        const start = performance.now();
+                        function update(now) {
+                            const progress = Math.min((now - start) / duration, 1);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            if (target === 99) el.textContent = Math.min(99, Math.floor(eased * 99)) + '%';
+                            else if (target === 3) el.textContent = Math.floor(eased * 3);
+                            else el.textContent = Math.floor(eased * target);
+                            if (progress < 1) requestAnimationFrame(update);
+                            else { if (target === 99) el.textContent = '99%'; else el.textContent = target; }
+                        }
+                        if (target <= 10) el.textContent = '0';
+                        requestAnimationFrame(update);
+                    });
+                }
             });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('.counter-num').forEach(el => counterObserver.observe(el));
+
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        const formSubmit = document.getElementById('form-submit');
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            formSubmit.disabled = true;
+            formSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+            formStatus.classList.add('hidden');
+            const data = { name: document.getElementById('form-name').value, company: document.getElementById('form-company').value, email: document.getElementById('form-email').value, phone: document.getElementById('form-phone').value, message: document.getElementById('form-message').value };
+            try {
+                await fetch('https://script.google.com/macros/s/AKfycbzZkDy8otPK79fOILgLfVr7t96BjCb6pfvlqMuhQhRkx95NrAibGqbygWGiMi8DwqN8/exec', { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+            } catch (err) {}
+            formStatus.className = 'text-center text-sm mt-2 text-green-400'; formStatus.textContent = 'Gracias por contactarnos. Te responderemos pronto.'; formStatus.classList.remove('hidden');
+            contactForm.reset(); formSubmit.disabled = false; formSubmit.innerHTML = 'Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>';
         });
     </script>
 </body>
