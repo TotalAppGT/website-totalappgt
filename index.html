@@ -2,11 +2,16 @@
 <html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Total App GT | Desarrollo SaaS y Automatizaciones Profesionales</title>
-    <meta name="description" content="Total App GT - Sistemas SaaS, automatizaciones y software a medida en Guatemala.">
-    <meta name="keywords" content="SaaS, automatizaciones, software, Guatemala, Apps Script, sistemas">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total App GT | SaaS, Automatización IA (n8n + Neura) y Software a Medida</title>
+    <meta name="description" content="Total App GT: Sistemas SaaS, automatización con Inteligencia Artificial (n8n + Neura), flujos de trabajo y software a medida en Guatemala. Potencia tu negocio grande o pequeño.">
+    <meta name="keywords" content="SaaS, automatizaciones, IA, n8n, Neura, Guatemala, Apps Script, Python, software a medida, sistemas, flujos de trabajo">
+    <meta name="author" content="Total App GT">
+    <meta property="og:title" content="Total App GT | SaaS y Automatización Inteligente">
+    <meta property="og:description" content="Sistemas SaaS, automatización con IA (n8n + Neura) y software a medida. De grandes y pequeños negocios, para Guatemala y el mundo.">
+    <meta property="og:type" content="website">
 
+    <link rel="icon" href="logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,692 +22,827 @@
                 extend: {
                     fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        brand: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' },
-                        dark: { 700: '#1e293b', 800: '#111827', 850: '#0f172a', 900: '#0a0f1e' }
+                        brand: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a' },
+                        dark: { 700:'#1e293b',800:'#111827',850:'#0f172a',900:'#0a0f1e' }
                     },
                     animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'typing': 'typing 3.5s steps(40,end)',
-                        'blink': 'blink .75s step-end infinite',
+                        float:'float 6s ease-in-out infinite',
+                        floatSlow:'float 10s ease-in-out infinite',
+                        pulseGlow:'pulseGlow 3s ease-in-out infinite',
+                        shine:'shine 5s ease-in-out infinite',
+                        gridMove:'gridMove 20s linear infinite',
                     },
                     keyframes: {
-                        float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } },
-                        typing: { from: { width: '0' }, to: { width: '100%' } },
-                        blink: { '50%': { borderColor: 'transparent' } }
+                        float:{'0%,100%':{transform:'translateY(0)'},'50%':{transform:'translateY(-20px)'}},
+                        pulseGlow:{'0%,100%':{boxShadow:'0 0 20px rgba(59,130,246,0.3)'},'50%':{boxShadow:'0 0 60px rgba(59,130,246,0.6)'}},
+                        shine:{'0%':{backgroundPosition:'200% center'},'100%':{backgroundPosition:'-200% center'}},
+                        gridMove:{'0%':{backgroundPosition:'0 0'},'100%':{backgroundPosition:'40px 40px'}}
                     }
                 }
             }
         }
     </script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #0a0f1e; overflow-x: hidden; }
-        #particles-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-        .glass { background: rgba(17,24,39,0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(59,130,246,0.1); }
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.23,1,0.32,1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .gradient-text { background: linear-gradient(135deg,#60a5fa,#2563eb,#1e40af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .typing-text { overflow: hidden; border-right: 3px solid #3b82f6; white-space: nowrap; animation: typing 3.5s steps(40,end), blink .75s step-end infinite; width: 0; display: inline-block; max-width: 100%; }
-        .btn-glow { position: relative; overflow: hidden; }
-        .btn-glow::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle,rgba(59,130,246,0.3) 0%,transparent 70%); opacity: 0; transition: opacity .4s; }
-        .btn-glow:hover::after { opacity: 1; }
-        .whatsapp-btn { position: fixed; bottom: 24px; right: 24px; z-index: 999; width: 60px; height: 60px; border-radius: 50%; background: #25D366; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: all .3s; animation: pulse 2s infinite; }
-        .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.6); }
-        .nav-scrolled { background: rgba(10,15,30,0.95) !important; border-bottom-color: rgba(59,130,246,0.2) !important; }
-        .gradient-bar { width: 80px; height: 4px; background: linear-gradient(90deg,#3b82f6,#60a5fa); border-radius: 2px; margin: 0 auto; }
-        .parallax-shape { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; pointer-events: none; }
-        .shape-1 { width: 500px; height: 500px; background: #3b82f6; top: -200px; right: -200px; animation: float 8s ease-in-out infinite; }
-        .shape-2 { width: 400px; height: 400px; background: #1d4ed8; bottom: -150px; left: -150px; animation: float 10s ease-in-out infinite reverse; }
-        .shape-3 { width: 300px; height: 300px; background: #60a5fa; top: 30%; left: 70%; animation: float 7s ease-in-out infinite; }
-        .form-input:focus { box-shadow: 0 0 0 3px rgba(59,130,246,0.2); outline: none; }
-
-        .sys-card { position: relative; border-radius: 1.25rem; overflow: hidden; background: rgba(17,24,39,0.6); backdrop-filter: blur(20px); border: 1px solid rgba(59,130,246,0.08); transition: all 0.5s cubic-bezier(0.23,1,0.32,1); }
-        .sys-card:hover { transform: translateY(-8px); border-color: rgba(59,130,246,0.3); box-shadow: 0 25px 60px -15px rgba(59,130,246,0.2); }
-        .sys-card-img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.7s ease; }
-        .sys-card:hover .sys-card-img { transform: scale(1.08); }
-        .sys-card-badge { position: absolute; top: 16px; left: 16px; z-index: 5; padding: 4px 14px; border-radius: 999px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; background: rgba(59,130,246,0.25); backdrop-filter: blur(8px); color: #93c5fd; border: 1px solid rgba(59,130,246,0.2); }
-        .sys-card-gradient { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(10,15,30,0.85) 85%, #0a0f1e 100%); z-index: 1; }
-        .sys-card-content { position: relative; z-index: 2; padding: 1.25rem; }
-        .sys-card-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1rem; backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); }
-        .sys-card h3 { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
-        .sys-card p { font-size: 0.85rem; color: #9ca3af; line-height: 1.5; }
-        .sys-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.85rem; }
-        .sys-card-tags span { padding: 3px 10px; border-radius: 999px; font-size: 0.65rem; font-weight: 500; background: rgba(255,255,255,0.06); color: #6b7280; border: 1px solid rgba(255,255,255,0.06); }
-
-        @media (max-width: 640px) {
-            .typing-text { font-size: 1rem; white-space: normal; border-right: none; animation: none; width: auto; display: inline; }
-            .sys-card-img { height: 160px; }
-            .sys-card { margin-bottom: 0; }
-            .whatsapp-btn { width: 50px; height: 50px; font-size: 24px; bottom: 16px; right: 16px; }
-        }
-        @media (min-width: 641px) and (max-width: 768px) {
-            .typing-text { font-size: 1.25rem; }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',sans-serif;background:#0a0f1e;overflow-x:hidden;color:#e5e7eb}
+        ::selection{background:#3b82f6;color:#fff}
+        #particles-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+        .glass{background:rgba(17,24,39,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(59,130,246,.1)}
+        .reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.23,1,.32,1)}
+        .reveal.active{opacity:1;transform:translateY(0)}
+        .gradient-text{background:linear-gradient(135deg,#93c5fd,#3b82f6,#1d4ed8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .gradient-animate{background:linear-gradient(90deg,#60a5fa,#2563eb,#60a5fa,#3b82f6);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shine 6s linear infinite}
+        .btn-glow{position:relative;overflow:hidden}
+        .btn-glow::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(59,130,246,.35) 0%,transparent 70%);opacity:0;transition:opacity .4s}
+        .btn-glow:hover::after{opacity:1}
+        .whatsapp-btn{position:fixed;bottom:24px;right:24px;z-index:999;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;animation:pulse 2s infinite}
+        .whatsapp-btn:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,.6)}
+        .nav-scrolled{background:rgba(10,15,30,.96)!important;border-bottom-color:rgba(59,130,246,.25)!important;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+        .gradient-bar{width:80px;height:4px;background:linear-gradient(90deg,#3b82f6,#60a5fa);border-radius:2px;margin:0 auto}
+        .parallax-shape{position:absolute;border-radius:50%;filter:blur(90px);opacity:.18;pointer-events:none}
+        .grid-bg{background-image:linear-gradient(rgba(59,130,246,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.05) 1px,transparent 1px);background-size:40px 40px;animation:gridMove 20s linear infinite}
+        .form-input:focus{box-shadow:0 0 0 3px rgba(59,130,246,.2);outline:none}
+        .sys-card{position:relative;border-radius:1.25rem;overflow:hidden;background:rgba(17,24,39,.6);backdrop-filter:blur(20px);border:1px solid rgba(59,130,246,.08);transition:all .5s cubic-bezier(.23,1,.32,1);display:flex;flex-direction:column}
+        .sys-card:hover{transform:translateY(-8px);border-color:rgba(59,130,246,.35);box-shadow:0 25px 60px -15px rgba(59,130,246,.25)}
+        .sys-card .sys-icon-wrap{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:all .4s;flex-shrink:0}
+        .sys-card:hover .sys-icon-wrap{transform:scale(1.1) rotate(-5deg)}
+        .sys-card-tags span{padding:3px 10px;border-radius:999px;font-size:.65rem;font-weight:500;background:rgba(255,255,255,.06);color:#6b7280;border:1px solid rgba(255,255,255,.06)}
+        .badge-soft{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1.25rem;border-radius:999px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);color:#93c5fd;font-size:.85rem;font-weight:500}
+        .nav-link{position:relative;transition:color .3s}
+        .nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:linear-gradient(90deg,#3b82f6,#60a5fa);transition:width .3s;border-radius:2px}
+        .nav-link:hover::after{width:100%}
+        .nav-link:hover{color:#fff}
+        .step-number{width:64px;height:64px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff;box-shadow:0 10px 30px rgba(59,130,246,.3);flex-shrink:0}
+        .feature-check{display:flex;align-items:flex-start;gap:.75rem;padding:.9rem 1.1rem;border-radius:14px;background:rgba(17,24,39,.5);border:1px solid rgba(255,255,255,.05);transition:all .3s}
+        .feature-check:hover{border-color:rgba(59,130,246,.3);transform:translateX(6px)}
+        .feature-check i{color:#3b82f6;margin-top:.15rem;flex-shrink:0}
+        .neura-glow{position:relative}
+        .neura-glow::before{content:'';position:absolute;inset:-2px;border-radius:inherit;background:linear-gradient(135deg,#8b5cf6,#3b82f6,#06b6d4,#8b5cf6);background-size:300% 300%;animation:gridMove 6s ease infinite;z-index:-1}
+        @keyframes gridMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+        @media (max-width:640px){
+            .whatsapp-btn{width:50px;height:50px;font-size:24px;bottom:16px;right:16px}
+            h1{font-size:2.4rem!important}
         }
     </style>
 </head>
 <body>
 
-    <canvas id="particles-canvas"></canvas>
+<canvas id="particles-canvas"></canvas>
 
-    <a href="https://wa.me/50258303182" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+<a href="https://wa.me/50258303182" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
 
-    <!-- NAV -->
-    <nav id="navbar" class="fixed w-full z-50 bg-dark-900/80 backdrop-blur-xl border-b border-gray-800/50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <a href="#inicio" class="flex items-center gap-3 group shrink-0">
-                    <img src="logo.png" alt="Total App GT"
-                         class="w-11 h-11 object-contain drop-shadow-[0_0_12px_rgba(59,130,246,0.5)] group-hover:scale-110 transition-all"
-                         onerror="this.outerHTML='<div class=\'w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500 to-blue-700 flex items-center justify-center shadow-lg shadow-brand-500/30\'><i class=\'fa-solid fa-code text-white text-xl\'></i></div>'">
-                    <span class="font-bold text-xl sm:text-2xl tracking-tight text-white whitespace-nowrap">Total App <span class="text-brand-500">GT</span></span>
+<!-- ======================= NAVBAR ======================= -->
+<nav id="navbar" class="fixed w-full z-50 bg-dark-900/80 backdrop-blur-xl border-b border-gray-800/50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <a href="#inicio" class="flex items-center gap-3 group shrink-0">
+                <img src="logo.png" alt="Total App GT" class="w-12 h-12 object-contain drop-shadow-[0_0_14px_rgba(59,130,246,0.6)] group-hover:scale-110 transition-all"
+                     onerror="this.outerHTML='<div class=\'w-12 h-12 rounded-xl bg-gradient-to-br from-brand-500 to-blue-700 flex items-center justify-center shadow-lg shadow-brand-500/30\'><i class=\'fa-solid fa-code text-white text-2xl\'></i></div>'">
+                <span class="font-bold text-xl sm:text-2xl tracking-tight text-white whitespace-nowrap">Total App <span class="text-brand-500">GT</span></span>
+            </a>
+            <div class="hidden lg:flex items-center space-x-7">
+                <a href="#inicio" class="nav-link text-sm font-medium text-gray-300">Inicio</a>
+                <a href="#servicios" class="nav-link text-sm font-medium text-gray-300">Servicios</a>
+                <a href="#neura" class="nav-link text-sm font-medium text-gray-300">Neura IA</a>
+                <a href="#sistemas" class="nav-link text-sm font-medium text-gray-300">Sistemas SaaS</a>
+                <a href="#automatizaciones" class="nav-link text-sm font-medium text-gray-300">Automatización</a>
+                <a href="#nosotros" class="nav-link text-sm font-medium text-gray-300">Nosotros</a>
+                <a href="#contacto" class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-all shadow-lg shadow-brand-500/30 btn-glow">
+                    Contactar <i class="fa-solid fa-arrow-right ml-1"></i>
                 </a>
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#inicio" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Inicio</a>
-                    <a href="#servicios" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Servicios</a>
-                    <a href="#sistemas" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Sistemas</a>
-                    <a href="#nosotros" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Nosotros</a>
-                    <a href="#contacto" class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-all shadow-lg shadow-brand-500/30 btn-glow">
-                        Contactar <i class="fa-solid fa-arrow-right ml-1"></i>
+            </div>
+            <button id="mobile-menu-btn" class="lg:hidden text-gray-300 hover:text-white p-2" aria-label="Menu">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden bg-dark-800/95 backdrop-blur-xl border-b border-gray-700">
+        <div class="px-4 pt-2 pb-6 space-y-2">
+            <a href="#inicio" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Inicio</a>
+            <a href="#servicios" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Servicios</a>
+            <a href="#neura" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Neura IA</a>
+            <a href="#sistemas" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Sistemas SaaS</a>
+            <a href="#automatizaciones" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Automatización</a>
+            <a href="#nosotros" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Nosotros</a>
+            <a href="#contacto" class="block px-3 py-2 mt-4 text-center rounded-md bg-brand-600 text-white font-medium">Contactar</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ======================= HERO ======================= -->
+<section id="inicio" class="relative min-h-screen flex items-center overflow-hidden pt-20">
+    <div class="parallax-shape shape-1" style="width:500px;height:500px;background:#3b82f6;top:-200px;right:-200px;animation:float 8s ease-in-out infinite"></div>
+    <div class="parallax-shape" style="width:400px;height:400px;background:#1d4ed8;bottom:-150px;left:-150px;animation:float 10s ease-in-out infinite reverse"></div>
+    <div class="absolute inset-0 grid-bg opacity-60"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-14 lg:py-0">
+        <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div class="reveal text-center lg:text-left">
+                <span class="badge-soft mb-6">
+                    <i class="fa-solid fa-bolt"></i> Innovación Tecnológica en Guatemala
+                </span>
+                <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-5 leading-[1.1]">
+                    Potencia tu negocio con <span class="gradient-animate">SaaS & Inteligencia Artificial</span>
+                </h1>
+                <div class="h-11 mb-6 flex justify-center lg:justify-start">
+                    <span class="text-lg sm:text-2xl text-gray-400"><span id="typing-text" class="border-r-4 border-brand-500 pr-1" style="white-space:nowrap">Sistemas SaaS, Automatizaciones IA y Software a Medida</span></span>
+                </div>
+                <p class="text-base sm:text-lg text-gray-400 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                    Desarrollamos <strong class="text-white">sistemas SaaS personalizados</strong>, <strong class="text-white">automatizaciones inteligentes</strong> con n8n y nuestro cerebro IA <strong class="text-white">Neura</strong>, y <strong class="text-white">herramientas a medida</strong> para negocios grandes y pequeños.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4">
+                    <a href="#sistemas" class="px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all shadow-lg shadow-brand-500/25 flex items-center justify-center gap-2 btn-glow text-base">
+                        Ver nuestros sistemas <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#contacto" class="px-8 py-4 rounded-xl border border-gray-600 hover:border-brand-500 text-white font-semibold transition-all flex items-center justify-center gap-2 text-base">
+                        <i class="fa-solid fa-phone text-brand-500"></i> +502 58303182
                     </a>
                 </div>
-                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white p-2">
-                    <i class="fa-solid fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-dark-800/95 backdrop-blur-xl border-b border-gray-700">
-            <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="#inicio" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Inicio</a>
-                <a href="#servicios" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Servicios</a>
-                <a href="#sistemas" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Sistemas</a>
-                <a href="#nosotros" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Nosotros</a>
-                <a href="#contacto" class="block px-3 py-2 mt-4 text-center rounded-md bg-brand-600 text-white font-medium">Contactar</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO -->
-    <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden pt-20">
-        <div class="parallax-shape shape-1"></div>
-        <div class="parallax-shape shape-2"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-12 lg:py-0">
-            <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-                <div class="reveal text-center lg:text-left">
-                    <span class="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-brand-500/10 text-brand-400 text-xs sm:text-sm font-semibold mb-5 border border-brand-500/20">
-                        <i class="fa-solid fa-bolt"></i> Innovación Tecnológica en Guatemala
-                    </span>
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-5 leading-tight">
-                        Transformamos tu visión en <br class="hidden sm:block">
-                        <span class="gradient-text">Sistemas Inteligentes</span>
-                    </h1>
-                    <div class="h-10 sm:h-12 mb-6 flex justify-center lg:justify-start">
-                        <span class="text-base sm:text-lg md:text-2xl text-gray-400 typing-container">
-                            <span class="typing-text" id="typing-text">Creamos SaaS, Automatizaciones y Software a Medida</span>
-                        </span>
-                    </div>
-                    <p class="text-base sm:text-lg text-gray-400 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                        Especialistas en <strong class="text-gray-200">SaaS, automatizaciones y ejecutables</strong> sobre Google Apps Script, Python y más. <strong class="text-gray-200">+50 proyectos</strong> entregados.
-                    </p>
-                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4">
-                        <a href="#sistemas" class="px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all shadow-lg shadow-brand-500/25 flex items-center justify-center gap-2 btn-glow text-sm sm:text-base">
-                            Ver sistemas <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                        <a href="#contacto" class="px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl border border-gray-600 hover:border-brand-500 text-white font-semibold transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
-                            <i class="fa-solid fa-phone text-brand-500"></i> +502 58303182
-                        </a>
-                    </div>
-                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 mt-10 pt-6 border-t border-gray-800">
-                        <div class="flex items-center gap-2 text-gray-500 text-xs sm:text-sm"><i class="fa-solid fa-shield-halved text-brand-500"></i> 99.9% Uptime</div>
-                        <div class="flex items-center gap-2 text-gray-500 text-xs sm:text-sm"><i class="fa-solid fa-users text-brand-500"></i> +50 Clientes</div>
-                        <div class="flex items-center gap-2 text-gray-500 text-xs sm:text-sm"><i class="fa-solid fa-clock text-brand-500"></i> Soporte 24/7</div>
-                    </div>
-                </div>
-                <div class="hidden lg:block reveal">
-                    <div class="relative">
-                        <div class="absolute -inset-4 bg-gradient-to-r from-brand-500/20 to-blue-600/20 rounded-3xl blur-2xl"></div>
-                        <div class="relative glass rounded-3xl p-2 shadow-2xl">
-                            <div class="flex items-center gap-2 px-5 py-4 border-b border-gray-700/50">
-                                <span class="w-3 h-3 rounded-full bg-red-500"></span>
-                                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                                <span class="w-3 h-3 rounded-full bg-green-500"></span>
-                                <span class="ml-3 text-gray-500 text-xs">totalappgt.com</span>
-                            </div>
-                            <div class="p-6">
-                                <img src="panel-saas.png" alt="Dashboard Total App GT" class="w-full rounded-xl border border-gray-700/50 shadow-lg" onerror="this.style.display='none'">
-                                <div class="grid grid-cols-2 gap-4 mt-4">
-                                    <div class="bg-dark-800/80 rounded-xl p-4 text-center border border-gray-700/30">
-                                        <span class="text-3xl font-bold text-brand-400 counter-num" data-target="50">0</span>
-                                        <p class="text-gray-500 text-xs uppercase tracking-wider mt-1 font-medium">Proyectos</p>
-                                    </div>
-                                    <div class="bg-dark-800/80 rounded-xl p-4 text-center border border-gray-700/30">
-                                        <span class="text-3xl font-bold text-brand-400 counter-num" data-target="8">0</span>
-                                        <p class="text-gray-500 text-xs uppercase tracking-wider mt-1 font-medium">Sistemas Activos</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="flex flex-wrap justify-center lg:justify-start gap-5 sm:gap-7 mt-10 pt-6 border-t border-gray-800">
+                    <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-solid fa-shield-halved text-brand-500"></i> 99.9% Uptime</div>
+                    <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-solid fa-users text-brand-500"></i> +50 Clientes</div>
+                    <div class="flex items-center gap-2 text-gray-500 text-sm"><i class="fa-solid fa-brain text-brand-500"></i> IA & n8n</div>
                 </div>
             </div>
-        </div>
-        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce hidden sm:block">
-            <i class="fa-solid fa-chevron-down text-gray-600 text-xl"></i>
-        </div>
-    </section>
 
-    <!-- SERVICES -->
-    <section id="servicios" class="relative py-16 sm:py-24 overflow-hidden">
-        <div class="parallax-shape shape-3" style="top:30%;left:70%"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-12 sm:mb-16 reveal">
-                <span class="text-brand-400 font-semibold text-xs sm:text-sm uppercase tracking-widest">Lo que hacemos</span>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-3">Nuestras Especialidades</h2>
-                <div class="gradient-bar"></div>
-                <p class="text-gray-400 max-w-2xl mx-auto mt-5 text-sm sm:text-base">Desarrollamos herramientas robustas y escalables sobre tecnologías modernas para impulsar tu negocio.</p>
-            </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
-                <div class="glass rounded-2xl p-6 sm:p-8 text-center group hover:-translate-y-2 hover:border-brand-500/30 transition-all duration-300 border border-gray-800/50 reveal">
-                    <div class="w-16 h-16 mx-auto bg-gradient-to-br from-brand-500/20 to-blue-600/20 rounded-2xl flex items-center justify-center mb-5 group-hover:from-brand-500 group-hover:to-blue-600 transition-all duration-500">
-                        <i class="fa-solid fa-cloud text-3xl text-brand-500 group-hover:text-white transition-colors duration-500"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Sistemas SaaS</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Plataformas en la nube con usuarios, suscripciones y arquitecturas escalables sobre Google Apps Script + Sheets + Drive.</p>
-                    <div class="flex flex-wrap justify-center gap-2 mt-5">
-                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Apps Script</span>
-                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Sheets</span>
-                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Drive</span>
-                    </div>
-                </div>
-                <div class="glass rounded-2xl p-6 sm:p-8 text-center group hover:-translate-y-2 hover:border-brand-500/30 transition-all duration-300 border border-gray-800/50 reveal">
-                    <div class="w-16 h-16 mx-auto bg-gradient-to-br from-brand-500/20 to-blue-600/20 rounded-2xl flex items-center justify-center mb-5 group-hover:from-brand-500 group-hover:to-blue-600 transition-all duration-500">
-                        <i class="fa-solid fa-robot text-3xl text-brand-500 group-hover:text-white transition-colors duration-500"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Automatizaciones</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Eliminamos tareas repetitivas con scripts y flujos automatizados que ahorran tiempo y reducen errores.</p>
-                    <div class="flex flex-wrap justify-center gap-2 mt-5">
-                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Python</span>
-                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Apps Script</span>
-                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">APIs</span>
-                    </div>
-                </div>
-                <div class="glass rounded-2xl p-6 sm:p-8 text-center group hover:-translate-y-2 hover:border-brand-500/30 transition-all duration-300 border border-gray-800/50 reveal sm:col-span-2 lg:col-span-1">
-                    <div class="w-16 h-16 mx-auto bg-gradient-to-br from-brand-500/20 to-blue-600/20 rounded-2xl flex items-center justify-center mb-5 group-hover:from-brand-500 group-hover:to-blue-600 transition-all duration-500">
-                        <i class="fa-solid fa-laptop-code text-3xl text-brand-500 group-hover:text-white transition-colors duration-500"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Programas Ejecutables</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Software de escritorio a medida con interfaces modernas, alto rendimiento e integración local.</p>
-                    <div class="flex flex-wrap justify-center gap-2 mt-5">
-                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Python</span>
-                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Tkinter</span>
-                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">PyInstaller</span>
-                    </div>
-                </div>
-
-                <div class="glass rounded-2xl p-6 sm:p-8 text-center group hover:-translate-y-2 hover:border-brand-500/30 transition-all duration-300 border border-gray-800/50 reveal sm:col-span-2 lg:col-span-1">
-                    <div class="w-16 h-16 mx-auto bg-gradient-to-br from-brand-500/20 to-blue-600/20 rounded-2xl flex items-center justify-center mb-5 group-hover:from-brand-500 group-hover:to-blue-600 transition-all duration-500">
-                        <i class="fa-solid fa-brain text-3xl text-brand-500 group-hover:text-white transition-colors duration-500"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Automatización IA & n8n</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Flujos de trabajo inteligentes con IA y n8n para orquestación visual, tomando como base nuestros sistemas actuales como Guatecompras OCDS y otros flujos.</p>
-                    <div class="flex flex-wrap justify-center gap-2 mt-5">
-                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">AI Agents</span>
-                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">n8n</span>
-                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">OCDS</span>
-                        <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">APIs</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PORTFOLIO - SISTEMAS (version ultra grafica) -->
-    <section id="sistemas" class="relative py-16 sm:py-24 bg-dark-800/40 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-12 sm:mb-16 reveal">
-                <span class="text-brand-400 font-semibold text-xs sm:text-sm uppercase tracking-widest">Portafolio</span>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-3">Nuestros Sistemas</h2>
-                <div class="gradient-bar"></div>
-                <p class="text-gray-400 max-w-2xl mx-auto mt-5 text-sm sm:text-base">Soluciones reales desplegadas y funcionando para diversos sectores en Guatemala.</p>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-
-                <!-- REDIL -->
-                <div class="sys-card reveal">
-                    <div class="relative overflow-hidden" style="height:200px">
-                        <img src="sistema-preview.png" alt="REDIL" class="sys-card-img" onerror="this.style.display='none'">
-                        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/60 to-dark-900/90 flex items-center justify-center" style="display:none" onerror="this.parentElement.querySelector('img').style.display='none';this.style.display='flex'">
-                            <i class="fa-solid fa-church text-7xl text-purple-400/40"></i>
-                        </div>
-                        <div class="sys-card-gradient"></div>
-                        <span class="sys-card-badge" style="background:rgba(168,85,247,0.25);color:#d8b4fe;border-color:rgba(168,85,247,0.2)">Iglesias</span>
-                    </div>
-                    <div class="sys-card-content">
-                        <div class="sys-card-icon" style="background:rgba(168,85,247,0.15);color:#d8b4fe"><i class="fa-solid fa-church"></i></div>
-                        <h3>REDIL</h3>
-                        <p>Sistema integral para iglesias. Gestión de miembros, líderes, ofrendas, diezmos, reportes digitales y seguimiento de feligreses.</p>
-                        <div class="sys-card-tags">
-                            <span>v6.0</span>
-                            <span>Apps Script</span>
-                            <span>Sheets</span>
-                            <span>Reportes PDF</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ContaFacil Pro -->
-                <div class="sys-card reveal">
-                    <div class="relative overflow-hidden" style="height:200px">
-                        <div class="w-full h-full bg-gradient-to-br from-emerald-900/80 to-dark-900 flex items-center justify-center">
-                            <i class="fa-solid fa-calculator text-7xl text-emerald-400/30"></i>
-                        </div>
-                        <div class="sys-card-gradient"></div>
-                        <span class="sys-card-badge" style="background:rgba(52,211,153,0.25);color:#86efac;border-color:rgba(52,211,153,0.2)">Contabilidad</span>
-                    </div>
-                    <div class="sys-card-content">
-                        <div class="sys-card-icon" style="background:rgba(52,211,153,0.15);color:#86efac"><i class="fa-solid fa-calculator"></i></div>
-                        <h3>ContaFácil Pro</h3>
-                        <p>ERP contable profesional con facturación electrónica FEL, integración SAT, flujo de caja, presupuestos y multi-empresa.</p>
-                        <div class="sys-card-tags">
-                            <span>SAT</span>
-                            <span>FEL</span>
-                            <span>Multi-empresa</span>
-                            <span>Reportes</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- InvenPro -->
-                <div class="sys-card reveal">
-                    <div class="relative overflow-hidden" style="height:200px">
-                        <div class="w-full h-full bg-gradient-to-br from-amber-900/80 to-dark-900 flex items-center justify-center">
-                            <i class="fa-solid fa-warehouse text-7xl text-amber-400/30"></i>
-                        </div>
-                        <div class="sys-card-gradient"></div>
-                        <span class="sys-card-badge" style="background:rgba(251,191,36,0.25);color:#fcd34d;border-color:rgba(251,191,36,0.2)">Inventarios</span>
-                    </div>
-                    <div class="sys-card-content">
-                        <div class="sys-card-icon" style="background:rgba(251,191,36,0.15);color:#fcd34d"><i class="fa-solid fa-warehouse"></i></div>
-                        <h3>InvenPro</h3>
-                        <p>Gestión completa de inventarios y bodegas. Control de productos, movimientos, usuarios y reportes en tiempo real.</p>
-                        <div class="sys-card-tags">
-                            <span>Multi-bodega</span>
-                            <span>Movimientos</span>
-                            <span>Roles</span>
-                            <span>Reportes</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Ferreteria La Torre -->
-                <div class="sys-card reveal">
-                    <div class="relative overflow-hidden" style="height:200px">
-                        <div class="w-full h-full bg-gradient-to-br from-sky-900/80 to-dark-900 flex items-center justify-center">
-                            <i class="fa-solid fa-store text-7xl text-sky-400/30"></i>
-                        </div>
-                        <div class="sys-card-gradient"></div>
-                        <span class="sys-card-badge" style="background:rgba(56,189,248,0.25);color:#7dd3fc;border-color:rgba(56,189,248,0.2)">Comercio</span>
-                    </div>
-                    <div class="sys-card-content">
-                        <div class="sys-card-icon" style="background:rgba(56,189,248,0.15);color:#7dd3fc"><i class="fa-solid fa-store"></i></div>
-                        <h3>Ferretería La Torre</h3>
-                        <p>SaaS para administración comercial. POS, inventario, cotizaciones, portal público para clientes y generación de PDFs.</p>
-                        <div class="sys-card-tags">
-                            <span>POS</span>
-                            <span>Cotizaciones</span>
-                            <span>Portal público</span>
-                            <span>PDF</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sistema Colegio -->
-                <div class="sys-card reveal">
-                    <div class="relative overflow-hidden" style="height:200px">
-                        <img src="sistema-colegio.png" alt="Sistema Colegio" class="sys-card-img" onerror="this.style.display='none'">
-                        <div class="w-full h-full bg-gradient-to-br from-rose-900/80 to-dark-900 flex items-center justify-center" onerror="this.parentElement.querySelector('img').style.display='none';this.style.display='flex'" style="display:none">
-                            <i class="fa-solid fa-graduation-cap text-7xl text-rose-400/30"></i>
-                        </div>
-                        <div class="sys-card-gradient"></div>
-                        <span class="sys-card-badge" style="background:rgba(244,63,94,0.25);color:#fda4af;border-color:rgba(244,63,94,0.2)">Educación</span>
-                    </div>
-                    <div class="sys-card-content">
-                        <div class="sys-card-icon" style="background:rgba(244,63,94,0.15);color:#fda4af"><i class="fa-solid fa-graduation-cap"></i></div>
-                        <h3>Sistema Colegio</h3>
-                        <p>Plataforma educativa integral. Gestión de estudiantes, asistencias, calificaciones, docentes, tareas y reportes académicos.</p>
-                        <div class="sys-card-tags">
-                            <span>Estudiantes</span>
-                            <span>Notas</span>
-                            <span>Asistencias</span>
-                            <span>Reportes</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Guatecompras OCDS -->
-                <div class="sys-card reveal">
-                    <div class="relative overflow-hidden" style="height:200px">
-                        <div class="w-full h-full bg-gradient-to-br from-red-900/80 to-dark-900 flex items-center justify-center">
-                            <i class="fa-solid fa-file-contract text-7xl text-red-400/30"></i>
-                        </div>
-                        <div class="sys-card-gradient"></div>
-                        <span class="sys-card-badge" style="background:rgba(239,68,68,0.25);color:#fca5a5;border-color:rgba(239,68,68,0.2)">Automatización</span>
-                    </div>
-                    <div class="sys-card-content">
-                        <div class="sys-card-icon" style="background:rgba(239,68,68,0.15);color:#fca5a5"><i class="fa-solid fa-file-contract"></i></div>
-                        <h3>Guatecompras OCDS</h3>
-                        <p>Extractor y gestor automatizado de licitaciones del gobierno de Guatemala vía API OCDS con exportación a Excel y dashboard.</p>
-                        <div class="sys-card-tags">
-                            <span>Python</span>
-                            <span>API OCDS</span>
-                            <span>Excel</span>
-                            <span>Dashboard</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- COUNTERS -->
-    <section class="relative py-12 sm:py-16 border-y border-gray-800/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
-                <div class="reveal">
-                    <div class="text-3xl sm:text-5xl font-extrabold text-brand-400 counter-num" data-target="50">0</div>
-                    <p class="text-gray-500 text-xs sm:text-sm uppercase tracking-wider mt-2 font-medium">Proyectos Entregados</p>
-                </div>
-                <div class="reveal">
-                    <div class="text-3xl sm:text-5xl font-extrabold text-brand-400 counter-num" data-target="8">0</div>
-                    <p class="text-gray-500 text-xs sm:text-sm uppercase tracking-wider mt-2 font-medium">Sistemas SaaS</p>
-                </div>
-                <div class="reveal">
-                    <div class="text-3xl sm:text-5xl font-extrabold text-brand-400 counter-num" data-target="99">0</div>
-                    <p class="text-gray-500 text-xs sm:text-sm uppercase tracking-wider mt-2 font-medium">% Satisfacción</p>
-                </div>
-                <div class="reveal">
-                    <div class="text-3xl sm:text-5xl font-extrabold text-brand-400 counter-num" data-target="3">0</div>
-                    <p class="text-gray-500 text-xs sm:text-sm uppercase tracking-wider mt-2 font-medium">Años de Experiencia</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TECHNOLOGIES -->
-    <section class="relative py-16 sm:py-20 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-10 sm:mb-14 reveal">
-                <span class="text-brand-400 font-semibold text-xs sm:text-sm uppercase tracking-widest">Stack Tecnológico</span>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-3">Tecnologías que dominamos</h2>
-                <div class="gradient-bar"></div>
-            </div>
-            <div class="flex flex-wrap justify-center gap-3 sm:gap-5 reveal">
-                <div class="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 hover:-translate-y-1 transition-all"><i class="fa-brands fa-google text-xl sm:text-2xl text-white"></i><span class="text-sm sm:text-base text-gray-300 font-medium">Apps Script</span></div>
-                <div class="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 hover:-translate-y-1 transition-all"><i class="fa-brands fa-python text-xl sm:text-2xl text-white"></i><span class="text-sm sm:text-base text-gray-300 font-medium">Python</span></div>
-                <div class="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 hover:-translate-y-1 transition-all"><i class="fa-solid fa-file-excel text-xl sm:text-2xl text-green-400"></i><span class="text-sm sm:text-base text-gray-300 font-medium">Google Sheets</span></div>
-                <div class="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 hover:-translate-y-1 transition-all"><i class="fa-solid fa-cloud text-xl sm:text-2xl text-blue-400"></i><span class="text-sm sm:text-base text-gray-300 font-medium">Google Drive</span></div>
-                <div class="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 hover:-translate-y-1 transition-all"><i class="fa-solid fa-database text-xl sm:text-2xl text-yellow-400"></i><span class="text-sm sm:text-base text-gray-300 font-medium">APIs REST</span></div>
-                <div class="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 hover:-translate-y-1 transition-all"><i class="fa-brands fa-html5 text-xl sm:text-2xl text-orange-400"></i><span class="text-sm sm:text-base text-gray-300 font-medium">HTML/CSS/JS</span></div>
-                <div class="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 hover:-translate-y-1 transition-all"><i class="fa-solid fa-robot text-xl sm:text-2xl text-purple-400"></i><span class="text-sm sm:text-base text-gray-300 font-medium">OCR / Tesseract</span></div>
-                <div class="glass rounded-xl px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-2 sm:gap-3 hover:-translate-y-1 transition-all"><i class="fa-brands fa-telegram text-xl sm:text-2xl text-blue-300"></i><span class="text-sm sm:text-base text-gray-300 font-medium">Telegram Bot</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="nosotros" class="relative py-16 sm:py-24 bg-dark-800/40 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="lg:flex lg:items-center lg:gap-16">
-                <div class="lg:w-1/2 reveal mb-10 lg:mb-0">
-                    <span class="text-brand-400 font-semibold text-xs sm:text-sm uppercase tracking-widest">Sobre Nosotros</span>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-5">Infraestructura Confiable y Segura</h2>
-                    <p class="text-gray-400 text-base sm:text-lg mb-6 leading-relaxed">
-                        En <strong class="text-gray-200">Total App GT</strong>, sabemos que tus datos son el activo más importante. Proveemos soluciones enlazadas con infraestructuras seguras como Google Drive y servicios en la nube de alta disponibilidad.
-                    </p>
-                    <ul class="space-y-3 sm:space-y-4 mb-8">
-                        <li class="flex items-center text-gray-300 text-sm sm:text-base">
-                            <span class="w-6 h-6 rounded-full bg-brand-500/20 flex items-center justify-center mr-3 shrink-0"><i class="fa-solid fa-check text-brand-400 text-xs"></i></span>
-                            Arquitecturas modernas y eficientes
-                        </li>
-                        <li class="flex items-center text-gray-300 text-sm sm:text-base">
-                            <span class="w-6 h-6 rounded-full bg-brand-500/20 flex items-center justify-center mr-3 shrink-0"><i class="fa-solid fa-check text-brand-400 text-xs"></i></span>
-                            Integración fluida con APIs de terceros
-                        </li>
-                        <li class="flex items-center text-gray-300 text-sm sm:text-base">
-                            <span class="w-6 h-6 rounded-full bg-brand-500/20 flex items-center justify-center mr-3 shrink-0"><i class="fa-solid fa-check text-brand-400 text-xs"></i></span>
-                            Soporte técnico especializado y cercano
-                        </li>
-                    </ul>
-                    <a href="#contacto" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-medium transition-all btn-glow">
-                        Agendar asesoría <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="lg:w-1/2 reveal">
-                    <div class="glass rounded-2xl p-2 shadow-2xl border border-brand-500/10">
+            <div class="hidden lg:block reveal">
+                <div class="relative animate-float">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-brand-500/20 to-purple-600/20 rounded-3xl blur-2xl"></div>
+                    <div class="relative glass rounded-3xl p-2 shadow-2xl">
                         <div class="flex items-center gap-2 px-5 py-4 border-b border-gray-700/50">
                             <span class="w-3 h-3 rounded-full bg-red-500"></span>
                             <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
                             <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                            <span class="ml-3 text-gray-500 text-xs">totalappgt.online</span>
                         </div>
-                        <div class="p-4 sm:p-6">
-                            <img src="panel-saas.png" alt="Dashboard" class="w-full rounded-xl border border-gray-700/50" onerror="this.style.display='none'">
-                            <div class="grid grid-cols-2 gap-4 mt-4">
-                                <div class="bg-dark-800/80 rounded-xl p-4 sm:p-5 text-center border border-gray-700/30">
-                                    <span class="text-2xl sm:text-3xl font-bold text-brand-400">99.9%</span>
-                                    <p class="text-gray-500 text-xs uppercase tracking-wider mt-1 font-medium">Uptime</p>
-                                </div>
-                                <div class="bg-dark-800/80 rounded-xl p-4 sm:p-5 text-center border border-gray-700/30">
-                                    <span class="text-2xl sm:text-3xl font-bold text-white">+50</span>
+                        <div class="p-6">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-dark-800/80 rounded-xl p-5 text-center border border-gray-700/30">
+                                    <span class="text-3xl font-bold text-brand-400 counter-num" data-target="50">0</span>
                                     <p class="text-gray-500 text-xs uppercase tracking-wider mt-1 font-medium">Proyectos</p>
                                 </div>
+                                <div class="bg-dark-800/80 rounded-xl p-5 text-center border border-gray-700/30">
+                                    <span class="text-3xl font-bold text-brand-400 counter-num" data-target="8">0</span>
+                                    <p class="text-gray-500 text-xs uppercase tracking-wider mt-1 font-medium">SaaS Activos</p>
+                                </div>
+                            </div>
+                            <div class="mt-4 bg-dark-800/80 rounded-xl p-5 border border-gray-700/30">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-gray-500 text-xs uppercase tracking-wider font-medium">Automatización IA</span>
+                                    <i class="fa-solid fa-brain text-purple-400"></i>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="w-full bg-dark-900 rounded-full h-2"><div class="bg-gradient-to-r from-brand-500 to-purple-500 rounded-full h-2" style="width:90%"></div></div>
+                                    <div class="w-full bg-dark-900 rounded-full h-2"><div class="bg-gradient-to-r from-brand-500 to-purple-500 rounded-full h-2" style="width:75%"></div></div>
+                                    <div class="w-full bg-dark-900 rounded-full h-2"><div class="bg-gradient-to-r from-brand-500 to-purple-500 rounded-full h-2" style="width:85%"></div></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce hidden sm:block">
+        <i class="fa-solid fa-chevron-down text-gray-600 text-xl"></i>
+    </div>
+</section>
 
-    <!-- FACEBOOK -->
-    <section class="relative py-16 sm:py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10 sm:mb-14 reveal">
-                <span class="text-brand-400 font-semibold text-xs sm:text-sm uppercase tracking-widest">Redes Sociales</span>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-3">Síguenos en Facebook</h2>
-                <div class="gradient-bar"></div>
-                <p class="text-gray-400 max-w-xl mx-auto mt-5 text-sm sm:text-base">Conoce nuestros proyectos, novedades y contenido técnico.</p>
+<!-- ======================= SERVICIOS ======================= -->
+<section id="servicios" class="relative py-20 sm:py-28 overflow-hidden">
+    <div class="parallax-shape" style="width:300px;height:300px;background:#60a5fa;top:20%;right:5%;animation:float 7s ease-in-out infinite"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-14 sm:mb-20 reveal">
+            <span class="badge-soft mb-6"><i class="fa-solid fa-gears"></i> Lo que hacemos</span>
+            <h2 class="text-3xl sm:text-5xl font-bold text-white mt-4 mb-4">Soluciones que impulsan tu negocio</h2>
+            <div class="gradient-bar"></div>
+            <p class="text-gray-400 max-w-2xl mx-auto mt-6 text-sm sm:text-base">Combinamos tecnología de punta para negocios grandes y pequeños: sistemas, automatización e inteligencia artificial.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            <!-- SaaS -->
+            <div class="glass rounded-2xl p-6 sm:p-8 group hover:-translate-y-2 hover:border-brand-500/40 transition-all duration-300 border border-gray-800/50 reveal">
+                <div class="w-16 h-16 mx-auto bg-gradient-to-br from-brand-500/20 to-blue-600/20 rounded-2xl flex items-center justify-center mb-5 group-hover:from-brand-500 group-hover:to-blue-600 group-hover:scale-110 transition-all duration-500">
+                    <i class="fa-solid fa-cloud text-3xl text-brand-500 group-hover:text-white transition-colors"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-3 text-center">Sistemas SaaS</h3>
+                <p class="text-gray-400 text-sm leading-relaxed text-center">Apps y plataformas en la nube, escalables y seguras. Gestión de usuarios, suscripciones y datos en tiempo real.</p>
+                <div class="flex flex-wrap justify-center gap-2 mt-5">
+                    <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Apps Script</span>
+                    <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Next.js</span>
+                    <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">PostgreSQL</span>
+                </div>
             </div>
-            <div class="flex justify-center reveal">
-                <a href="https://facebook.com/totalappgt" target="_blank" rel="noopener" class="rounded-2xl p-6 sm:p-8 text-center max-w-md w-full hover:scale-[1.03] transition-transform duration-300 shadow-xl" style="background:linear-gradient(135deg,#1877F2,#0d65d9)">
-                    <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto bg-white/20 rounded-full flex items-center justify-center mb-4">
-                        <i class="fa-brands fa-facebook-f text-2xl sm:text-3xl text-white"></i>
-                    </div>
-                    <h3 class="text-white font-bold text-xl sm:text-2xl">@totalappgt</h3>
-                    <p class="text-white/80 mt-2 text-sm sm:text-base">Síguenos para ver nuestros proyectos y actualizaciones</p>
-                    <span class="inline-block mt-5 sm:mt-6 px-5 sm:px-6 py-2.5 sm:py-3 bg-white text-[#1877F2] font-semibold rounded-xl hover:bg-gray-100 transition-colors text-sm sm:text-base">
-                        <i class="fa-brands fa-facebook mr-2"></i> Visitar página
-                    </span>
+
+            <!-- Automatizaciones IA / n8n -->
+            <div class="glass rounded-2xl p-6 sm:p-8 group hover:-translate-y-2 hover:border-purple-500/40 transition-all duration-300 border border-gray-800/50 reveal">
+                <div class="w-16 h-16 mx-auto bg-gradient-to-br from-purple-500/20 to-fuchsia-600/20 rounded-2xl flex items-center justify-center mb-5 group-hover:from-purple-500 group-hover:to-fuchsia-600 group-hover:scale-110 transition-all duration-500">
+                    <i class="fa-solid fa-robot text-3xl text-purple-400 group-hover:text-white transition-colors"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-3 text-center">Automatización con IA & n8n</h3>
+                <p class="text-gray-400 text-sm leading-relaxed text-center">Flujos de trabajo inteligentes que conectan tus herramientas, eliminan tareas repetitivas y trabajan 24/7.</p>
+                <div class="flex flex-wrap justify-center gap-2 mt-5">
+                    <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">n8n</span>
+                    <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">WhatsApp</span>
+                    <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">400+ Apps</span>
+                </div>
+            </div>
+
+            <!-- Neura IA -->
+            <div class="glass rounded-2xl p-6 sm:p-8 group hover:-translate-y-2 hover:border-cyan-400/40 transition-all duration-300 border border-gray-800/50 reveal">
+                <div class="w-16 h-16 mx-auto bg-gradient-to-br from-cyan-500/20 to-teal-600/20 rounded-2xl flex items-center justify-center mb-5 group-hover:from-cyan-500 group-hover:to-teal-600 group-hover:scale-110 transition-all duration-500">
+                    <i class="fa-solid fa-brain text-3xl text-cyan-400 group-hover:text-white transition-colors"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-3 text-center">Neura — Cerebro IA</h3>
+                <p class="text-gray-400 text-sm leading-relaxed text-center">Asistente inteligente multi-tenant con memoria (RAG) que aprende de tus datos y responde por WhatsApp.</p>
+                <div class="flex flex-wrap justify-center gap-2 mt-5">
+                    <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">RAG</span>
+                    <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">DeepSeek</span>
+                    <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Multi-tenant</span>
+                </div>
+            </div>
+
+            <!-- Software a medida -->
+            <div class="glass rounded-2xl p-6 sm:p-8 group hover:-translate-y-2 hover:border-green-400/40 transition-all duration-300 border border-gray-800/50 reveal">
+                <div class="w-16 h-16 mx-auto bg-gradient-to-br from-green-500/20 to-emerald-600/20 rounded-2xl flex items-center justify-center mb-5 group-hover:from-green-500 group-hover:to-emerald-600 group-hover:scale-110 transition-all duration-500">
+                    <i class="fa-solid fa-laptop-code text-3xl text-green-400 group-hover:text-white transition-colors"></i>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-3 text-center">Software a Medida</h3>
+                <p class="text-gray-400 text-sm leading-relaxed text-center">Herramientas personalizadas, apps, ejecutables e integraciones diseñadas exactamente para tu operación.</p>
+                <div class="flex flex-wrap justify-center gap-2 mt-5">
+                    <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">Python</span>
+                    <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">React</span>
+                    <span class="px-3 py-1 bg-dark-800/80 rounded-full text-xs text-gray-500 border border-gray-700/30">APIs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================= NEURA ======================= -->
+<section id="neura" class="relative py-20 sm:py-28 bg-dark-800/40 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+            <div class="reveal mb-10 lg:mb-0">
+                <span class="badge-soft mb-6" style="border-color:rgba(139,92,246,.3);color:#c4b5fd;background:rgba(139,92,246,.1)">
+                    <i class="fa-solid fa-brain"></i> Neura — Tu Cerebro Artificial
+                </span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-4 mb-6 leading-tight">
+                    Un <span class="gradient-text">asistente IA</span> que trabaja para tu negocio
+                </h2>
+                <p class="text-gray-400 text-base sm:text-lg mb-8 leading-relaxed">
+                    <strong class="text-white">Neura</strong> es nuestra plataforma de inteligencia artificial que aprende de la información de tu empresa y automatiza la atención, el seguimiento y los procesos. Disponible para <strong class="text-white">negocios grandes y pequeños</strong>.
+                </p>
+                <div class="grid sm:grid-cols-2 gap-3 mb-8">
+                    <div class="feature-check"><i class="fa-solid fa-message"></i><span class="text-gray-300 text-sm">Respuestas por WhatsApp, Telegram y web</span></div>
+                    <div class="feature-check"><i class="fa-solid fa-database"></i><span class="text-gray-300 text-sm">Memoria RAG con tus propios documentos</span></div>
+                    <div class="feature-check"><i class="fa-solid fa-layer-group"></i><span class="text-gray-300 text-sm">Multi-tenant: varios clientes, un cerebro</span></div>
+                    <div class="feature-check"><i class="fa-solid fa-bolt"></i><span class="text-gray-300 text-sm">Agentes, programación y flujos de trabajo</span></div>
+                    <div class="feature-check"><i class="fa-solid fa-chart-line"></i><span class="text-gray-300 text-sm">Entrenamiento con tus datos e informes</span></div>
+                    <div class="feature-check"><i class="fa-solid fa-shield-halved"></i><span class="text-gray-300 text-sm">Atención 24/7 sin costo de personal extra</span></div>
+                </div>
+                <a href="#contacto" class="inline-flex items-center gap-2 px-7 py-4 rounded-xl text-white font-semibold transition-all btn-glow shadow-lg" style="background:linear-gradient(135deg,#8b5cf6,#3b82f6);box-shadow:0 10px 30px rgba(139,92,246,.3)">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Prueba Neura hoy
                 </a>
             </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contacto" class="relative py-16 sm:py-24 bg-dark-800/40 border-t border-gray-800/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-12 sm:mb-16 reveal">
-                <span class="text-brand-400 font-semibold text-xs sm:text-sm uppercase tracking-widest">Contacto</span>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3 mb-3">Iniciemos tu próximo proyecto</h2>
-                <div class="gradient-bar"></div>
-                <p class="text-gray-400 max-w-2xl mx-auto mt-5 text-sm sm:text-base">¿Tienes una idea o necesitas optimizar tus procesos? Contáctanos para una asesoría.</p>
-            </div>
-            <div class="grid lg:grid-cols-2 gap-8 sm:gap-12">
-                <div class="reveal space-y-4 sm:space-y-5">
-                    <div class="glass rounded-xl p-5 sm:p-6 flex items-start group hover:border-brand-500/30 transition-all border border-gray-800/50">
-                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 mr-4 shrink-0 group-hover:bg-brand-500 group-hover:text-white transition-all"><i class="fa-solid fa-phone"></i></div>
-                        <div><h4 class="text-white font-semibold text-sm sm:text-base">Teléfono / WhatsApp</h4><a href="https://wa.me/50258303182" class="text-gray-400 text-sm sm:text-base hover:text-brand-400 transition-colors block mt-0.5">+502 58303182</a></div>
-                    </div>
-                    <div class="glass rounded-xl p-5 sm:p-6 flex items-start group hover:border-brand-500/30 transition-all border border-gray-800/50">
-                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 mr-4 shrink-0 group-hover:bg-brand-500 group-hover:text-white transition-all"><i class="fa-solid fa-envelope"></i></div>
-                        <div><h4 class="text-white font-semibold text-sm sm:text-base">Correo Electrónico</h4><a href="mailto:totalappgt@gmail.com" class="text-gray-400 text-sm sm:text-base hover:text-brand-400 transition-colors block mt-0.5">totalappgt@gmail.com</a></div>
-                    </div>
-                    <div class="glass rounded-xl p-5 sm:p-6 flex items-start group hover:border-brand-500/30 transition-all border border-gray-800/50">
-                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 mr-4 shrink-0 group-hover:bg-brand-500 group-hover:text-white transition-all"><i class="fa-solid fa-location-dot"></i></div>
-                        <div><h4 class="text-white font-semibold text-sm sm:text-base">Ubicación</h4><p class="text-gray-400 text-sm sm:text-base mt-0.5">Guatemala, GT</p></div>
-                    </div>
-                    <div class="glass rounded-xl p-5 sm:p-6 flex items-start group hover:border-brand-500/30 transition-all border border-gray-800/50">
-                        <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 mr-4 shrink-0 group-hover:bg-brand-500 group-hover:text-white transition-all"><i class="fa-brands fa-facebook"></i></div>
-                        <div><h4 class="text-white font-semibold text-sm sm:text-base">Facebook</h4><a href="https://facebook.com/totalappgt" target="_blank" rel="noopener" class="text-gray-400 text-sm sm:text-base hover:text-brand-400 transition-colors block mt-0.5">@totalappgt</a></div>
-                    </div>
-                </div>
-                <div class="glass rounded-2xl p-6 sm:p-8 reveal border border-gray-800/50">
-                    <form id="contact-form" class="space-y-4 sm:space-y-5">
-                        <div class="grid sm:grid-cols-2 gap-4 sm:gap-5">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-1.5">Nombre completo</label>
-                                <input type="text" id="form-name" required class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 transition-all" placeholder="Ej. Juan Pérez">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-400 mb-1.5">Empresa</label>
-                                <input type="text" id="form-company" class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 transition-all" placeholder="Opcional">
-                            </div>
+            <div class="reveal">
+                <div class="neura-glow glass rounded-3xl p-6 sm:p-8 animate-floatSlow">
+                    <div class="flex items-center gap-3 mb-6 pb-5 border-b border-gray-700/50">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-brand-600 flex items-center justify-center text-white text-xl shadow-lg shadow-purple-500/30">
+                            <i class="fa-solid fa-brain"></i>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-1.5">Correo electrónico</label>
-                            <input type="email" id="form-email" required class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 transition-all" placeholder="tu@correo.com">
+                            <h4 class="text-white font-bold">Neura</h4>
+                            <p class="text-gray-500 text-xs">Asistente IA · en línea</p>
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-1.5">Teléfono</label>
-                            <input type="tel" id="form-phone" class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 transition-all" placeholder="+502 5555 5555">
+                        <span class="ml-auto w-3 h-3 rounded-full bg-green-400 animate-pulse"></span>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="max-w-[85%] bg-dark-800/80 rounded-2xl rounded-tl-md px-4 py-3">
+                            <p class="text-gray-300 text-sm">¡Hola! Soy Neura 🤖 ¿En qué puedo ayudarte hoy?</p>
+                            <span class="text-gray-600 text-[10px] mt-1 block">09:41</span>
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-1.5">¿Cómo podemos ayudarte?</label>
-                            <textarea id="form-message" required rows="4" class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm focus:border-brand-500 transition-all" placeholder="Describe tu proyecto o necesidad..."></textarea>
+                        <div class="max-w-[85%] ml-auto bg-gradient-to-br from-brand-600 to-blue-700 rounded-2xl rounded-tr-md px-4 py-3">
+                            <p class="text-white text-sm">Quiero automatizar las cotizaciones de mi negocio</p>
+                            <span class="text-blue-200 text-[10px] mt-1 block text-right">09:42</span>
                         </div>
-                        <button type="submit" id="form-submit" class="w-full py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all flex items-center justify-center gap-2 btn-glow text-sm sm:text-base">
-                            Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
-                        </button>
-                        <p id="form-status" class="text-center text-sm mt-2 hidden"></p>
-                    </form>
+                        <div class="max-w-[85%] bg-dark-800/80 rounded-2xl rounded-tl-md px-4 py-3">
+                            <p class="text-gray-300 text-sm">¡Perfecto! Puedo conectarme con tus sistemas, n8n y generar cotizaciones automáticas con tus precios actualizados 🚀</p>
+                            <span class="text-gray-600 text-[10px] mt-1 block">09:42</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer class="bg-dark-900 border-t border-gray-800/50 py-8 sm:py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-8">
-                <a href="#inicio" class="flex items-center gap-3 group shrink-0">
-                    <img src="1000191404.jpg" alt="Total App GT"
-                         class="w-10 h-10 rounded-lg shadow-lg shadow-brand-500/30 object-cover ring-2 ring-brand-500/20 group-hover:ring-brand-500/40 transition-all"
-                         onerror="this.outerHTML='<div class=\'w-10 h-10 rounded-lg bg-gradient-to-br from-brand-500 to-blue-700 flex items-center justify-center shadow-lg shadow-brand-500/30\'><i class=\'fa-solid fa-code text-white text-lg\'></i></div>'">
-                    <span class="font-bold text-lg sm:text-xl text-white">Total App <span class="text-brand-500">GT</span></span>
+<!-- ======================= SISTEMAS SAAS ======================= -->
+<section id="sistemas" class="relative py-20 sm:py-28 overflow-hidden">
+    <div class="parallax-shape" style="width:400px;height:400px;background:#3b82f6;bottom:-150px;right:-100px;animation:float 9s ease-in-out infinite"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-14 sm:mb-20 reveal">
+            <span class="badge-soft mb-6"><i class="fa-solid fa-rocket"></i> Portafolio en producción</span>
+            <h2 class="text-3xl sm:text-5xl font-bold text-white mt-4 mb-4">Nuestros Sistemas SaaS</h2>
+            <div class="gradient-bar"></div>
+            <p class="text-gray-400 max-w-2xl mx-auto mt-6 text-sm sm:text-base">Plataformas reales, desplegadas y funcionando para distintos sectores. Haz clic para conocerlas.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- REDIL -->
+            <div class="sys-card reveal">
+                <div class="relative p-6 sm:p-7 flex-1">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="sys-icon-wrap" style="background:rgba(168,85,247,.15);color:#d8b4fe"><i class="fa-solid fa-church"></i></div>
+                        <span class="ml-auto px-3 py-1 rounded-full text-[.65rem] font-bold uppercase tracking-wider" style="background:rgba(168,85,247,.15);color:#d8b4fe;border:1px solid rgba(168,85,247,.25)">Iglesias</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">REDIL</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Gestión integral para iglesias: miembros, líderes, ofrendas, diezmos, reportes digitales y seguimiento de feligreses.</p>
+                    <div class="sys-card-tags flex flex-wrap gap-2">
+                        <span>Gestión</span><span>Reportes PDF</span><span>WhatsApp</span><span>Multi-sede</span>
+                    </div>
+                </div>
+                <div class="px-6 pb-6">
+                    <a href="https://redilrestauracion.totalappgt.online" target="_blank" rel="noopener"
+                       class="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all btn-glow" style="background:rgba(168,85,247,.15);color:#d8b4fe;border:1px solid rgba(168,85,247,.3)">
+                        Acceder a REDIL <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- LicitrackGT -->
+            <div class="sys-card reveal">
+                <div class="relative p-6 sm:p-7 flex-1">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="sys-icon-wrap" style="background:rgba(59,130,246,.15);color:#93c5fd"><i class="fa-solid fa-file-contract"></i></div>
+                        <span class="ml-auto px-3 py-1 rounded-full text-[.65rem] font-bold uppercase tracking-wider" style="background:rgba(59,130,246,.15);color:#93c5fd;border:1px solid rgba(59,130,246,.25)">Licitaciones</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">LicitrackGT</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Extractor y gestor automatizado de licitaciones del gobierno de Guatemala (Guatecompras OCDS) con dashboard e inteligencia.</p>
+                    <div class="sys-card-tags flex flex-wrap gap-2">
+                        <span>Guatecompras</span><span>OCDS</span><span>Dashboard</span><span>Alertas</span>
+                    </div>
+                </div>
+                <div class="px-6 pb-6">
+                    <a href="https://licitrackgt.totalappgt.online" target="_blank" rel="noopener"
+                       class="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all btn-glow" style="background:rgba(59,130,246,.15);color:#93c5fd;border:1px solid rgba(59,130,246,.3)">
+                        Acceder a LicitrackGT <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- ContaPro -->
+            <div class="sys-card reveal">
+                <div class="relative p-6 sm:p-7 flex-1">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="sys-icon-wrap" style="background:rgba(52,211,153,.15);color:#86efac"><i class="fa-solid fa-calculator"></i></div>
+                        <span class="ml-auto px-3 py-1 rounded-full text-[.65rem] font-bold uppercase tracking-wider" style="background:rgba(52,211,153,.15);color:#86efac;border:1px solid rgba(52,211,153,.25)">Contabilidad</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">ContaPro</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">ERP contable profesional con facturación electrónica FEL, integración SAT, flujo de caja y multi-empresa.</p>
+                    <div class="sys-card-tags flex flex-wrap gap-2">
+                        <span>SAT</span><span>FEL</span><span>Multi-empresa</span><span>Reportes</span>
+                    </div>
+                </div>
+                <div class="px-6 pb-6">
+                    <a href="https://contapro.totalappgt.online" target="_blank" rel="noopener"
+                       class="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all btn-glow" style="background:rgba(52,211,153,.15);color:#86efac;border:1px solid rgba(52,211,153,.3)">
+                        Acceder a ContaPro <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- AulaPro -->
+            <div class="sys-card reveal">
+                <div class="relative p-6 sm:p-7 flex-1">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="sys-icon-wrap" style="background:rgba(244,63,94,.15);color:#fda4af"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <span class="ml-auto px-3 py-1 rounded-full text-[.65rem] font-bold uppercase tracking-wider" style="background:rgba(244,63,94,.15);color:#fda4af;border:1px solid rgba(244,63,94,.25)">Educación</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">AulaPro</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Plataforma educativa integral: estudiantes, asistencias, calificaciones, docentes, tareas y reportes académicos.</p>
+                    <div class="sys-card-tags flex flex-wrap gap-2">
+                        <span>Estudiantes</span><span>Notas</span><span>Asistencias</span><span>Reportes</span>
+                    </div>
+                </div>
+                <div class="px-6 pb-6">
+                    <a href="https://totalappgt.online" target="_blank" rel="noopener"
+                       class="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all btn-glow" style="background:rgba(244,63,94,.15);color:#fda4af;border:1px solid rgba(244,63,94,.3)">
+                        Acceder a AulaPro <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- InvenPro -->
+            <div class="sys-card reveal">
+                <div class="relative p-6 sm:p-7 flex-1">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="sys-icon-wrap" style="background:rgba(251,191,36,.15);color:#fcd34d"><i class="fa-solid fa-warehouse"></i></div>
+                        <span class="ml-auto px-3 py-1 rounded-full text-[.65rem] font-bold uppercase tracking-wider" style="background:rgba(251,191,36,.15);color:#fcd34d;border:1px solid rgba(251,191,36,.25)">Inventarios</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">InvenPro</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Gestión completa de inventarios y bodegas: productos, movimientos, roles y reportes en tiempo real.</p>
+                    <div class="sys-card-tags flex flex-wrap gap-2">
+                        <span>Multi-bodega</span><span>Movimientos</span><span>Roles</span><span>Reportes</span>
+                    </div>
+                </div>
+                <div class="px-6 pb-6">
+                    <a href="https://invenpro.gt" target="_blank" rel="noopener"
+                       class="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all btn-glow" style="background:rgba(251,191,36,.15);color:#fcd34d;border:1px solid rgba(251,191,36,.3)">
+                        Acceder a InvenPro <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Neura + más sistemas -->
+            <div class="sys-card reveal">
+                <div class="relative p-6 sm:p-7 flex-1">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="sys-icon-wrap" style="background:rgba(139,92,246,.15);color:#c4b5fd"><i class="fa-solid fa-layer-group"></i></div>
+                        <span class="ml-auto px-3 py-1 rounded-full text-[.65rem] font-bold uppercase tracking-wider" style="background:rgba(139,92,246,.15);color:#c4b5fd;border:1px solid rgba(139,92,246,.25)">Multi-tenant</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">¿Necesitas tu propio sistema?</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Creamos sistemas SaaS personalizados para tu industria: ERP, CRM, colegios, ferreterías, transporte, restaurantes y más.</p>
+                    <div class="sys-card-tags flex flex-wrap gap-2">
+                        <span>ERP</span><span>CRM</span><span>POS</span><span>Transporte</span><span>A medida</span>
+                    </div>
+                </div>
+                <div class="px-6 pb-6">
+                    <a href="#contacto"
+                       class="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all btn-glow" style="background:rgba(139,92,246,.15);color:#c4b5fd;border:1px solid rgba(139,92,246,.3)">
+                        Quiero mi sistema <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ======================= AUTOMATIZACIONES ======================= -->
+<section id="automatizaciones" class="relative py-20 sm:py-28 bg-dark-800/40 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-14 sm:mb-20 reveal">
+            <span class="badge-soft mb-6"><i class="fa-solid fa-robot"></i> Automatización Inteligente</span>
+            <h2 class="text-3xl sm:text-5xl font-bold text-white mt-4 mb-4">Flujos de trabajo que trabajan por ti</h2>
+            <div class="gradient-bar"></div>
+            <p class="text-gray-400 max-w-2xl mx-auto mt-6 text-sm sm:text-base">Con n8n y Neura conectamos más de 400 aplicaciones para automatizar tus procesos de principio a fin.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 transition-all duration-300 border border-gray-800/50 reveal">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(59,130,246,.15);color:#93c5fd"><i class="fa-solid fa-message-dots"></i></div>
+                <h3 class="text-lg font-bold text-white mb-2">Atención automática</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Bots de WhatsApp e Instagram que responden clientes, agendan citas y califican prospectos las 24 horas.</p>
+            </div>
+            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 transition-all duration-300 border border-gray-800/50 reveal">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(52,211,153,.15);color:#86efac"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                <h3 class="text-lg font-bold text-white mb-2">Facturación y cotizaciones</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Generación automática de cotizaciones, facturas FEL y reportes con tus precios y datos actualizados.</p>
+            </div>
+            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 transition-all duration-300 border border-gray-800/50 reveal">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(251,191,36,.15);color:#fcd34d"><i class="fa-solid fa-chart-pie"></i></div>
+                <h3 class="text-lg font-bold text-white mb-2">Reportes inteligentes</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Resúmenes diarios y semanales con métricas de ventas, inventario y productividad enviados a tu WhatsApp o correo.</p>
+            </div>
+            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 transition-all duration-300 border border-gray-800/50 reveal">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(168,85,247,.15);color:#d8b4fe"><i class="fa-solid fa-bell"></i></div>
+                <h3 class="text-lg font-bold text-white mb-2">Notificaciones y seguimiento</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Recordatorios automáticos de pagos, vencimientos y seguimiento a clientes sin que tu equipo lo recuerde.</p>
+            </div>
+            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 transition-all duration-300 border border-gray-800/50 reveal">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(244,63,94,.15);color:#fda4af"><i class="fa-solid fa-plug"></i></div>
+                <h3 class="text-lg font-bold text-white mb-2">Integración total</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Conexión con Google Sheets, Drive, WhatsApp Business, Telegram, bases de datos y más de 400 herramientas.</p>
+            </div>
+            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 transition-all duration-300 border border-gray-800/50 reveal">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(6,182,212,.15);color:#67e8f9"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+                <h3 class="text-lg font-bold text-white mb-2">Sincronización de datos</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Tus sistemas y aplicaciones hablando entre sí: datos sincronizados sin errores humanos ni trabajo manual.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================= ESTADÍSTICAS ======================= -->
+<section class="relative py-16 border-y border-gray-800/50 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
+            <div class="reveal">
+                <div class="text-4xl sm:text-5xl font-extrabold text-brand-400 counter-num" data-target="50">0</div>
+                <p class="text-gray-500 text-xs sm:text-sm uppercase tracking-wider mt-2 font-medium">Proyectos entregados</p>
+            </div>
+            <div class="reveal">
+                <div class="text-4xl sm:text-5xl font-extrabold text-brand-400 counter-num" data-target="8">0</div>
+                <p class="text-gray-500 text-xs sm:text-sm uppercase tracking-wider mt-2 font-medium">Sistemas SaaS</p>
+            </div>
+            <div class="reveal">
+                <div class="text-4xl sm:text-5xl font-extrabold text-brand-400 counter-num" data-target="400">0</div>
+                <p class="text-gray-500 text-xs sm:text-sm uppercase tracking-wider mt-2 font-medium">+Apps conectadas</p>
+            </div>
+            <div class="reveal">
+                <div class="text-4xl sm:text-5xl font-extrabold text-brand-400 counter-num" data-target="99">0</div>
+                <p class="text-gray-500 text-xs sm:text-sm uppercase tracking-wider mt-2 font-medium">% Satisfacción</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================= NOSOTROS ======================= -->
+<section id="nosotros" class="relative py-20 sm:py-28 overflow-hidden">
+    <div class="parallax-shape" style="width:350px;height:350px;background:#1d4ed8;top:20%;left:-150px;animation:float 8s ease-in-out infinite"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-14 sm:mb-20 reveal">
+            <span class="badge-soft mb-6"><i class="fa-solid fa-circle-info"></i> Sobre nosotros</span>
+            <h2 class="text-3xl sm:text-5xl font-bold text-white mt-4 mb-4">Tecnología confiable y a tu medida</h2>
+            <div class="gradient-bar"></div>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass rounded-2xl p-6 sm:p-8 hover:-translate-y-2 hover:border-brand-500/30 transition-all duration-300 border border-gray-800/50 reveal">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500/20 to-blue-600/20 flex items-center justify-center mb-5"><i class="fa-solid fa-lock text-2xl text-brand-500"></i></div>
+                <h3 class="text-lg font-bold text-white mb-3">Infraestructura segura</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Tus datos en la nube de Google y Railway, con backups, cifrado y alta disponibilidad 99.9%.</p>
+            </div>
+            <div class="glass rounded-2xl p-6 sm:p-8 hover:-translate-y-2 hover:border-brand-500/30 transition-all duration-300 border border-gray-800/50 reveal">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500/20 to-blue-600/20 flex items-center justify-center mb-5"><i class="fa-solid fa-handshake-angle text-2xl text-brand-500"></i></div>
+                <h3 class="text-lg font-bold text-white mb-3">Soporte cercano</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Atención personalizada vía WhatsApp y correo. Te acompañamos antes, durante y después del proyecto.</p>
+            </div>
+            <div class="glass rounded-2xl p-6 sm:p-8 hover:-translate-y-2 hover:border-brand-500/30 transition-all duration-300 border border-gray-800/50 reveal">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500/20 to-blue-600/20 flex items-center justify-center mb-5"><i class="fa-solid fa-expand-arrows text-2xl text-brand-500"></i></div>
+                <h3 class="text-lg font-bold text-white mb-3">Soluciones escalables</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Desde una herramienta simple hasta un SaaS multi-tenant. Crecemos contigo sin cambiar de plataforma.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================= CONTACTO ======================= -->
+<section id="contacto" class="relative py-20 sm:py-28 bg-dark-800/40 border-t border-gray-800/50 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-14 sm:mb-20 reveal">
+            <span class="badge-soft mb-6"><i class="fa-solid fa-envelope"></i> Contacto</span>
+            <h2 class="text-3xl sm:text-5xl font-bold text-white mt-4 mb-4">Iniciemos tu proyecto</h2>
+            <div class="gradient-bar"></div>
+            <p class="text-gray-400 max-w-2xl mx-auto mt-6 text-sm sm:text-base">¿Necesitas un sistema, una automatización o un asistente IA? Cuéntanos tu idea y te asesoramos gratis.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 sm:gap-12">
+            <div class="reveal space-y-4">
+                <a href="https://wa.me/50258303182" target="_blank" rel="noopener" class="glass rounded-xl p-5 sm:p-6 flex items-center group hover:border-green-500/40 transition-all border border-gray-800/50 block">
+                    <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center text-green-400 mr-4 shrink-0 group-hover:bg-green-500 group-hover:text-white transition-all text-xl"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div><h4 class="text-white font-semibold text-sm sm:text-base">WhatsApp</h4><p class="text-gray-400 text-sm mt-0.5">+502 58303182</p></div>
+                    <i class="fa-solid fa-arrow-right text-gray-600 ml-auto group-hover:text-green-400 transition-colors"></i>
                 </a>
-                <p class="text-gray-500 text-xs sm:text-sm text-center">&copy; <span id="year"></span> Total App GT. Todos los derechos reservados.</p>
-                <div class="flex space-x-3">
-                    <a href="https://facebook.com/totalappgt" target="_blank" rel="noopener" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1877F2] transition-all"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://wa.me/50258303182" target="_blank" rel="noopener" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#25D366] transition-all"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="mailto:totalappgt@gmail.com" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-600 transition-all"><i class="fa-solid fa-envelope"></i></a>
+                <a href="mailto:totalappgt@gmail.com" class="glass rounded-xl p-5 sm:p-6 flex items-center group hover:border-brand-500/40 transition-all border border-gray-800/50 block">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 mr-4 shrink-0 group-hover:bg-brand-500 group-hover:text-white transition-all text-xl"><i class="fa-solid fa-envelope"></i></div>
+                    <div><h4 class="text-white font-semibold text-sm sm:text-base">Correo electrónico</h4><p class="text-gray-400 text-sm mt-0.5">totalappgt@gmail.com</p></div>
+                    <i class="fa-solid fa-arrow-right text-gray-600 ml-auto group-hover:text-brand-400 transition-colors"></i>
+                </a>
+                <a href="https://facebook.com/totalappgt" target="_blank" rel="noopener" class="glass rounded-xl p-5 sm:p-6 flex items-center group hover:border-[#1877F2]/50 transition-all border border-gray-800/50 block">
+                    <div class="w-12 h-12 rounded-xl bg-[#1877F2]/10 flex items-center justify-center text-[#3b82f6] mr-4 shrink-0 group-hover:bg-[#1877F2] group-hover:text-white transition-all text-xl"><i class="fa-brands fa-facebook"></i></div>
+                    <div><h4 class="text-white font-semibold text-sm sm:text-base">Facebook</h4><p class="text-gray-400 text-sm mt-0.5">@totalappgt</p></div>
+                    <i class="fa-solid fa-arrow-right text-gray-600 ml-auto group-hover:text-[#1877F2] transition-colors"></i>
+                </a>
+                <div class="glass rounded-xl p-5 sm:p-6 flex items-center border border-gray-800/50">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 mr-4 shrink-0 text-xl"><i class="fa-solid fa-location-dot"></i></div>
+                    <div><h4 class="text-white font-semibold text-sm sm:text-base">Ubicación</h4><p class="text-gray-400 text-sm mt-0.5">Guatemala, GT</p></div>
                 </div>
             </div>
-            <div class="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-gray-800/50 flex flex-col sm:flex-row justify-center gap-4 text-center">
-                <a href="terminos.html" class="text-gray-600 hover:text-brand-400 text-xs transition-colors"><i class="fa-solid fa-scale-balanced mr-1"></i> Términos y Condiciones</a>
-                <span class="hidden sm:block text-gray-700">|</span>
-                <a href="privacidad.html" class="text-gray-600 hover:text-brand-400 text-xs transition-colors"><i class="fa-solid fa-user-shield mr-1"></i> Política de Privacidad</a>
-            </div>
-            <div class="mt-4 text-center">
-                <p class="text-gray-600 text-xs">Hecho con <i class="fa-solid fa-heart text-brand-500"></i> en Guatemala</p>
+
+            <div class="glass rounded-2xl p-6 sm:p-8 reveal border border-gray-800/50">
+                <form id="contact-form" class="space-y-5">
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1.5">Nombre completo</label>
+                            <input type="text" id="form-name" required class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm" placeholder="Ej. Juan Pérez">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1.5">Empresa</label>
+                            <input type="text" id="form-company" class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm" placeholder="Opcional">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1.5">Correo electrónico</label>
+                        <input type="email" id="form-email" required class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm" placeholder="tu@correo.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1.5">Teléfono / WhatsApp</label>
+                        <input type="tel" id="form-phone" class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm" placeholder="+502 5555 5555">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1.5">¿Qué necesitas?</label>
+                        <select id="form-service" class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm">
+                            <option value="">Selecciona una opción</option>
+                            <option>Sistema SaaS a medida</option>
+                            <option>Automatización con n8n</option>
+                            <option>Asistente IA (Neura)</option>
+                            <option>Software / herramienta personalizada</option>
+                            <option>Otro</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1.5">Cuéntanos tu proyecto</label>
+                        <textarea id="form-message" required rows="4" class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm" placeholder="Describe tu idea o necesidad..."></textarea>
+                    </div>
+                    <button type="submit" id="form-submit" class="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all flex items-center justify-center gap-2 btn-glow text-base">
+                        Enviar mensaje <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                    <p id="form-status" class="text-center text-sm mt-2 hidden"></p>
+                </form>
             </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script>
-        const canvas = document.getElementById('particles-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-        class Particle {
-            constructor() { this.reset(); }
-            reset() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.size = Math.random() * 2 + 0.5; this.speedX = (Math.random() - 0.5) * 0.3; this.speedY = (Math.random() - 0.5) * 0.3; this.opacity = Math.random() * 0.5 + 0.1; }
-            update() { this.x += this.speedX; this.y += this.speedY; if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset(); }
-            draw() { ctx.fillStyle = 'rgba(59,130,246,' + this.opacity + ')'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
-        }
-        for (let i = 0; i < 80; i++) particles.push(new Particle());
-        function drawLines() { for (let i = 0; i < particles.length; i++) { for (let j = i + 1; j < particles.length; j++) { const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y, dist = Math.sqrt(dx * dx + dy * dy); if (dist < 150) { ctx.strokeStyle = 'rgba(59,130,246,' + (0.08 * (1 - dist / 150)) + ')'; ctx.lineWidth = 0.5; ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke(); } } } }
-        function animateParticles() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); drawLines(); requestAnimationFrame(animateParticles); }
-        animateParticles();
+<!-- ======================= FOOTER ======================= -->
+<footer class="bg-dark-900 border-t border-gray-800/50 py-10 sm:py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div>
+                <a href="#inicio" class="flex items-center gap-3 group mb-4">
+                    <img src="logo.png" alt="Total App GT" class="w-11 h-11 object-contain drop-shadow-[0_0_10px_rgba(59,130,246,0.4)] group-hover:scale-110 transition-all"
+                         onerror="this.outerHTML='<div class=\'w-11 h-11 rounded-lg bg-gradient-to-br from-brand-500 to-blue-700 flex items-center justify-center shadow-lg shadow-brand-500/30\'><i class=\'fa-solid fa-code text-white text-lg\'></i></div>'">
+                    <span class="font-bold text-xl text-white">Total App <span class="text-brand-500">GT</span></span>
+                </a>
+                <p class="text-gray-500 text-sm leading-relaxed">Sistemas SaaS, automatización inteligente con IA y software a medida para negocios de Guatemala y el mundo.</p>
+                <div class="flex space-x-3 mt-5">
+                    <a href="https://facebook.com/totalappgt" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1877F2] transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/50258303182" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#25D366] transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:totalappgt@gmail.com" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-600 transition-all"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Sistemas</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="https://redilrestauracion.totalappgt.online" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-400 transition-colors">REDIL</a></li>
+                    <li><a href="https://licitrackgt.totalappgt.online" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-400 transition-colors">LicitrackGT</a></li>
+                    <li><a href="https://contapro.totalappgt.online" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-400 transition-colors">ContaPro</a></li>
+                    <li><a href="https://totalappgt.online" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-400 transition-colors">AulaPro</a></li>
+                    <li><a href="https://invenpro.gt" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-400 transition-colors">InvenPro</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Servicios</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="#servicios" class="text-gray-500 hover:text-brand-400 transition-colors">Sistemas SaaS</a></li>
+                    <li><a href="#automatizaciones" class="text-gray-500 hover:text-brand-400 transition-colors">Automatización con n8n</a></li>
+                    <li><a href="#neura" class="text-gray-500 hover:text-brand-400 transition-colors">Neura — Asistente IA</a></li>
+                    <li><a href="#servicios" class="text-gray-500 hover:text-brand-400 transition-colors">Software a medida</a></li>
+                    <li><a href="#contacto" class="text-gray-500 hover:text-brand-400 transition-colors">Asesoría técnica</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Legal</h4>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="terminos.html" class="text-gray-500 hover:text-brand-400 transition-colors"><i class="fa-solid fa-scale-balanced mr-1"></i> Términos y Condiciones</a></li>
+                    <li><a href="privacidad.html" class="text-gray-500 hover:text-brand-400 transition-colors"><i class="fa-solid fa-user-shield mr-1"></i> Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-10 pt-6 border-t border-gray-800/50 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p class="text-gray-600 text-xs sm:text-sm text-center">&copy; <span id="year"></span> Total App GT. Todos los derechos reservados.</p>
+            <p class="text-gray-600 text-xs">Hecho con <i class="fa-solid fa-heart text-brand-500"></i> en Guatemala</p>
+        </div>
+    </div>
+</footer>
 
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => navbar.classList.toggle('nav-scrolled', window.scrollY > 50));
+<!-- ======================= COOKIE CONSENT ======================= -->
+<div id="cookie-banner" class="fixed bottom-4 left-4 right-4 sm:left-6 sm:right-auto sm:max-w-sm z-[999] glass rounded-2xl p-5 shadow-2xl border border-gray-700/50 hidden">
+    <div class="flex items-start gap-3 mb-3">
+        <i class="fa-solid fa-cookie-bite text-2xl text-brand-400"></i>
+        <p class="text-gray-300 text-sm leading-relaxed">Usamos cookies para mejorar tu experiencia y el rendimiento del sitio. Lee nuestra <a href="privacidad.html" class="text-brand-400 underline">Política de Privacidad</a>.</p>
+    </div>
+    <div class="flex gap-3">
+        <button onclick="acceptCookies()" class="flex-1 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold transition-all">Aceptar</button>
+        <button onclick="declineCookies()" class="px-5 py-2.5 rounded-xl border border-gray-600 hover:border-gray-400 text-gray-300 text-sm font-medium transition-all">Rechazar</button>
+    </div>
+</div>
 
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-        mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+<script>
+    // ===== PARTICLES =====
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resizeCanvas(){ canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    class Particle {
+        constructor(){ this.reset(); }
+        reset(){ this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.size = Math.random()*2+0.5; this.speedX = (Math.random()-.5)*0.3; this.speedY = (Math.random()-.5)*0.3; this.opacity = Math.random()*.5+.1; }
+        update(){ this.x += this.speedX; this.y += this.speedY; if(this.x<0||this.x>canvas.width||this.y<0||this.y>canvas.height) this.reset(); }
+        draw(){ ctx.fillStyle = 'rgba(59,130,246,'+this.opacity+')'; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill(); }
+    }
+    for(let i=0;i<80;i++) particles.push(new Particle());
+    function drawLines(){ for(let i=0;i<particles.length;i++){ for(let j=i+1;j<particles.length;j++){ const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y, dist=Math.sqrt(dx*dx+dy*dy); if(dist<150){ ctx.strokeStyle='rgba(59,130,246,'+(0.08*(1-dist/150))+')'; ctx.lineWidth=0.5; ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y); ctx.stroke(); } } } }
+    function animateParticles(){ ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{p.update();p.draw();}); drawLines(); requestAnimationFrame(animateParticles); }
+    animateParticles();
 
-        document.getElementById('year').textContent = new Date().getFullYear();
+    // ===== NAVBAR =====
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', ()=> navbar.classList.toggle('nav-scrolled', window.scrollY>50));
 
-        const texts = ['Creamos SaaS, Automatizaciones IA/n8n y Software a Medida','Expertos en Google Apps Script, Python y n8n con IA','Sistemas para Iglesias, Contabilidad, ERP y más','Transformamos tu negocio con tecnología inteligente'];
-        let textIndex = 0;
-        const typingEl = document.getElementById('typing-text');
-        if (window.innerWidth > 640) {
-            function typeLoop() { textIndex = (textIndex + 1) % texts.length; typingEl.style.animation = 'none'; void typingEl.offsetHeight; typingEl.style.width = '0'; typingEl.textContent = texts[textIndex]; typingEl.style.animation = 'typing 3.5s steps(40,end), blink .75s step-end infinite'; }
-            setInterval(typeLoop, 6000);
-        } else {
-            typingEl.style.whiteSpace = 'normal'; typingEl.style.borderRight = 'none'; typingEl.style.width = 'auto'; typingEl.style.display = 'inline'; typingEl.textContent = 'Creamos SaaS, Automatizaciones y Software a Medida';
-        }
+    // ===== MOBILE MENU =====
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'));
+    mobileMenu.querySelectorAll('a').forEach(l=> l.addEventListener('click', ()=> mobileMenu.classList.add('hidden')));
 
-        const revealObserver = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }); }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    // ===== YEAR =====
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-        let countersAnimated = false;
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !countersAnimated) {
-                    countersAnimated = true;
-                    document.querySelectorAll('.counter-num').forEach(el => {
-                        const target = parseInt(el.getAttribute('data-target'));
-                        if (isNaN(target)) return;
-                        const duration = 2000;
-                        const start = performance.now();
-                        function update(now) {
-                            const progress = Math.min((now - start) / duration, 1);
-                            const eased = 1 - Math.pow(1 - progress, 3);
-                            if (target === 99) el.textContent = Math.min(99, Math.floor(eased * 99)) + '%';
-                            else if (target === 3) el.textContent = Math.floor(eased * 3);
-                            else el.textContent = Math.floor(eased * target);
-                            if (progress < 1) requestAnimationFrame(update);
-                            else { if (target === 99) el.textContent = '99%'; else el.textContent = target; }
-                        }
-                        if (target <= 10) el.textContent = '0';
-                        requestAnimationFrame(update);
-                    });
-                }
-            });
-        }, { threshold: 0.3 });
-        document.querySelectorAll('.counter-num').forEach(el => counterObserver.observe(el));
+    // ===== TYPING =====
+    const phrases = [
+        'Sistemas SaaS, Automatizaciones IA y Software a Medida',
+        'Asistentes IA con Neura, nuestra plataforma inteligente',
+        'Flujos de trabajo automatizados con n8n',
+        'Soluciones para negocios grandes y pequeños'
+    ];
+    let idx = 0;
+    const typingEl = document.getElementById('typing-text');
+    function typeLoop(){
+        idx = (idx+1)%phrases.length;
+        typingEl.style.animation='none'; void typingEl.offsetHeight;
+        typingEl.style.width='0';
+        typingEl.textContent = phrases[idx];
+        typingEl.style.animation = 'typing 3.5s steps(40,end), blink .75s step-end infinite';
+    }
+    if(window.innerWidth>640){
+        typingEl.style.display='inline-block'; typingEl.style.overflow='hidden'; typingEl.style.borderRight='3px solid #3b82f6'; typingEl.style.whiteSpace='nowrap'; typingEl.style.width='0';
+        setInterval(typeLoop, 6000);
+    } else {
+        typingEl.style.whiteSpace='normal'; typingEl.style.borderRight='none'; typingEl.textContent = phrases[0];
+    }
 
-        const contactForm = document.getElementById('contact-form');
-        const formStatus = document.getElementById('form-status');
-        const formSubmit = document.getElementById('form-submit');
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            formSubmit.disabled = true;
-            formSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
-            formStatus.classList.add('hidden');
-            const data = { name: document.getElementById('form-name').value, company: document.getElementById('form-company').value, email: document.getElementById('form-email').value, phone: document.getElementById('form-phone').value, message: document.getElementById('form-message').value };
-            try {
-                await fetch('https://script.google.com/macros/s/AKfycbzZkDy8otPK79fOILgLfVr7t96BjCb6pfvlqMuhQhRkx95NrAibGqbygWGiMi8DwqN8/exec', { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-            } catch (err) {}
-            formStatus.className = 'text-center text-sm mt-2 text-green-400'; formStatus.textContent = 'Gracias por contactarnos. Te responderemos pronto.'; formStatus.classList.remove('hidden');
-            contactForm.reset(); formSubmit.disabled = false; formSubmit.innerHTML = 'Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>';
+    // ===== REVEAL =====
+    const revealObserver = new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('active'); }); },{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el=> revealObserver.observe(el));
+
+    // ===== COUNTERS =====
+    let countersAnimated = false;
+    const counterObserver = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting && !countersAnimated){
+                countersAnimated = true;
+                document.querySelectorAll('.counter-num').forEach(el=>{
+                    const target = parseInt(el.getAttribute('data-target'));
+                    if(isNaN(target)) return;
+                    const duration=2000, start=performance.now();
+                    function update(now){
+                        const progress=Math.min((now-start)/duration,1);
+                        const eased=1-Math.pow(1-progress,3);
+                        let val=Math.floor(eased*target);
+                        el.textContent = target===99 ? Math.min(99,val)+'%' : val + (target===400?'+':'');
+                        if(progress<1) requestAnimationFrame(update);
+                        else el.textContent = target===99 ? '99%' : target + (target===400?'+':'');
+                    }
+                    requestAnimationFrame(update);
+                });
+            }
         });
-    </script>
+    },{threshold:0.3});
+    document.querySelectorAll('.counter-num').forEach(el=> counterObserver.observe(el));
+
+    // ===== COOKIE CONSENT =====
+    function acceptCookies(){ localStorage.setItem('cookiesAccepted','1'); document.getElementById('cookie-banner').classList.add('hidden'); }
+    function declineCookies(){ localStorage.setItem('cookiesDeclined','1'); document.getElementById('cookie-banner').classList.add('hidden'); }
+    if(!localStorage.getItem('cookiesAccepted') && !localStorage.getItem('cookiesDeclined')){
+        setTimeout(()=> document.getElementById('cookie-banner').classList.remove('hidden'), 1500);
+    }
+
+    // ===== CONTACT FORM (Google Apps Script) =====
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    const formSubmit = document.getElementById('form-submit');
+    contactForm.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        formSubmit.disabled = true;
+        formSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+        formStatus.classList.add('hidden');
+        const data = {
+            nombre: document.getElementById('form-name').value,
+            empresa: document.getElementById('form-company').value,
+            email: document.getElementById('form-email').value,
+            telefono: document.getElementById('form-phone').value,
+            servicio: document.getElementById('form-service').value,
+            mensaje: document.getElementById('form-message').value,
+            timestamp: new Date().toLocaleString()
+        };
+        try {
+            await fetch('https://script.google.com/macros/s/AKfycbzZkDy8otPK79fOILgLfVr7t96BjCb6pfvlqMuhQhRkx95NrAibGqbygWGiMi8DwqN8/exec', {
+                method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
+            });
+        } catch(err){}
+        formStatus.className='text-center text-sm mt-2 text-green-400';
+        formStatus.textContent='Gracias por contactarnos. Te responderemos pronto.';
+        formStatus.classList.remove('hidden');
+        contactForm.reset();
+        formSubmit.disabled=false;
+        formSubmit.innerHTML='Enviar mensaje <i class="fa-solid fa-paper-plane"></i>';
+    });
+</script>
 </body>
 </html>
