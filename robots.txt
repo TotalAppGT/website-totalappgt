@@ -1,0 +1,12 @@
+# robots.txt - Total App GT
+# Permite que todos los buscadores indexen el sitio
+
+User-agent: *
+Allow: /
+
+# No indexar archivos internos de git
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://totalappgt.github.io/website-totalappgt/sitemap.xml
