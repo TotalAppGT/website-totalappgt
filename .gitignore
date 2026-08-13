@@ -1,0 +1,9 @@
+# Archivos personales / no relacionados con la web
+*.pdf
+DPA*.png
+DPI*.png
+2.png
+wmremove*.png
+*.exe
+*.lnk
+*.url
