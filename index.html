@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Total App GT | Sistemas SaaS, Automatización IA (n8n + Neura) y Software a Medida</title>
     <meta name="description" content="Total App GT: desarrollo de Sistemas SaaS, automatización con Inteligencia Artificial (n8n y Neura), flujos de trabajo y software a medida en Guatemala. Potencia tu negocio grande o pequeño.">
-    <meta name="keywords" content="SaaS Guatemala, sistemas SaaS, sistema de citas clínicas, citas médicas en línea, agenda médica, tienda en línea, e-commerce Guatemala, automatización con IA, n8n, Neura, asistente IA, software a medida, desarrollo de apps, Google Apps Script, Python, integraciones API, flujos de trabajo, licitaciones Guatemala, inventarios, contabilidad, ERP, CRM, facturación FEL SAT">
+    <meta name="keywords" content="SaaS Guatemala, sistemas SaaS, agentes IA, agentes inteligentes, chatbot IA WhatsApp, sistema de citas clínicas, citas médicas en línea, agenda médica, tienda en línea, e-commerce Guatemala, automatización con IA, n8n, Neura, asistente IA, software a medida, desarrollo de apps, Google Apps Script, Python, integraciones API, flujos de trabajo, licitaciones Guatemala, inventarios, contabilidad, ERP, CRM, facturación FEL SAT">
     <meta name="author" content="Total App GT">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="language" content="Spanish">
@@ -119,29 +119,58 @@
         body{font-family:'Inter',sans-serif;background:#0a0f1e;overflow-x:hidden;color:#e5e7eb}
         ::selection{background:#3b82f6;color:#fff}
         #particles-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+        /* Scroll progress bar */
+        #scroll-progress{position:fixed;top:0;left:0;height:4px;width:0;z-index:9999;background:linear-gradient(90deg,#f43f5e,#f59e0b,#10b981,#3b82f6,#8b5cf6,#ec4899);background-size:400% 400%;animation:gradientShift 6s ease infinite;transition:width .1s}
+        @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
         .glass{background:rgba(17,24,39,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(59,130,246,.1)}
         .reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.23,1,.32,1)}
         .reveal.active{opacity:1;transform:translateY(0)}
+        .reveal-left{opacity:0;transform:translateX(-60px);transition:all .9s cubic-bezier(.23,1,.32,1)}
+        .reveal-left.active{opacity:1;transform:translateX(0)}
+        .reveal-right{opacity:0;transform:translateX(60px);transition:all .9s cubic-bezier(.23,1,.32,1)}
+        .reveal-right.active{opacity:1;transform:translateX(0)}
+        .reveal-scale{opacity:0;transform:scale(.85);transition:all .8s cubic-bezier(.23,1,.32,1)}
+        .reveal-scale.active{opacity:1;transform:scale(1)}
+
         .gradient-text{background:linear-gradient(135deg,#93c5fd,#3b82f6,#1d4ed8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .gradient-text-multi{background:linear-gradient(90deg,#f43f5e,#f59e0b,#10b981,#3b82f6,#8b5cf6,#ec4899,#f43f5e);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradientShift 8s linear infinite}
         .gradient-animate{background:linear-gradient(90deg,#60a5fa,#2563eb,#60a5fa,#3b82f6);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shine 6s linear infinite}
+
         .btn-glow{position:relative;overflow:hidden}
         .btn-glow::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(59,130,246,.35) 0%,transparent 70%);opacity:0;transition:opacity .4s}
         .btn-glow:hover::after{opacity:1}
-        .whatsapp-btn{position:fixed;bottom:24px;right:24px;z-index:999;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;animation:pulse 2s infinite}
-        .whatsapp-btn:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,.6)}
+
+        .whatsapp-btn{position:fixed;bottom:24px;right:24px;z-index:999;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;animation:pulse 2s infinite}
+        .whatsapp-btn:hover{transform:scale(1.1) rotate(10deg);box-shadow:0 8px 30px rgba(37,211,102,.6)}
         .nav-scrolled{background:rgba(10,15,30,.96)!important;border-bottom-color:rgba(59,130,246,.25)!important;box-shadow:0 10px 40px rgba(0,0,0,.4)}
-        .gradient-bar{width:80px;height:4px;background:linear-gradient(90deg,#3b82f6,#60a5fa);border-radius:2px;margin:0 auto}
+        .gradient-bar{width:80px;height:4px;background:linear-gradient(90deg,#f43f5e,#f59e0b,#3b82f6,#8b5cf6);border-radius:2px;margin:0 auto}
         .parallax-shape{position:absolute;border-radius:50%;filter:blur(90px);opacity:.18;pointer-events:none}
         .grid-bg{background-image:linear-gradient(rgba(59,130,246,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.05) 1px,transparent 1px);background-size:40px 40px;animation:gridMove 20s linear infinite}
         .form-input:focus{box-shadow:0 0 0 3px rgba(59,130,246,.2);outline:none}
+
+        /* Marquee ticker */
+        .marquee{overflow:hidden;white-space:nowrap;position:relative;background:linear-gradient(90deg,#111827,#0f172a);border-top:1px solid rgba(59,130,246,.15);border-bottom:1px solid rgba(59,130,246,.15)}
+        .marquee-track{display:inline-block;white-space:nowrap;animation:marqueeMove 30s linear infinite}
+        .marquee:hover .marquee-track{animation-play-state:paused}
+        .marquee-item{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 2.5rem;font-size:1rem;font-weight:600;color:#e5e7eb}
+        .marquee-item i{font-size:1.1rem}
+        @keyframes marqueeMove{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+        /* Borde gradiente animado en cards */
+        .card-border-grad{position:relative;border-radius:1.5rem;padding:2px;background:linear-gradient(135deg,#f43f5e,#f59e0b,#10b981,#3b82f6,#8b5cf6,#f43f5e);background-size:300% 300%;animation:gradientShift 8s ease infinite}
+        .card-border-grad>div{border-radius:calc(1.5rem - 2px);background:#0f172a}
+
         .sys-card{position:relative;border-radius:1.25rem;overflow:hidden;background:rgba(17,24,39,.6);backdrop-filter:blur(20px);border:1px solid rgba(59,130,246,.08);transition:all .5s cubic-bezier(.23,1,.32,1);display:flex;flex-direction:column}
         .sys-card:hover{transform:translateY(-8px);border-color:rgba(59,130,246,.35);box-shadow:0 25px 60px -15px rgba(59,130,246,.25)}
         .sys-card .sys-icon-wrap{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:all .4s;flex-shrink:0}
         .sys-card:hover .sys-icon-wrap{transform:scale(1.1) rotate(-5deg)}
         .sys-card-tags span{padding:3px 10px;border-radius:999px;font-size:.65rem;font-weight:500;background:rgba(255,255,255,.06);color:#6b7280;border:1px solid rgba(255,255,255,.06)}
+
         .badge-soft{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1.25rem;border-radius:999px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);color:#93c5fd;font-size:.85rem;font-weight:500}
         .nav-link{position:relative;transition:color .3s}
-        .nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:linear-gradient(90deg,#3b82f6,#60a5fa);transition:width .3s;border-radius:2px}
+        .nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:linear-gradient(90deg,#f43f5e,#3b82f6,#8b5cf6);transition:width .3s;border-radius:2px}
         .nav-link:hover::after{width:100%}
         .nav-link:hover{color:#fff}
         .step-number{width:64px;height:64px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff;box-shadow:0 10px 30px rgba(59,130,246,.3);flex-shrink:0}
@@ -151,9 +180,21 @@
         .neura-glow{position:relative}
         .neura-glow::before{content:'';position:absolute;inset:-2px;border-radius:inherit;background:linear-gradient(135deg,#8b5cf6,#3b82f6,#06b6d4,#8b5cf6);background-size:300% 300%;animation:gridMove 6s ease infinite;z-index:-1}
         @keyframes gridMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+        /* CTA flotante lateral */
+        .side-cta{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:998;writing-mode:vertical-rl;padding:1rem .6rem;border-radius:0 12px 12px 0;background:linear-gradient(135deg,#3b82f6,#8b5cf6);color:#fff;font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;box-shadow:0 10px 30px rgba(59,130,246,.3);transition:all .3s}
+        .side-cta:hover{padding-left:1rem;background:linear-gradient(135deg,#2563eb,#7c3aed)}
+        .side-cta a{color:#fff;text-decoration:none}
+
+        /* Floating decorative */
+        .float-icon{position:absolute;opacity:.35;animation:float 6s ease-in-out infinite}
+        .tilt-card{transition:transform .4s cubic-bezier(.23,1,.32,1)}
+        .tilt-card:hover{transform:translateY(-6px) rotateX(3deg) rotateY(2deg)}
+
         @media (max-width:640px){
             .whatsapp-btn{width:50px;height:50px;font-size:24px;bottom:16px;right:16px}
             h1{font-size:2.4rem!important}
+            .side-cta{display:none}
         }
     </style>
 
@@ -247,6 +288,17 @@
         "provider": { "@type": "Organization", "name": "Total App GT" }
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Agentes de Inteligencia Artificial con Neura",
+        "serviceType": "AI Automation",
+        "description": "Agentes IA con Neura que atienden clientes, venden, agendan citas y automatizan procesos vía WhatsApp e Instagram para negocios.",
+        "provider": { "@type": "Organization", "name": "Total App GT" },
+        "areaServed": ["GT", "Latinoamérica"]
+    }
+    </script>
 </head>
 <body>
 
@@ -271,7 +323,8 @@
                 <a href="#sistemas" class="nav-link text-sm font-medium text-gray-300">Sistemas SaaS</a>
                 <a href="#citas" class="nav-link text-sm font-medium text-gray-300">Citas</a>
                 <a href="#automatizaciones" class="nav-link text-sm font-medium text-gray-300">Automatización</a>
-                <a href="#neura" class="nav-link text-sm font-medium text-gray-300">Neura IA</a>
+                <a href="#agentes" class="nav-link text-sm font-medium text-gray-300">Agentes IA</a>
+                <a href="#neura" class="nav-link text-sm font-medium text-gray-300">Neura</a>
                 <a href="#contacto" class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-all shadow-lg shadow-brand-500/30 btn-glow">
                     Contactar <i class="fa-solid fa-arrow-right ml-1"></i>
                 </a>
@@ -288,7 +341,8 @@
             <a href="#sistemas" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Sistemas SaaS</a>
             <a href="#citas" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Citas</a>
             <a href="#automatizaciones" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Automatización</a>
-            <a href="#neura" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Neura IA</a>
+            <a href="#agentes" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Agentes IA</a>
+            <a href="#neura" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Neura</a>
             <a href="#contacto" class="block px-3 py-2 mt-4 text-center rounded-md bg-brand-600 text-white font-medium">Contactar</a>
         </div>
     </div>
@@ -496,6 +550,100 @@
                             <span class="text-gray-600 text-[10px] mt-1 block">09:42</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================= AGENTES IA ======================= -->
+<section id="agentes" class="relative py-20 sm:py-28 overflow-hidden">
+    <div class="parallax-shape" style="width:380px;height:380px;background:#ec4899;top:20%;left:-140px;animation:float 9s ease-in-out infinite"></div>
+    <div class="parallax-shape" style="width:300px;height:300px;background:#8b5cf6;bottom:10%;right:-120px;animation:float 7s ease-in-out infinite reverse"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-14 sm:mb-20 reveal">
+            <span class="badge-soft mb-6" style="border-color:rgba(236,72,153,.3);color:#f9a8d4;background:rgba(236,72,153,.1)">
+                <i class="fa-solid fa-user-robot"></i> Agentes Inteligentes con Neura
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-bold text-white mt-4 mb-4">Agentes IA que <span class="gradient-text-multi">hacen el trabajo por ti</span></h2>
+            <div class="gradient-bar"></div>
+            <p class="text-gray-400 max-w-3xl mx-auto mt-6 text-sm sm:text-base">Agentes con inteligencia artificial que atienden, venden, administran y automatizan — cada uno especializado en una tarea de tu negocio.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            <div class="card-border-grad tilt-card reveal">
+                <div class="p-6 sm:p-7">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl" style="background:rgba(59,130,246,.15);color:#93c5fd"><i class="fa-solid fa-headset"></i></div>
+                        <h3 class="text-lg font-bold text-white">Agente de Atención</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Responde clientes por WhatsApp e Instagram 24/7, resuelve dudas, agenda citas y escala a un humano cuando es necesario.</p>
+                    <div class="sys-card-tags flex flex-wrap gap-2"><span>WhatsApp</span><span>24/7</span><span>Multi-cliente</span></div>
+                </div>
+            </div>
+            <div class="card-border-grad tilt-card reveal">
+                <div class="p-6 sm:p-7">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl" style="background:rgba(52,211,153,.15);color:#86efac"><i class="fa-solid fa-sack-dollar"></i></div>
+                        <h3 class="text-lg font-bold text-white">Agente de Ventas</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Califica prospectos, responde cotizaciones, hace seguimiento automático y cierra más ventas con datos de tus productos.</p>
+                    <div class="sys-card-tags flex flex-wrap gap-2"><span>Calificación</span><span>Cotizaciones</span><span>Seguimiento</span></div>
+                </div>
+            </div>
+            <div class="card-border-grad tilt-card reveal">
+                <div class="p-6 sm:p-7">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl" style="background:rgba(251,191,36,.15);color:#fcd34d"><i class="fa-solid fa-calendar-check"></i></div>
+                        <h3 class="text-lg font-bold text-white">Agente de Citas</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Gestiona la agenda de tu clínica o consultorio: reserva, modifica y confirma citas con recordatorios automáticos.</p>
+                    <div class="sys-card-tags flex flex-wrap gap-2"><span>Agenda</span><span>Recordatorios</span><span>Sin inasistencias</span></div>
+                </div>
+            </div>
+            <div class="card-border-grad tilt-card reveal">
+                <div class="p-6 sm:p-7">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl" style="background:rgba(244,63,94,.15);color:#fda4af"><i class="fa-solid fa-file-invoice"></i></div>
+                        <h3 class="text-lg font-bold text-white">Agente Administrativo</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Registra datos en tus sistemas, organiza informes, envía reportes diarios y mantiene tu información siempre al día.</p>
+                    <div class="sys-card-tags flex flex-wrap gap-2"><span>Registros</span><span>Reportes</span><span>Docs</span></div>
+                </div>
+            </div>
+            <div class="card-border-grad tilt-card reveal">
+                <div class="p-6 sm:p-7">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl" style="background:rgba(168,85,247,.15);color:#d8b4fe"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h3 class="text-lg font-bold text-white">Agente Educativo</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Apoya a estudiantes y padres: responde dudas de clases, tareas, notas y comunicados de tu institución educativa.</p>
+                    <div class="sys-card-tags flex flex-wrap gap-2"><span>Colegios</span><span>Academias</span><span>Universidades</span></div>
+                </div>
+            </div>
+            <div class="card-border-grad tilt-card reveal">
+                <div class="p-6 sm:p-7">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl" style="background:rgba(6,182,212,.15);color:#67e8f9"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3 class="text-lg font-bold text-white">Agente de Análisis</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Analiza tus ventas, inventarios y datos con IA, y te da resúmenes y recomendaciones claras cada semana.</p>
+                    <div class="sys-card-tags flex flex-wrap gap-2"><span>Ventas</span><span>Inventario</span><span>Insights</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center reveal">
+            <div class="glass rounded-2xl p-6 sm:p-8 max-w-3xl mx-auto border border-gray-800/50">
+                <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">¿Cuál agente necesita tu negocio?</h3>
+                <p class="text-gray-400 text-sm sm:text-base mb-6">Cuéntanos tu operación y te proponemos los agentes IA ideales, con Neura como el cerebro que los conecta.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-3">
+                    <a href="#contacto" class="px-7 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all btn-glow flex items-center justify-center gap-2">
+                        Cotizar mis agentes <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="https://wa.me/50258303182" target="_blank" rel="noopener" class="px-7 py-3.5 rounded-xl border border-green-500/40 hover:bg-green-500/10 text-green-400 font-semibold transition-all flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp"></i> Hablar con Neura
+                    </a>
                 </div>
             </div>
         </div>
@@ -973,6 +1121,7 @@
                 <ul class="space-y-2.5 text-sm">
                     <li><a href="#servicios" class="text-gray-500 hover:text-brand-400 transition-colors">Sistemas SaaS</a></li>
                     <li><a href="#automatizaciones" class="text-gray-500 hover:text-brand-400 transition-colors">Automatización con n8n</a></li>
+                    <li><a href="#agentes" class="text-gray-500 hover:text-brand-400 transition-colors">Agentes IA</a></li>
                     <li><a href="#neura" class="text-gray-500 hover:text-brand-400 transition-colors">Neura — Asistente IA</a></li>
                     <li><a href="#servicios" class="text-gray-500 hover:text-brand-400 transition-colors">Software a medida</a></li>
                     <li><a href="#contacto" class="text-gray-500 hover:text-brand-400 transition-colors">Asesoría técnica</a></li>

@@ -519,3 +519,92 @@ Desde una tarea simple hasta un flujo completo. Para negocios grandes y pequeÃ±o
 - **Tienda** â†’ stories mostrando el catÃ¡logo y carrito
 - **AppsScript** â†’ tips rÃ¡pidos de Sheets
 - **Clientes** â†’ testimonios y casos de Ã©xito
+
+
+---
+
+## 12. PUBLICACIONES PARA AGENTES IA (con Neura)
+
+### Post 1 — Lanzamiento de agentes IA
+``
+¿Imaginas un empleado que trabaje 24/7, nunca se enferme y no pida vacaciones? ??
+
+Ahora lo tienes con nuestros AGENTES IA:
+?? Agente de Atención ? responde por WhatsApp todo el día
+?? Agente de Ventas ? cotiza y da seguimiento automático
+?? Agente de Citas ? agenda y recuerda a tus pacientes
+?? Agente Administrativo ? ordena tu información
+?? Agente Educativo ? apoya a estudiantes y padres
+
+Un agente para cada tarea, todos conectados por Neura.
+
+?? +502 58303182
+
+#AgentesIA #InteligenciaArtificial #Neura #Automatización #Guatemala
+``
+
+### Post 2 — Agente de ventas (beneficio)
+``
+"Se me van clientes porque no alcanzo a responder." ??
+
+Nuestro AGENTE DE VENTAS resuelve eso:
+? Responde al instante, aunque duermas
+?? Califica quién está listo para comprar
+?? Envía cotizaciones automáticas
+?? Hace seguimiento sin olvidar a nadie
+
+Vende más sin contratar más personal.
+
+?? +502 58303182
+
+#AgenteDeVentas #IA #VentasAutomatizadas #WhatsAppBusiness #Guatemala
+``
+
+### Post 3 — Agente de citas (clínicas)
+``
+Tu recepcionista se fue, ¿y las citas? ??
+
+El AGENTE DE CITAS de Neura:
+? Agenda 24/7 desde WhatsApp
+? Confirma y recuerda automáticamente
+? Reduce inasistencias hasta 60%
+? Trabaja para clínicas y consultorios
+
+Tu agenda llena, sin teléfono ocupado.
+
+?? +502 58303182
+
+#AgenteDeCitas #CitasMédicas #IA #Clínicas #Guatemala
+``
+
+### Story/Carousel Agentes IA
+``
+Slide 1: 5 empleados que nunca descansan ??
+Slide 2: Atención + Ventas + Citas + Admin + Educación
+Slide 3: Todos conectados por Neura
+Slide 4: Cotiza tu agente ? link en bio
+``
+
+---
+
+## 13. NUEVOS DESTACADOS (Highlights) DE INSTAGRAM
+
+- **Agentes** ? stories de cada agente IA
+- **Neura** ? demo del chat
+- **IA** ? tips de inteligencia artificial para negocios
+
+---
+
+## 14. SECUENCIA DE VENTA PARA AGENTES IA (DM)
+
+``
+1er: "¡Hola [nombre]! Vi que tu negocio recibe muchos mensajes. 
+¿Te gustaría que una IA los respondiera por ti 24/7?"
+
+2do: Envía video demo del agente respondiendo en WhatsApp
+
+3ro: "Por [precio] al mes tendrías atención + ventas + citas 
+automáticas. ¿Quieres una demo gratis hoy?"
+
+4to: Agenda demo. Muestra el agente con datos reales de su negocio.
+``
