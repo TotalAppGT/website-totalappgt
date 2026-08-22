@@ -7,3 +7,10 @@ wmremove*.png
 *.exe
 *.lnk
 *.url
+
+# Build de Tailwind (el CSS compilado tailwind-compiled.css SÍ se sube)
+node_modules/
+package.json
+package-lock.json
+input.css
+tailwind.config.js

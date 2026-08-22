@@ -34,14 +34,15 @@
     <link rel="apple-touch-icon" href="logo.png">
 
     <!-- Performance -->
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="tailwind-compiled.css" as="style">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="tailwind-compiled.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
     <!-- Schema.org: Organización -->
     <script type="application/ld+json">
@@ -86,33 +87,6 @@
         "openingHours": "Mo-Fr 09:00-18:00",
         "areaServed": ["GT", "Latinoamérica"]
     }
-    </script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: {
-                        brand: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a' },
-                        dark: { 700:'#1e293b',800:'#111827',850:'#0f172a',900:'#0a0f1e' }
-                    },
-                    animation: {
-                        float:'float 6s ease-in-out infinite',
-                        floatSlow:'float 10s ease-in-out infinite',
-                        pulseGlow:'pulseGlow 3s ease-in-out infinite',
-                        shine:'shine 5s ease-in-out infinite',
-                        gridMove:'gridMove 20s linear infinite',
-                    },
-                    keyframes: {
-                        float:{'0%,100%':{transform:'translateY(0)'},'50%':{transform:'translateY(-20px)'}},
-                        pulseGlow:{'0%,100%':{boxShadow:'0 0 20px rgba(59,130,246,0.3)'},'50%':{boxShadow:'0 0 60px rgba(59,130,246,0.6)'}},
-                        shine:{'0%':{backgroundPosition:'200% center'},'100%':{backgroundPosition:'-200% center'}},
-                        gridMove:{'0%':{backgroundPosition:'0 0'},'100%':{backgroundPosition:'40px 40px'}}
-                    }
-                }
-            }
-        }
     </script>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -282,19 +256,6 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "CitasPro",
-        "applicationCategory": "MedicalApplication",
-        "operatingSystem": "Web",
-        "description": "Sistema de citas automatizadas para clínicas, consultorios y servicios. Agenda en línea, recordatorios por WhatsApp y plantilla multi-empresa.",
-        "url": "https://totalappgt.github.io/website-totalappgt/#citas",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GTQ" },
-        "publisher": { "@type": "Organization", "name": "Total App GT" }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
         "@type": "Service",
         "name": "Tienda en línea por comisión",
         "serviceType": "E-commerce Development",
@@ -337,7 +298,6 @@
                 <a href="#inicio" class="nav-link text-sm font-medium text-gray-300">Inicio</a>
                 <a href="#servicios" class="nav-link text-sm font-medium text-gray-300">Servicios</a>
                 <a href="#sistemas" class="nav-link text-sm font-medium text-gray-300">Sistemas SaaS</a>
-                <a href="#citas" class="nav-link text-sm font-medium text-gray-300">Citas</a>
                 <a href="#automatizaciones" class="nav-link text-sm font-medium text-gray-300">Automatización</a>
                 <a href="#agentes" class="nav-link text-sm font-medium text-gray-300">Agentes IA</a>
                 <a href="#neura" class="nav-link text-sm font-medium text-gray-300">Neura</a>
@@ -355,7 +315,6 @@
             <a href="#inicio" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Inicio</a>
             <a href="#servicios" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Servicios</a>
             <a href="#sistemas" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Sistemas SaaS</a>
-            <a href="#citas" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Citas</a>
             <a href="#automatizaciones" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Automatización</a>
             <a href="#agentes" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Agentes IA</a>
             <a href="#neura" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Neura</a>
@@ -484,7 +443,7 @@
         <span class="marquee-item"><i class="fa-solid fa-cloud text-blue-400"></i> Sistemas SaaS</span>
         <span class="marquee-item"><i class="fa-solid fa-brain text-purple-400"></i> Neura IA</span>
         <span class="marquee-item"><i class="fa-solid fa-robot text-pink-400"></i> Agentes Inteligentes</span>
-        <span class="marquee-item"><i class="fa-solid fa-calendar-check text-cyan-400"></i> CitasPro</span>
+        <span class="marquee-item"><i class="fa-solid fa-calendar-check text-cyan-400"></i> Automatización n8n</span>
         <span class="marquee-item"><i class="fa-solid fa-cart-shopping text-rose-400"></i> Tienda en línea</span>
         <span class="marquee-item"><i class="fa-brands fa-google text-yellow-400"></i> Apps Script</span>
         <span class="marquee-item"><i class="fa-solid fa-plug-circle-bolt text-green-400"></i> APIs</span>
@@ -493,7 +452,7 @@
         <span class="marquee-item"><i class="fa-solid fa-cloud text-blue-400"></i> Sistemas SaaS</span>
         <span class="marquee-item"><i class="fa-solid fa-brain text-purple-400"></i> Neura IA</span>
         <span class="marquee-item"><i class="fa-solid fa-robot text-pink-400"></i> Agentes Inteligentes</span>
-        <span class="marquee-item"><i class="fa-solid fa-calendar-check text-cyan-400"></i> CitasPro</span>
+        <span class="marquee-item"><i class="fa-solid fa-calendar-check text-cyan-400"></i> Automatización n8n</span>
         <span class="marquee-item"><i class="fa-solid fa-cart-shopping text-rose-400"></i> Tienda en línea</span>
         <span class="marquee-item"><i class="fa-brands fa-google text-yellow-400"></i> Apps Script</span>
         <span class="marquee-item"><i class="fa-solid fa-plug-circle-bolt text-green-400"></i> APIs</span>
@@ -605,7 +564,7 @@
                             <i class="fa-solid fa-brain"></i>
                         </div>
                         <div>
-                            <h4 class="text-white font-bold">Neura</h4>
+                            <p class="text-white font-bold">Neura</p>
                             <p class="text-gray-500 text-xs">Asistente IA · en línea</p>
                         </div>
                         <span class="ml-auto w-3 h-3 rounded-full bg-green-400 animate-pulse"></span>
@@ -842,27 +801,6 @@
                 </div>
             </div>
 
-            <!-- CitasPro -->
-            <div class="sys-card reveal">
-                <div class="relative p-6 sm:p-7 flex-1">
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="sys-icon-wrap" style="background:rgba(6,182,212,.15);color:#67e8f9"><i class="fa-solid fa-calendar-check"></i></div>
-                        <span class="ml-auto px-3 py-1 rounded-full text-[.65rem] font-bold uppercase tracking-wider" style="background:rgba(6,182,212,.15);color:#67e8f9;border:1px solid rgba(6,182,212,.25)">Citas</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">CitasPro</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Sistema de citas automatizadas para clínicas, consultorios y servicios. Agenda en línea, recordatorios por WhatsApp y una plantilla funcional para varias empresas.</p>
-                    <div class="sys-card-tags flex flex-wrap gap-2">
-                        <span>Agenda</span><span>WhatsApp</span><span>Recordatorios</span><span>Multi-empresa</span>
-                    </div>
-                </div>
-                <div class="px-6 pb-6">
-                    <a href="#contacto"
-                       class="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all btn-glow" style="background:rgba(6,182,212,.15);color:#67e8f9;border:1px solid rgba(6,182,212,.3)">
-                        Ver CitasPro <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
             <!-- Tienda en línea -->
             <div class="sys-card reveal">
                 <div class="relative p-6 sm:p-7 flex-1">
@@ -950,48 +888,6 @@
                 <h3 class="text-lg font-bold text-white mb-2">Sincronización de datos</h3>
                 <p class="text-gray-400 text-sm leading-relaxed">Tus sistemas y aplicaciones hablando entre sí: datos sincronizados sin errores humanos ni trabajo manual.</p>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- ======================= CITAS & CLÍNICAS ======================= -->
-<section id="citas" class="relative py-20 sm:py-28 overflow-hidden">
-    <div class="parallax-shape" style="width:350px;height:350px;background:#0891b2;top:15%;right:-120px;animation:float 8s ease-in-out infinite"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="text-center mb-14 sm:mb-20 reveal">
-            <span class="badge-soft mb-6"><i class="fa-solid fa-calendar-check"></i> Sistema de citas automatizadas</span>
-            <h2 class="text-3xl sm:text-5xl font-bold text-white mt-4 mb-4">CitasPro — Agenda inteligente para tu clínica o consultorio</h2>
-            <div class="gradient-bar"></div>
-            <p class="text-gray-400 max-w-3xl mx-auto mt-6 text-sm sm:text-base">Una plantilla funcional de citas que funciona para varias empresas. Médicos, dentistas, veterinarias, estéticas y más.</p>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 hover:border-cyan-400/30 transition-all duration-300 border border-gray-800/50 reveal">
-                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(6,182,212,.15);color:#67e8f9"><i class="fa-solid fa-globe"></i></div>
-                <h3 class="text-lg font-bold text-white mb-2">Agenda en línea</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Tus pacientes reservan su cita 24/7 desde cualquier dispositivo, sin llamadas ni esperas.</p>
-            </div>
-            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 hover:border-cyan-400/30 transition-all duration-300 border border-gray-800/50 reveal">
-                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(52,211,153,.15);color:#86efac"><i class="fa-solid fa-bell"></i></div>
-                <h3 class="text-lg font-bold text-white mb-2">Recordatorios WhatsApp</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Recordatorios automáticos de citas que reducen las inasistencias hasta un 60%.</p>
-            </div>
-            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 hover:border-cyan-400/30 transition-all duration-300 border border-gray-800/50 reveal">
-                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(251,191,36,.15);color:#fcd34d"><i class="fa-solid fa-building"></i></div>
-                <h3 class="text-lg font-bold text-white mb-2">Multi-empresa</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Una plantilla, varios negocios. Cada clínica con su propio panel, médicos, horarios y pacientes.</p>
-            </div>
-            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 hover:border-cyan-400/30 transition-all duration-300 border border-gray-800/50 reveal">
-                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5" style="background:rgba(244,63,94,.15);color:#fda4af"><i class="fa-solid fa-chart-line"></i></div>
-                <h3 class="text-lg font-bold text-white mb-2">Reportes e historial</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Historial de pacientes, ingresos por médico y métricas de tu agenda para tomar mejores decisiones.</p>
-            </div>
-        </div>
-
-        <div class="mt-10 text-center reveal">
-            <a href="#contacto" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-semibold transition-all btn-glow shadow-lg shadow-cyan-500/25">
-                Quiero CitasPro para mi negocio <i class="fa-solid fa-arrow-right"></i>
-            </a>
         </div>
     </div>
 </section>
@@ -1099,7 +995,7 @@
                 <p class="text-gray-300 text-sm leading-relaxed mb-5">"La automatización con n8n y Neura nos ahorra horas cada semana. Los recordatorios de citas redujeron las inasistencias de nuestros pacientes drásticamente."</p>
                 <div class="flex items-center gap-3">
                     <div class="w-11 h-11 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold">C</div>
-                    <div><p class="text-white text-sm font-semibold">Clínica Dental</p><p class="text-gray-500 text-xs">CitasPro + Neura</p></div>
+                    <div><p class="text-white text-sm font-semibold">Clínica Dental</p><p class="text-gray-500 text-xs">Agente de Citas + Neura</p></div>
                 </div>
             </div>
         </div>
@@ -1173,22 +1069,22 @@
             <div class="reveal space-y-4">
                 <a href="https://wa.me/50258303182" target="_blank" rel="noopener" class="glass rounded-xl p-5 sm:p-6 flex items-center group hover:border-green-500/40 transition-all border border-gray-800/50 block">
                     <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center text-green-400 mr-4 shrink-0 group-hover:bg-green-500 group-hover:text-white transition-all text-xl"><i class="fa-brands fa-whatsapp"></i></div>
-                    <div><h4 class="text-white font-semibold text-sm sm:text-base">WhatsApp</h4><p class="text-gray-400 text-sm mt-0.5">+502 58303182</p></div>
+                    <div><h3 class="text-white font-semibold text-sm sm:text-base">WhatsApp</h3><p class="text-gray-400 text-sm mt-0.5">+502 58303182</p></div>
                     <i class="fa-solid fa-arrow-right text-gray-600 ml-auto group-hover:text-green-400 transition-colors"></i>
                 </a>
                 <a href="mailto:totalappgt@gmail.com" class="glass rounded-xl p-5 sm:p-6 flex items-center group hover:border-brand-500/40 transition-all border border-gray-800/50 block">
                     <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 mr-4 shrink-0 group-hover:bg-brand-500 group-hover:text-white transition-all text-xl"><i class="fa-solid fa-envelope"></i></div>
-                    <div><h4 class="text-white font-semibold text-sm sm:text-base">Correo electrónico</h4><p class="text-gray-400 text-sm mt-0.5">totalappgt@gmail.com</p></div>
+                    <div><h3 class="text-white font-semibold text-sm sm:text-base">Correo electrónico</h3><p class="text-gray-400 text-sm mt-0.5">totalappgt@gmail.com</p></div>
                     <i class="fa-solid fa-arrow-right text-gray-600 ml-auto group-hover:text-brand-400 transition-colors"></i>
                 </a>
                 <a href="https://facebook.com/totalappgt" target="_blank" rel="noopener" class="glass rounded-xl p-5 sm:p-6 flex items-center group hover:border-[#1877F2]/50 transition-all border border-gray-800/50 block">
                     <div class="w-12 h-12 rounded-xl bg-[#1877F2]/10 flex items-center justify-center text-[#3b82f6] mr-4 shrink-0 group-hover:bg-[#1877F2] group-hover:text-white transition-all text-xl"><i class="fa-brands fa-facebook"></i></div>
-                    <div><h4 class="text-white font-semibold text-sm sm:text-base">Facebook</h4><p class="text-gray-400 text-sm mt-0.5">@totalappgt</p></div>
+                    <div><h3 class="text-white font-semibold text-sm sm:text-base">Facebook</h3><p class="text-gray-400 text-sm mt-0.5">@totalappgt</p></div>
                     <i class="fa-solid fa-arrow-right text-gray-600 ml-auto group-hover:text-[#1877F2] transition-colors"></i>
                 </a>
                 <div class="glass rounded-xl p-5 sm:p-6 flex items-center border border-gray-800/50">
                     <div class="w-12 h-12 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-500 mr-4 shrink-0 text-xl"><i class="fa-solid fa-location-dot"></i></div>
-                    <div><h4 class="text-white font-semibold text-sm sm:text-base">Ubicación</h4><p class="text-gray-400 text-sm mt-0.5">Guatemala, GT</p></div>
+                    <div><h3 class="text-white font-semibold text-sm sm:text-base">Ubicación</h3><p class="text-gray-400 text-sm mt-0.5">Guatemala, GT</p></div>
                 </div>
             </div>
 
@@ -1196,24 +1092,24 @@
                 <form id="contact-form" class="space-y-5">
                     <div class="grid sm:grid-cols-2 gap-5">
                         <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-1.5">Nombre completo</label>
+                            <label for="form-name" class="block text-sm font-medium text-gray-400 mb-1.5">Nombre completo</label>
                             <input type="text" id="form-name" required class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm" placeholder="Ej. Juan Pérez">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-400 mb-1.5">Empresa</label>
+                            <label for="form-company" class="block text-sm font-medium text-gray-400 mb-1.5">Empresa</label>
                             <input type="text" id="form-company" class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm" placeholder="Opcional">
                         </div>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-400 mb-1.5">Correo electrónico</label>
+                        <label for="form-email" class="block text-sm font-medium text-gray-400 mb-1.5">Correo electrónico</label>
                         <input type="email" id="form-email" required class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm" placeholder="tu@correo.com">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-400 mb-1.5">Teléfono / WhatsApp</label>
+                        <label for="form-phone" class="block text-sm font-medium text-gray-400 mb-1.5">Teléfono / WhatsApp</label>
                         <input type="tel" id="form-phone" class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm" placeholder="+502 5555 5555">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-400 mb-1.5">¿Qué necesitas?</label>
+                        <label for="form-service" class="block text-sm font-medium text-gray-400 mb-1.5">¿Qué necesitas?</label>
                         <select id="form-service" class="form-input w-full bg-dark-800/80 border border-gray-700 rounded-xl px-4 py-3 text-white text-sm">
                             <option value="">Selecciona una opción</option>
                             <option>Sistema SaaS a medida</option>
@@ -1243,31 +1139,30 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
                 <a href="#inicio" class="flex items-center gap-3 group mb-4">
-                    <img src="logo.png" alt="Total App GT" class="w-11 h-11 object-contain drop-shadow-[0_0_10px_rgba(59,130,246,0.4)] group-hover:scale-110 transition-all"
+                    <img src="logo.png" alt="Total App GT" loading="lazy" decoding="async" class="w-11 h-11 object-contain drop-shadow-[0_0_10px_rgba(59,130,246,0.4)] group-hover:scale-110 transition-all"
                          onerror="this.outerHTML='<div class=\'w-11 h-11 rounded-lg bg-gradient-to-br from-brand-500 to-blue-700 flex items-center justify-center shadow-lg shadow-brand-500/30\'><i class=\'fa-solid fa-code text-white text-lg\'></i></div>'">
                     <span class="font-bold text-xl text-white">Total App <span class="text-brand-500">GT</span></span>
                 </a>
                 <p class="text-gray-500 text-sm leading-relaxed">Sistemas SaaS, automatización inteligente con IA y software a medida para negocios de Guatemala y el mundo.</p>
                 <div class="flex space-x-3 mt-5">
-                    <a href="https://facebook.com/totalappgt" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1877F2] transition-all"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://wa.me/50258303182" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#25D366] transition-all"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="mailto:totalappgt@gmail.com" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-600 transition-all"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://facebook.com/totalappgt" target="_blank" rel="noopener" aria-label="Facebook de Total App GT" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1877F2] transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/50258303182" target="_blank" rel="noopener" aria-label="WhatsApp de Total App GT" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#25D366] transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:totalappgt@gmail.com" aria-label="Enviar correo a Total App GT" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-600 transition-all"><i class="fa-solid fa-envelope"></i></a>
                 </div>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Sistemas</h4>
+                <p class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Sistemas</p>
                 <ul class="space-y-2.5 text-sm">
                     <li><a href="https://redilrestauracion.totalappgt.online" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-400 transition-colors">REDIL</a></li>
                     <li><a href="https://licitrackgt.totalappgt.online" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-400 transition-colors">LicitrackGT</a></li>
                     <li><a href="https://contapro.totalappgt.online" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-400 transition-colors">ContaPro</a></li>
                     <li><a href="https://totalappgt.online" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-400 transition-colors">AulaPro</a></li>
                     <li><a href="https://invenpro.gt" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-400 transition-colors">InvenPro</a></li>
-                    <li><a href="#citas" class="text-gray-500 hover:text-brand-400 transition-colors">CitasPro</a></li>
                     <li><a href="#sistemas" class="text-gray-500 hover:text-brand-400 transition-colors">Tienda en línea</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Servicios</h4>
+                <p class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Servicios</p>
                 <ul class="space-y-2.5 text-sm">
                     <li><a href="#servicios" class="text-gray-500 hover:text-brand-400 transition-colors">Sistemas SaaS</a></li>
                     <li><a href="#automatizaciones" class="text-gray-500 hover:text-brand-400 transition-colors">Automatización con n8n</a></li>
@@ -1278,7 +1173,7 @@
                 </ul>
             </div>
             <div>
-                <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Legal</h4>
+                <p class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Legal</p>
                 <ul class="space-y-2.5 text-sm">
                     <li><a href="terminos.html" class="text-gray-500 hover:text-brand-400 transition-colors"><i class="fa-solid fa-scale-balanced mr-1"></i> Términos y Condiciones</a></li>
                     <li><a href="privacidad.html" class="text-gray-500 hover:text-brand-400 transition-colors"><i class="fa-solid fa-user-shield mr-1"></i> Política de Privacidad</a></li>
