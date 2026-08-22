@@ -188,6 +188,21 @@
 
         /* Floating decorative */
         .float-icon{position:absolute;opacity:.35;animation:float 6s ease-in-out infinite}
+        /* Cerebro animado SVG */
+        .brain-container{position:relative;width:100%;max-width:480px;margin:0 auto}
+        .brain-svg{width:100%;height:auto;filter:drop-shadow(0 0 40px rgba(99,102,241,.35))}
+        .neuron{animation:neuronPulse 2.5s ease-in-out infinite}
+        .neuron:nth-child(odd){animation-delay:.6s}
+        .neuron:nth-child(3n){animation-delay:1.2s}
+        @keyframes neuronPulse{0%,100%{opacity:.5;r:3}50%{opacity:1;r:5}}
+        .synapse{stroke-dasharray:6 8;animation:synapseFlow 3s linear infinite}
+        @keyframes synapseFlow{to{stroke-dashoffset:-28}}
+        .brain-glow{position:absolute;inset:15%;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.25),transparent 70%);filter:blur(30px);animation:brainGlow 4s ease-in-out infinite}
+        @keyframes brainGlow{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.9;transform:scale(1.08)}}
+        .orbit-ring{position:absolute;border:1px dashed rgba(99,102,241,.25);border-radius:50%;animation:orbitSpin 20s linear infinite}
+        @keyframes orbitSpin{to{transform:rotate(360deg)}}
+        .orbit-dot{position:absolute;width:8px;height:8px;border-radius:50%;top:-4px;left:50%;box-shadow:0 0 12px currentColor}
+
         .tilt-card{transition:transform .4s cubic-bezier(.23,1,.32,1)}
         .tilt-card:hover{transform:translateY(-6px) rotateX(3deg) rotateY(2deg)}
 
@@ -303,6 +318,7 @@
 <body>
 
 <canvas id="particles-canvas"></canvas>
+<div id="scroll-progress"></div>
 
 <a href="https://wa.me/50258303182" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
@@ -385,37 +401,72 @@
             </div>
 
             <div class="hidden lg:block reveal">
-                <div class="relative animate-float">
-                    <div class="absolute -inset-4 bg-gradient-to-r from-brand-500/20 to-purple-600/20 rounded-3xl blur-2xl"></div>
-                    <div class="relative glass rounded-3xl p-2 shadow-2xl">
-                        <div class="flex items-center gap-2 px-5 py-4 border-b border-gray-700/50">
-                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
-                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
-                            <span class="ml-3 text-gray-500 text-xs">totalappgt.online</span>
+                <div class="relative brain-container">
+                    <div class="brain-glow"></div>
+                    <div class="orbit-ring" style="width:110%;height:110%;top:-5%;left:-5%"><span class="orbit-dot" style="color:#8b5cf6;background:#8b5cf6"></span></div>
+                    <div class="orbit-ring" style="width:130%;height:130%;top:-15%;left:-15%;animation-duration:28s;animation-direction:reverse"><span class="orbit-dot" style="color:#22d3ee;background:#22d3ee"></span></div>
+                    <svg class="brain-svg" viewBox="0 0 400 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Cerebro de inteligencia artificial animado">
+                        <defs>
+                            <linearGradient id="brainGrad" x1="0" y1="0" x2="400" y2="360">
+                                <stop offset="0%" stop-color="#6366f1"/>
+                                <stop offset="50%" stop-color="#8b5cf6"/>
+                                <stop offset="100%" stop-color="#22d3ee"/>
+                            </linearGradient>
+                            <radialGradient id="coreGlow" cx="50%" cy="45%" r="60%">
+                                <stop offset="0%" stop-color="#8b5cf6" stop-opacity=".5"/>
+                                <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+                        <circle cx="200" cy="170" r="130" fill="url(#coreGlow)"/>
+                        <!-- Contorno del cerebro -->
+                        <path d="M200 60 C 150 60 120 90 115 120 C 95 125 85 150 90 175 C 80 195 85 225 105 240 C 110 265 135 280 160 278 C 175 290 205 290 220 278 C 250 282 275 265 280 240 C 300 228 308 200 300 178 C 308 155 300 128 282 120 C 278 90 250 60 200 60 Z"
+                              stroke="url(#brainGrad)" stroke-width="3" fill="rgba(99,102,241,.06)"/>
+                        <!-- Línea central del cerebro -->
+                        <path d="M200 60 C 198 120 198 220 200 278" stroke="url(#brainGrad)" stroke-width="2" opacity=".5"/>
+                        <!-- Sinapsis (conexiones animadas) -->
+                        <g class="synapse" stroke="#8b5cf6" stroke-width="1.5" opacity=".7">
+                            <line x1="150" y1="120" x2="200" y2="150"/>
+                            <line x1="200" y1="150" x2="255" y2="115"/>
+                            <line x1="200" y1="150" x2="160" y2="210"/>
+                            <line x1="200" y1="150" x2="250" y2="215"/>
+                            <line x1="150" y1="120" x2="160" y2="210"/>
+                            <line x1="255" y1="115" x2="250" y2="215"/>
+                            <line x1="160" y1="210" x2="200" y2="250"/>
+                            <line x1="250" y1="215" x2="200" y2="250"/>
+                            <line x1="120" y1="170" x2="150" y2="120"/>
+                            <line x1="285" y1="170" x2="255" y2="115"/>
+                        </g>
+                        <!-- Neuronas (puntos pulsantes) -->
+                        <g fill="#22d3ee">
+                            <circle class="neuron" cx="150" cy="120" r="4"/>
+                            <circle class="neuron" cx="255" cy="115" r="4"/>
+                            <circle class="neuron" cx="160" cy="210" r="4"/>
+                            <circle class="neuron" cx="250" cy="215" r="4"/>
+                            <circle class="neuron" cx="200" cy="250" r="4"/>
+                            <circle class="neuron" cx="120" cy="170" r="4"/>
+                            <circle class="neuron" cx="285" cy="170" r="4"/>
+                        </g>
+                        <circle class="neuron" cx="200" cy="150" r="6" fill="#8b5cf6"/>
+                        <!-- Etiquetas flotantes -->
+                        <g font-family="Inter, sans-serif" font-size="11" fill="#94a3b8">
+                            <text x="60" y="90">IA</text>
+                            <text x="320" y="100">n8n</text>
+                            <text x="55" y="270">SaaS</text>
+                            <text x="315" y="270">API</text>
+                        </g>
+                    </svg>
+                    <div class="mt-6 grid grid-cols-3 gap-3 text-center">
+                        <div class="glass rounded-xl py-3 border border-gray-700/30">
+                            <span class="text-2xl font-bold text-brand-400 counter-num" data-target="50">0</span>
+                            <p class="text-gray-500 text-[10px] uppercase tracking-wider mt-1">Proyectos</p>
                         </div>
-                        <div class="p-6">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="bg-dark-800/80 rounded-xl p-5 text-center border border-gray-700/30">
-                                    <span class="text-3xl font-bold text-brand-400 counter-num" data-target="50">0</span>
-                                    <p class="text-gray-500 text-xs uppercase tracking-wider mt-1 font-medium">Proyectos</p>
-                                </div>
-                                <div class="bg-dark-800/80 rounded-xl p-5 text-center border border-gray-700/30">
-                                    <span class="text-3xl font-bold text-brand-400 counter-num" data-target="8">0</span>
-                                    <p class="text-gray-500 text-xs uppercase tracking-wider mt-1 font-medium">SaaS Activos</p>
-                                </div>
-                            </div>
-                            <div class="mt-4 bg-dark-800/80 rounded-xl p-5 border border-gray-700/30">
-                                <div class="flex items-center justify-between mb-2">
-                                    <span class="text-gray-500 text-xs uppercase tracking-wider font-medium">Automatización IA</span>
-                                    <i class="fa-solid fa-brain text-purple-400"></i>
-                                </div>
-                                <div class="space-y-2">
-                                    <div class="w-full bg-dark-900 rounded-full h-2"><div class="bg-gradient-to-r from-brand-500 to-purple-500 rounded-full h-2" style="width:90%"></div></div>
-                                    <div class="w-full bg-dark-900 rounded-full h-2"><div class="bg-gradient-to-r from-brand-500 to-purple-500 rounded-full h-2" style="width:75%"></div></div>
-                                    <div class="w-full bg-dark-900 rounded-full h-2"><div class="bg-gradient-to-r from-brand-500 to-purple-500 rounded-full h-2" style="width:85%"></div></div>
-                                </div>
-                            </div>
+                        <div class="glass rounded-xl py-3 border border-gray-700/30">
+                            <span class="text-2xl font-bold text-purple-400 counter-num" data-target="9">0</span>
+                            <p class="text-gray-500 text-[10px] uppercase tracking-wider mt-1">Agentes IA</p>
+                        </div>
+                        <div class="glass rounded-xl py-3 border border-gray-700/30">
+                            <span class="text-2xl font-bold text-cyan-400 counter-num" data-target="8">0</span>
+                            <p class="text-gray-500 text-[10px] uppercase tracking-wider mt-1">SaaS Activos</p>
                         </div>
                     </div>
                 </div>
@@ -426,6 +477,29 @@
         <i class="fa-solid fa-chevron-down text-gray-600 text-xl"></i>
     </div>
 </section>
+
+<!-- ======================= MARQUEE ======================= -->
+<div class="marquee relative z-10" aria-hidden="true">
+    <div class="marquee-track">
+        <span class="marquee-item"><i class="fa-solid fa-cloud text-blue-400"></i> Sistemas SaaS</span>
+        <span class="marquee-item"><i class="fa-solid fa-brain text-purple-400"></i> Neura IA</span>
+        <span class="marquee-item"><i class="fa-solid fa-robot text-pink-400"></i> Agentes Inteligentes</span>
+        <span class="marquee-item"><i class="fa-solid fa-calendar-check text-cyan-400"></i> CitasPro</span>
+        <span class="marquee-item"><i class="fa-solid fa-cart-shopping text-rose-400"></i> Tienda en línea</span>
+        <span class="marquee-item"><i class="fa-brands fa-google text-yellow-400"></i> Apps Script</span>
+        <span class="marquee-item"><i class="fa-solid fa-plug-circle-bolt text-green-400"></i> APIs</span>
+        <span class="marquee-item"><i class="fa-solid fa-file-contract text-orange-400"></i> LicitrackGT</span>
+        <!-- Duplicado para loop continuo -->
+        <span class="marquee-item"><i class="fa-solid fa-cloud text-blue-400"></i> Sistemas SaaS</span>
+        <span class="marquee-item"><i class="fa-solid fa-brain text-purple-400"></i> Neura IA</span>
+        <span class="marquee-item"><i class="fa-solid fa-robot text-pink-400"></i> Agentes Inteligentes</span>
+        <span class="marquee-item"><i class="fa-solid fa-calendar-check text-cyan-400"></i> CitasPro</span>
+        <span class="marquee-item"><i class="fa-solid fa-cart-shopping text-rose-400"></i> Tienda en línea</span>
+        <span class="marquee-item"><i class="fa-brands fa-google text-yellow-400"></i> Apps Script</span>
+        <span class="marquee-item"><i class="fa-solid fa-plug-circle-bolt text-green-400"></i> APIs</span>
+        <span class="marquee-item"><i class="fa-solid fa-file-contract text-orange-400"></i> LicitrackGT</span>
+    </div>
+</div>
 
 <!-- ======================= SERVICIOS ======================= -->
 <section id="servicios" class="relative py-20 sm:py-28 overflow-hidden">
@@ -956,6 +1030,82 @@
     </div>
 </section>
 
+<!-- ======================= PROCESO DE TRABAJO ======================= -->
+<section id="proceso" class="relative py-20 sm:py-28 overflow-hidden">
+    <div class="parallax-shape" style="width:350px;height:350px;background:#8b5cf6;top:20%;right:-120px;animation:float 9s ease-in-out infinite"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-14 sm:mb-20 reveal">
+            <span class="badge-soft mb-6"><i class="fa-solid fa-route"></i> Cómo trabajamos</span>
+            <h2 class="text-3xl sm:text-5xl font-bold text-white mt-4 mb-4">De la idea al sistema en <span class="gradient-text-multi">4 pasos</span></h2>
+            <div class="gradient-bar"></div>
+            <p class="text-gray-400 max-w-2xl mx-auto mt-6 text-sm sm:text-base">Un proceso claro y transparente para que tu proyecto avance sin sorpresas.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 hover:border-blue-400/40 transition-all duration-300 border border-gray-800/50 reveal relative">
+                <div class="step-number mb-5">1</div>
+                <h3 class="text-lg font-bold text-white mb-2">Descubrimiento</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Escuchamos tu idea, entendemos tu negocio y definimos juntos el alcance del proyecto.</p>
+                <div class="absolute top-6 right-6 text-blue-400/30 text-4xl"><i class="fa-solid fa-magnifying-glass"></i></div>
+            </div>
+            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 hover:border-purple-400/40 transition-all duration-300 border border-gray-800/50 reveal relative">
+                <div class="step-number mb-5" style="background:linear-gradient(135deg,#8b5cf6,#6d28d9)">2</div>
+                <h3 class="text-lg font-bold text-white mb-2">Diseño y propuesta</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Diseñamos la solución, te presentamos la propuesta y el plan de trabajo con tiempos claros.</p>
+                <div class="absolute top-6 right-6 text-purple-400/30 text-4xl"><i class="fa-solid fa-pen-ruler"></i></div>
+            </div>
+            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 hover:border-cyan-400/40 transition-all duration-300 border border-gray-800/50 reveal relative">
+                <div class="step-number mb-5" style="background:linear-gradient(135deg,#06b6d4,#0891b2)">3</div>
+                <h3 class="text-lg font-bold text-white mb-2">Desarrollo</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Construimos tu sistema o automatización con entregas incrementales y comunicación constante.</p>
+                <div class="absolute top-6 right-6 text-cyan-400/30 text-4xl"><i class="fa-solid fa-code"></i></div>
+            </div>
+            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 hover:border-green-400/40 transition-all duration-300 border border-gray-800/50 reveal relative">
+                <div class="step-number mb-5" style="background:linear-gradient(135deg,#10b981,#059669)">4</div>
+                <h3 class="text-lg font-bold text-white mb-2">Lanzamiento y soporte</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Desplegamos tu solución, te capacitamos y te acompañamos con soporte continuo.</p>
+                <div class="absolute top-6 right-6 text-green-400/30 text-4xl"><i class="fa-solid fa-rocket"></i></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================= TESTIMONIOS ======================= -->
+<section id="testimonios" class="relative py-20 sm:py-28 bg-dark-800/40 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-14 sm:mb-20 reveal">
+            <span class="badge-soft mb-6"><i class="fa-solid fa-quote-left"></i> Testimonios</span>
+            <h2 class="text-3xl sm:text-5xl font-bold text-white mt-4 mb-4">Lo que dicen <span class="gradient-text">nuestros clientes</span></h2>
+            <div class="gradient-bar"></div>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 transition-all duration-300 border border-gray-800/50 reveal">
+                <div class="flex text-yellow-400 mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-gray-300 text-sm leading-relaxed mb-5">"Con el sistema de inventarios de Total App GT dejamos de perder mercadería. Ahora sabemos exactamente qué tenemos en cada bodega. El soporte es rápido y siempre resuelven."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">F</div>
+                    <div><p class="text-white text-sm font-semibold">Ferretería La Torre</p><p class="text-gray-500 text-xs">Inventarios y POS</p></div>
+                </div>
+            </div>
+            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 transition-all duration-300 border border-gray-800/50 reveal">
+                <div class="flex text-yellow-400 mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-gray-300 text-sm leading-relaxed mb-5">"REDIL transformó la administración de nuestra iglesia. Los reportes de ofrendas y el seguimiento de miembros ahora son automáticos. Muy profesionales."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white font-bold">I</div>
+                    <div><p class="text-white text-sm font-semibold">Iglesia Restauración</p><p class="text-gray-500 text-xs">Sistema REDIL</p></div>
+                </div>
+            </div>
+            <div class="glass rounded-2xl p-6 sm:p-7 hover:-translate-y-2 transition-all duration-300 border border-gray-800/50 reveal">
+                <div class="flex text-yellow-400 mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-gray-300 text-sm leading-relaxed mb-5">"La automatización con n8n y Neura nos ahorra horas cada semana. Los recordatorios de citas redujeron las inasistencias de nuestros pacientes drásticamente."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold">C</div>
+                    <div><p class="text-white text-sm font-semibold">Clínica Dental</p><p class="text-gray-500 text-xs">CitasPro + Neura</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ======================= ESTADÍSTICAS ======================= -->
 <section class="relative py-16 border-y border-gray-800/50 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1175,7 +1325,13 @@
 
     // ===== NAVBAR =====
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', ()=> navbar.classList.toggle('nav-scrolled', window.scrollY>50));
+    const scrollProgress = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', ()=>{
+        navbar.classList.toggle('nav-scrolled', window.scrollY>50);
+        const h = document.documentElement;
+        const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+        scrollProgress.style.width = pct + '%';
+    });
 
     // ===== MOBILE MENU =====
     const menuBtn = document.getElementById('mobile-menu-btn');
@@ -1210,8 +1366,14 @@
     }
 
     // ===== REVEAL =====
+    // Stagger: asigna delay progresivo a elementos reveal que comparten padre
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach((el)=>{
+        const sibs = Array.from(el.parentElement.children).filter(c=>c.classList.contains('reveal')||c.classList.contains('reveal-left')||c.classList.contains('reveal-right')||c.classList.contains('reveal-scale'));
+        const idx = sibs.indexOf(el);
+        if(idx>0) el.style.transitionDelay = (idx*0.12)+'s';
+    });
     const revealObserver = new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('active'); }); },{threshold:0.1});
-    document.querySelectorAll('.reveal').forEach(el=> revealObserver.observe(el));
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el=> revealObserver.observe(el));
 
     // ===== COUNTERS =====
     let countersAnimated = false;
