@@ -9,4 +9,4 @@ Disallow: /.git/
 Disallow: /node_modules/
 
 # Sitemap
-Sitemap: https://totalappgt.github.io/website-totalappgt/sitemap.xml
+Sitemap: https://totalappgt.online/sitemap.xml
