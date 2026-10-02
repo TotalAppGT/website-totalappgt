@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>InvenPro | Inventarios - Total App GT</title>
+    <meta name="description" content="Consultoría de procesos y operaciones (5S, inventarios, logística, controles) + sistemas SaaS a medida en Guatemala. Ordenamos tu operación y la digitalizamos. Daniel Martínez, consultor.">
+    <meta name="keywords" content="consultoría empresarial Guatemala, consultor de procesos, metodología 5S, gestión de inventarios, levantamiento de procesos, controles operativos, controles administrativos, logística Guatemala, seguridad industrial, seguimiento de gestión, soluciones en Excel, automatización con IA, n8n, Neura, sistemas SaaS, software a medida, agentes IA, Google Apps Script, Python, ERP, CRM, Daniel Martínez Total App GT">
+    <meta name="author" content="Total App GT">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="language" content="Spanish">
+    <meta name="geo.region" content="GT">
+    <meta name="geo.placename" content="Guatemala">
+    <meta name="theme-color" content="#0a0f1e">
+    <link rel="canonical" href="https://totalappgt.com/invenpro.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_GT">
+    <meta property="og:site_name" content="Total App GT">
+    <meta property="og:title" content="InvenPro | Inventarios - Total App GT">
+    <meta property="og:description" content="Ordenamos tu operación y la digitalizamos: consultoría en procesos, inventarios y controles, más sistemas SaaS a medida para empresas en Guatemala.">
+    <meta property="og:url" content="https://totalappgt.com/invenpro.html">
+    <meta property="og:image" content="https://totalappgt.com/logo.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Total App GT | Consultoría de Procesos y Sistemas SaaS">
+    <meta name="twitter:description" content="Consultoría en procesos, inventarios y controles + sistemas SaaS a medida en Guatemala.">
+    <meta name="twitter:image" content="https://totalappgt.com/logo.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <!-- Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="tailwind-compiled.css" as="style">
+
+    <link rel="stylesheet" href="tailwind-compiled.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <!-- Schema.org: Organización -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Total App GT",
+        "url": "https://totalappgt.com/",
+        "logo": "https://totalappgt.com/logo.png",
+        "description": "Consultoría de procesos y operaciones (5S, inventarios, logística, controles) y desarrollo de sistemas SaaS a medida en Guatemala. Ordenamos y digitalizamos empresas.",
+        "email": "totalappgt@gmail.com",
+        "telephone": "+50258303182",
+        "address": { "@type": "PostalAddress", "addressLocality": "Guatemala", "addressCountry": "GT" },
+        "sameAs": [ "https://facebook.com/totalappgt" ]
+    }
+    </script>
+
+    <!-- Schema.org: WebSite -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Total App GT",
+        "url": "https://totalappgt.com/",
+        "inLanguage": "es",
+        "publisher": { "@type": "Organization", "name": "Total App GT" }
+    }
+    </script>
+
+    <!-- Schema.org: LocalBusiness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Total App GT",
+        "description": "Consultoría de procesos y operaciones + desarrollo de sistemas SaaS y automatización en Guatemala.",
+        "url": "https://totalappgt.com/",
+        "telephone": "+50258303182",
+        "email": "totalappgt@gmail.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Guatemala", "addressCountry": "GT" },
+        "priceRange": "$$",
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "areaServed": ["GT", "Latinoamérica"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Consultoría Empresarial en Procesos y Operaciones",
+        "serviceType": "Business Consulting",
+        "description": "Consultoría en inventarios, metodología 5S, levantamiento de procesos, controles operativos y administrativos, logística, seguridad industrial, seguimiento de gestión y soluciones en Excel.",
+        "provider": {
+            "@type": "Person",
+            "name": "Daniel Martínez",
+            "jobTitle": "Consultor en procesos y operaciones",
+            "worksFor": { "@type": "Organization", "name": "Total App GT" },
+            "telephone": "+50258303182",
+            "email": "totalappgt@gmail.com"
+        },
+        "areaServed": ["GT", "Latinoamérica"]
+    }
+    </script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',sans-serif;background:#0a0f1e;overflow-x:hidden;color:#e5e7eb}
+        ::selection{background:#3b82f6;color:#fff}
+        #particles-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+        /* Scroll progress bar */
+        #scroll-progress{position:fixed;top:0;left:0;height:4px;width:0;z-index:9999;background:linear-gradient(90deg,#f43f5e,#f59e0b,#10b981,#3b82f6,#8b5cf6,#ec4899);background-size:400% 400%;animation:gradientShift 6s ease infinite;transition:width .1s}
+        @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+        .glass{background:rgba(17,24,39,.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(59,130,246,.1)}
+        .reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.23,1,.32,1)}
+        .reveal.active{opacity:1;transform:translateY(0)}
+        .reveal-left{opacity:0;transform:translateX(-60px);transition:all .9s cubic-bezier(.23,1,.32,1)}
+        .reveal-left.active{opacity:1;transform:translateX(0)}
+        .reveal-right{opacity:0;transform:translateX(60px);transition:all .9s cubic-bezier(.23,1,.32,1)}
+        .reveal-right.active{opacity:1;transform:translateX(0)}
+        .reveal-scale{opacity:0;transform:scale(.85);transition:all .8s cubic-bezier(.23,1,.32,1)}
+        .reveal-scale.active{opacity:1;transform:scale(1)}
+
+        .gradient-text{background:linear-gradient(135deg,#93c5fd,#3b82f6,#1d4ed8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .gradient-text-warm{background:linear-gradient(135deg,#f43f5e,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .gradient-text-multi{background:linear-gradient(90deg,#f43f5e,#f59e0b,#10b981,#3b82f6,#8b5cf6,#ec4899,#f43f5e);background-size:300% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradientShift 8s linear infinite}
+        .gradient-animate{background:linear-gradient(90deg,#60a5fa,#2563eb,#60a5fa,#3b82f6);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shine 6s linear infinite}
+
+        .btn-glow{position:relative;overflow:hidden}
+        .btn-glow::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(59,130,246,.35) 0%,transparent 70%);opacity:0;transition:opacity .4s}
+        .btn-glow:hover::after{opacity:1}
+
+        .whatsapp-btn{position:fixed;bottom:24px;right:24px;z-index:999;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;animation:pulse 2s infinite}
+        .whatsapp-btn:hover{transform:scale(1.1) rotate(10deg);box-shadow:0 8px 30px rgba(37,211,102,.6)}
+        .nav-scrolled{background:rgba(10,15,30,.96)!important;border-bottom-color:rgba(59,130,246,.25)!important;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+        .gradient-bar{width:80px;height:4px;background:linear-gradient(90deg,#f43f5e,#f59e0b,#3b82f6,#8b5cf6);border-radius:2px;margin:0 auto}
+        .parallax-shape{position:absolute;border-radius:50%;filter:blur(90px);opacity:.18;pointer-events:none}
+        .grid-bg{background-image:linear-gradient(rgba(59,130,246,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.05) 1px,transparent 1px);background-size:40px 40px;animation:gridMove 20s linear infinite}
+        .form-input:focus{box-shadow:0 0 0 3px rgba(59,130,246,.2);outline:none}
+
+        /* Marquee ticker */
+        .marquee{overflow:hidden;white-space:nowrap;position:relative;background:linear-gradient(90deg,#111827,#0f172a);border-top:1px solid rgba(59,130,246,.15);border-bottom:1px solid rgba(59,130,246,.15)}
+        .marquee-track{display:inline-block;white-space:nowrap;animation:marqueeMove 30s linear infinite}
+        .marquee:hover .marquee-track{animation-play-state:paused}
+        .marquee-item{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 2.5rem;font-size:1rem;font-weight:600;color:#e5e7eb}
+        .marquee-item i{font-size:1.1rem}
+        @keyframes marqueeMove{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+        /* Borde gradiente animado en cards */
+        .card-border-grad{position:relative;border-radius:1.5rem;padding:2px;background:linear-gradient(135deg,#f43f5e,#f59e0b,#10b981,#3b82f6,#8b5cf6,#f43f5e);background-size:300% 300%;animation:gradientShift 8s ease infinite}
+        .card-border-grad>div{border-radius:calc(1.5rem - 2px);background:#0f172a}
+
+        .sys-card{position:relative;border-radius:1.25rem;overflow:hidden;background:rgba(17,24,39,.6);backdrop-filter:blur(20px);border:1px solid rgba(59,130,246,.08);transition:all .5s cubic-bezier(.23,1,.32,1);display:flex;flex-direction:column}
+        .sys-card:hover{transform:translateY(-8px);border-color:rgba(59,130,246,.35);box-shadow:0 25px 60px -15px rgba(59,130,246,.25)}
+        .sys-card .sys-icon-wrap{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:all .4s;flex-shrink:0}
+        .sys-card:hover .sys-icon-wrap{transform:scale(1.1) rotate(-5deg)}
+        .sys-card-tags span{padding:3px 10px;border-radius:999px;font-size:.65rem;font-weight:500;background:rgba(255,255,255,.06);color:#6b7280;border:1px solid rgba(255,255,255,.06)}
+
+        .badge-soft{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1.25rem;border-radius:999px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);color:#93c5fd;font-size:.85rem;font-weight:500}
+        .nav-link{position:relative;transition:color .3s}
+        .nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:linear-gradient(90deg,#f43f5e,#3b82f6,#8b5cf6);transition:width .3s;border-radius:2px}
+        .nav-link:hover::after{width:100%}
+        .nav-link:hover{color:#fff}
+        .step-number{width:64px;height:64px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff;box-shadow:0 10px 30px rgba(59,130,246,.3);flex-shrink:0}
+        .feature-check{display:flex;align-items:flex-start;gap:.75rem;padding:.9rem 1.1rem;border-radius:14px;background:rgba(17,24,39,.5);border:1px solid rgba(255,255,255,.05);transition:all .3s}
+        .feature-check:hover{border-color:rgba(59,130,246,.3);transform:translateX(6px)}
+        .feature-check i{color:#3b82f6;margin-top:.15rem;flex-shrink:0}
+        .neura-glow{position:relative}
+        .neura-glow::before{content:'';position:absolute;inset:-2px;border-radius:inherit;background:linear-gradient(135deg,#8b5cf6,#3b82f6,#06b6d4,#8b5cf6);background-size:300% 300%;animation:gridMove 6s ease infinite;z-index:-1}
+        @keyframes gridMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+        /* CTA flotante lateral */
+        .side-cta{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:998;writing-mode:vertical-rl;padding:1rem .6rem;border-radius:0 12px 12px 0;background:linear-gradient(135deg,#3b82f6,#8b5cf6);color:#fff;font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;box-shadow:0 10px 30px rgba(59,130,246,.3);transition:all .3s}
+        .side-cta:hover{padding-left:1rem;background:linear-gradient(135deg,#2563eb,#7c3aed)}
+        .side-cta a{color:#fff;text-decoration:none}
+
+        /* Floating decorative */
+        .float-icon{position:absolute;opacity:.35;animation:float 6s ease-in-out infinite}
+        /* Cerebro animado SVG */
+        .brain-container{position:relative;width:100%;max-width:480px;margin:0 auto}
+        .brain-svg{width:100%;height:auto;filter:drop-shadow(0 0 40px rgba(99,102,241,.35))}
+        .neuron{animation:neuronPulse 2.5s ease-in-out infinite}
+        .neuron:nth-child(odd){animation-delay:.6s}
+        .neuron:nth-child(3n){animation-delay:1.2s}
+        @keyframes neuronPulse{0%,100%{opacity:.5;r:3}50%{opacity:1;r:5}}
+        .synapse{stroke-dasharray:6 8;animation:synapseFlow 3s linear infinite}
+        @keyframes synapseFlow{to{stroke-dashoffset:-28}}
+        .brain-glow{position:absolute;inset:15%;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.25),transparent 70%);filter:blur(30px);animation:brainGlow 4s ease-in-out infinite}
+        @keyframes brainGlow{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.9;transform:scale(1.08)}}
+        .orbit-ring{position:absolute;border:1px dashed rgba(99,102,241,.25);border-radius:50%;animation:orbitSpin 20s linear infinite}
+        @keyframes orbitSpin{to{transform:rotate(360deg)}}
+        .orbit-dot{position:absolute;width:8px;height:8px;border-radius:50%;top:-4px;left:50%;box-shadow:0 0 12px currentColor}
+
+        .tilt-card{transition:transform .4s cubic-bezier(.23,1,.32,1)}
+        .tilt-card:hover{transform:translateY(-6px) rotateX(3deg) rotateY(2deg)}
+
+        @media (max-width:640px){
+            .whatsapp-btn{width:50px;height:50px;font-size:24px;bottom:16px;right:16px}
+            h1{font-size:2.4rem!important}
+            .side-cta{display:none}
+        }
+    </style>
+
+    <!-- Schema.org: Software Applications -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Redil",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Sistema SaaS para administración de iglesias: miembros, ofrendas, diezmos, reportes digitales y seguimiento.",
+        "url": "https://redil.totalappgt.com",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GTQ" },
+        "publisher": { "@type": "Organization", "name": "Total App GT" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "LicitrackGT",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Extractor y gestor automatizado de licitaciones del gobierno de Guatemala (Guatecompras OCDS) con dashboard y alertas.",
+        "url": "https://licitrackgt.totalappgt.com",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GTQ" },
+        "publisher": { "@type": "Organization", "name": "Total App GT" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ContaPro",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "description": "ERP contable con facturación electrónica FEL, integración SAT, flujo de caja y multi-empresa.",
+        "url": "https://contapro.totalappgt.com",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GTQ" },
+        "publisher": { "@type": "Organization", "name": "Total App GT" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "AulaPro",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web",
+        "description": "Plataforma educativa integral: estudiantes, asistencias, calificaciones, docentes y reportes académicos.",
+        "url": "https://totalappgt.online",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GTQ" },
+        "publisher": { "@type": "Organization", "name": "Total App GT" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "InvenPro",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Gestión completa de inventarios y bodegas: productos, movimientos, roles y reportes en tiempo real.",
+        "url": "https://invenpro.totalappgt.com",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GTQ" },
+        "publisher": { "@type": "Organization", "name": "Total App GT" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Tienda en línea por comisión",
+        "serviceType": "E-commerce Development",
+        "description": "Creamos tiendas en línea con catálogo, carrito, pagos y envíos. Uso público por comisión para vender tus productos.",
+        "areaServed": "Latinoamérica",
+        "provider": { "@type": "Organization", "name": "Total App GT" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Agentes de Inteligencia Artificial con Neura",
+        "serviceType": "AI Automation",
+        "description": "Agentes IA con Neura que atienden clientes, venden, agendan citas y automatizan procesos vía WhatsApp e Instagram para negocios.",
+        "provider": { "@type": "Organization", "name": "Total App GT" },
+        "areaServed": ["GT", "Latinoamérica"]
+    }
+    </script>
+</head>
+<body>
+
+<canvas id="particles-canvas"></canvas>
+<div id="scroll-progress"></div>
+
+<a href="https://wa.me/50258303182" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- ======================= NAVBAR ======================= -->
+<nav id="navbar" class="fixed w-full z-50 bg-dark-900/80 backdrop-blur-xl border-b border-gray-800/50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <a href="#inicio" class="flex items-center gap-3 group shrink-0">
+                <img src="logo.png" alt="Total App GT" class="w-12 h-12 object-contain drop-shadow-[0_0_14px_rgba(59,130,246,0.6)] group-hover:scale-110 transition-all"
+                     onerror="this.outerHTML='<div class=\'w-12 h-12 rounded-xl bg-gradient-to-br from-brand-500 to-blue-700 flex items-center justify-center shadow-lg shadow-brand-500/30\'><i class=\'fa-solid fa-code text-white text-2xl\'></i></div>'">
+                <span class="font-bold text-xl sm:text-2xl tracking-tight text-white whitespace-nowrap">Total App <span class="text-brand-500">GT</span></span>
+            </a>
+            <div class="hidden lg:flex items-center space-x-5">
+                <a href="#inicio" class="nav-link text-sm font-medium text-gray-300">Inicio</a>
+                <a href="#consultoria" class="nav-link text-sm font-semibold text-sky-400">Consultoría</a>
+                <a href="#nominapro" class="nav-link text-sm font-semibold text-emerald-400">NominaPro</a>
+                <a href="#versiones" class="nav-link text-sm font-medium text-gray-300">Versiones</a>
+                <a href="index.html#servicios" class="nav-link text-sm font-medium text-gray-300">Servicios</a>
+                <a href="#sistemas" class="nav-link text-sm font-medium text-gray-300">Sistemas</a>
+                <a href="#automatizaciones" class="nav-link text-sm font-medium text-gray-300">Automatización</a>
+                <a href="#agentes" class="nav-link text-sm font-medium text-gray-300">Agentes IA</a>
+                <a href="#contacto" class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-all shadow-lg shadow-brand-500/30 btn-glow">
+                    Agendar consultoría <i class="fa-solid fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+            <button id="mobile-menu-btn" class="lg:hidden text-gray-300 hover:text-white p-2" aria-label="Menu">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden bg-dark-800/95 backdrop-blur-xl border-b border-gray-700">
+        <div class="px-4 pt-2 pb-6 space-y-2">
+            <a href="#inicio" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Inicio</a>
+            <a href="#consultoria" class="block px-3 py-2 text-base font-semibold text-sky-400 hover:text-white hover:bg-gray-800 rounded-md">Consultoría</a>
+            <a href="#nominapro" class="block px-3 py-2 text-base font-semibold text-emerald-400 hover:text-white hover:bg-gray-800 rounded-md">NominaPro</a>
+            <a href="#versiones" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Versiones</a>
+            <a href="index.html#servicios" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Servicios</a>
+            <a href="#sistemas" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Sistemas SaaS</a>
+            <a href="#automatizaciones" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Automatización</a>
+            <a href="#agentes" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Agentes IA</a>
+            <a href="#contacto" class="block px-3 py-2 mt-4 text-center rounded-md bg-brand-600 text-white font-medium">Agendar consultoría</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ======================= HERO ======================= -->
+        <!-- ======================= INVENPRO ======================= -->
+        <section id="detalle" class="relative pt-32 pb-16 sm:pt-40 sm:pb-20 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+                <span class="badge-soft mb-6"><i class="fa-solid fa-cube"></i> Inventarios</span>
+                <h1 class="text-4xl sm:text-6xl font-black text-white leading-tight mb-6">Control total de tu <span class='gradient-text-multi'>inventario y bodegas</span></h1>
+                <p class="text-gray-400 max-w-3xl mx-auto text-base sm:text-lg mb-9">Gestiona productos, movimientos y existencias en tiempo real. Sabes exactamente quÃ© tienes, dÃ³nde y cuÃ¡nto vale.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://invenpro.totalappgt.com" target="_blank" rel="noopener" class="px-8 py-4 rounded-xl bg-gradient-to-r from-sky-600 to-purple-600 hover:from-sky-500 hover:to-purple-500 text-white font-semibold transition-all shadow-lg shadow-sky-500/25 btn-glow">Acceder a InvenPro</a>
+                    <a href="https://wa.me/50258303182?text=Quiero%20una%20demo%20de%20InvenPro" target="_blank" rel="noopener" class="px-8 py-4 rounded-xl border border-gray-600 hover:border-sky-400 text-white font-semibold transition-all">Pedir demo</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative py-16 sm:py-20 overflow-hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                <h2 class="text-2xl sm:text-4xl font-bold text-white text-center mb-10">Todo lo que incluye InvenPro</h2>
+                <div class="glass rounded-3xl p-8 sm:p-10 border border-gray-800/50 reveal">
+                    <ul class="grid sm:grid-cols-2 gap-4 text-sm">
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-400 mt-2"></i><span class="text-gray-300">Productos, categorÃ­as y cÃ³digos de barra</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-400 mt-2"></i><span class="text-gray-300">Entradas, salidas y transferencias</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-400 mt-2"></i><span class="text-gray-300">Multi-bodega y ubicaciones</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-400 mt-2"></i><span class="text-gray-300">NÃºmeros de serie y lotes</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-400 mt-2"></i><span class="text-gray-300">Listas de precio y proveedores</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-400 mt-2"></i><span class="text-gray-300">Reportes e inventario fÃ­sico</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-400 mt-2"></i><span class="text-gray-300">Usuarios, roles y permisos</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-emerald-400 mt-2"></i><span class="text-gray-300">Alertas de stock mÃ­nimo</span></li>
+                    </ul>
+                </div>
+                <div class="mt-10 text-center">
+                    <a href="https://wa.me/50258303182?text=Quiero%20informacion%20de%20InvenPro" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all btn-glow">Cotizar InvenPro <i class="fa-solid fa-arrow-right"></i></a>
+                    <p class="text-gray-500 text-xs mt-4">Incluye dominio, hosting, SSL, respaldos y soporte. InstalaciÃ³n y capacitaciÃ³n incluidas.</p>
+                </div>
+            </div>
+        </section>
+<footer class="bg-dark-900 border-t border-gray-800/50 py-10 sm:py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div>
+                <a href="#inicio" class="flex items-center gap-3 group mb-4">
+                    <img src="logo.png" alt="Total App GT" loading="lazy" decoding="async" class="w-11 h-11 object-contain drop-shadow-[0_0_10px_rgba(59,130,246,0.4)] group-hover:scale-110 transition-all"
+                         onerror="this.outerHTML='<div class=\'w-11 h-11 rounded-lg bg-gradient-to-br from-brand-500 to-blue-700 flex items-center justify-center shadow-lg shadow-brand-500/30\'><i class=\'fa-solid fa-code text-white text-lg\'></i></div>'">
+                    <span class="font-bold text-xl text-white">Total App <span class="text-brand-500">GT</span></span>
+                </a>
+                <p class="text-gray-500 text-sm leading-relaxed">Sistemas SaaS, automatización inteligente con IA y software a medida para negocios de Guatemala y el mundo.</p>
+                <div class="flex space-x-3 mt-5">
+                    <a href="https://facebook.com/totalappgt" target="_blank" rel="noopener" aria-label="Facebook de Total App GT" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1877F2] transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://wa.me/50258303182" target="_blank" rel="noopener" aria-label="WhatsApp de Total App GT" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#25D366] transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="mailto:totalappgt@gmail.com" aria-label="Enviar correo a Total App GT" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-600 transition-all"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+            <div>
+                <p class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Sistemas</p>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="#nominapro" class="text-gray-500 hover:text-brand-400 transition-colors">NominaPro</a></li>
+                            <li><a href="https://redil.totalappgt.com" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-400 transition-colors">Redil</a></li>
+                    <li><a href="https://licitrackgt.totalappgt.com" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-400 transition-colors">LicitrackGT</a></li>
+                    <li><a href="https://contapro.totalappgt.com" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-400 transition-colors">ContaPro</a></li>
+                    <li><a href="https://totalappgt.online" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-400 transition-colors">AulaPro</a></li>
+                    <li><a href="https://invenpro.totalappgt.com" target="_blank" rel="noopener" class="text-gray-500 hover:text-brand-400 transition-colors">InvenPro</a></li>
+                    <li><a href="#sistemas" class="text-gray-500 hover:text-brand-400 transition-colors">Tienda en línea</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Servicios</p>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="#problema" class="text-gray-500 hover:text-brand-400 transition-colors">Digitalización y eficiencia</a></li>
+                    <li><a href="#servicios" class="text-gray-500 hover:text-brand-400 transition-colors">Sistemas SaaS</a></li>
+                    <li><a href="#automatizaciones" class="text-gray-500 hover:text-brand-400 transition-colors">Automatización con n8n</a></li>
+                    <li><a href="#agentes" class="text-gray-500 hover:text-brand-400 transition-colors">Agentes IA</a></li>
+                    <li><a href="#neura" class="text-gray-500 hover:text-brand-400 transition-colors">Neura — Asistente IA</a></li>
+                    <li><a href="#consultoria" class="text-gray-500 hover:text-brand-400 transition-colors">Consultoría empresarial</a></li>
+                    <li><a href="#consultoria" class="text-gray-500 hover:text-brand-400 transition-colors">Metodología 5S</a></li>
+                    <li><a href="#servicios" class="text-gray-500 hover:text-brand-400 transition-colors">Software a medida</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Legal</p>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="terminos.html" class="text-gray-500 hover:text-brand-400 transition-colors"><i class="fa-solid fa-scale-balanced mr-1"></i> Términos y Condiciones</a></li>
+                    <li><a href="privacidad.html" class="text-gray-500 hover:text-brand-400 transition-colors"><i class="fa-solid fa-user-shield mr-1"></i> Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mt-10 pt-6 border-t border-gray-800/50 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p class="text-gray-600 text-xs sm:text-sm text-center">&copy; <span id="year"></span> Total App GT. Todos los derechos reservados.</p>
+            <p class="text-gray-600 text-xs">Hecho con <i class="fa-solid fa-heart text-brand-500"></i> en Guatemala</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ======================= COOKIE CONSENT ======================= -->
+<div id="cookie-banner" class="fixed bottom-4 left-4 right-4 sm:left-6 sm:right-auto sm:max-w-sm z-[999] glass rounded-2xl p-5 shadow-2xl border border-gray-700/50 hidden">
+    <div class="flex items-start gap-3 mb-3">
+        <i class="fa-solid fa-cookie-bite text-2xl text-brand-400"></i>
+        <p class="text-gray-300 text-sm leading-relaxed">Usamos cookies para mejorar tu experiencia y el rendimiento del sitio. Lee nuestra <a href="privacidad.html" class="text-brand-400 underline">Política de Privacidad</a>.</p>
+    </div>
+    <div class="flex gap-3">
+        <button onclick="acceptCookies()" class="flex-1 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold transition-all">Aceptar</button>
+        <button onclick="declineCookies()" class="px-5 py-2.5 rounded-xl border border-gray-600 hover:border-gray-400 text-gray-300 text-sm font-medium transition-all">Rechazar</button>
+    </div>
+</div>
+
+<script>
+    // ===== PARTICLES =====
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resizeCanvas(){ canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    class Particle {
+        constructor(){ this.reset(); }
+        reset(){ this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.size = Math.random()*2+0.5; this.speedX = (Math.random()-.5)*0.3; this.speedY = (Math.random()-.5)*0.3; this.opacity = Math.random()*.5+.1; }
+        update(){ this.x += this.speedX; this.y += this.speedY; if(this.x<0||this.x>canvas.width||this.y<0||this.y>canvas.height) this.reset(); }
+        draw(){ ctx.fillStyle = 'rgba(59,130,246,'+this.opacity+')'; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill(); }
+    }
+    for(let i=0;i<80;i++) particles.push(new Particle());
+    function drawLines(){ for(let i=0;i<particles.length;i++){ for(let j=i+1;j<particles.length;j++){ const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y, dist=Math.sqrt(dx*dx+dy*dy); if(dist<150){ ctx.strokeStyle='rgba(59,130,246,'+(0.08*(1-dist/150))+')'; ctx.lineWidth=0.5; ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y); ctx.stroke(); } } } }
+    function animateParticles(){ ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{p.update();p.draw();}); drawLines(); requestAnimationFrame(animateParticles); }
+    animateParticles();
+
+    // ===== NAVBAR =====
+    const navbar = document.getElementById('navbar');
+    const scrollProgress = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', ()=>{
+        navbar.classList.toggle('nav-scrolled', window.scrollY>50);
+        const h = document.documentElement;
+        const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+        scrollProgress.style.width = pct + '%';
+    });
+
+    // ===== MOBILE MENU =====
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', ()=> mobileMenu.classList.toggle('hidden'));
+    mobileMenu.querySelectorAll('a').forEach(l=> l.addEventListener('click', ()=> mobileMenu.classList.add('hidden')));
+
+    // ===== YEAR =====
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===== TYPING =====
+    const phrases = [
+        'Consultoría en procesos · Sistemas SaaS · Automatización con IA',
+        'Ordenamos tu operación y la digitalizamos con método',
+        'Inventarios, 5S, logística y controles operativos',
+        'Nómina, facturación, inventario y más sistemas a medida'
+    ];
+    let idx = 0;
+    const typingEl = document.getElementById('typing-text');
+    function typeLoop(){
+        idx = (idx+1)%phrases.length;
+        typingEl.style.animation='none'; void typingEl.offsetHeight;
+        typingEl.style.width='0';
+        typingEl.textContent = phrases[idx];
+        typingEl.style.animation = 'typing 3.5s steps(40,end), blink .75s step-end infinite';
+    }
+    if(window.innerWidth>640){
+        typingEl.style.display='inline-block'; typingEl.style.overflow='hidden'; typingEl.style.borderRight='3px solid #3b82f6'; typingEl.style.whiteSpace='nowrap'; typingEl.style.width='0';
+        setInterval(typeLoop, 6000);
+    } else {
+        typingEl.style.whiteSpace='normal'; typingEl.style.borderRight='none'; typingEl.textContent = phrases[0];
+    }
+
+    // ===== REVEAL =====
+    // Stagger: asigna delay progresivo a elementos reveal que comparten padre
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach((el)=>{
+        const sibs = Array.from(el.parentElement.children).filter(c=>c.classList.contains('reveal')||c.classList.contains('reveal-left')||c.classList.contains('reveal-right')||c.classList.contains('reveal-scale'));
+        const idx = sibs.indexOf(el);
+        if(idx>0) el.style.transitionDelay = (idx*0.12)+'s';
+    });
+    const revealObserver = new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('active'); }); },{threshold:0.1});
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el=> revealObserver.observe(el));
+
+    // ===== COUNTERS =====
+    let countersAnimated = false;
+    const counterObserver = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting && !countersAnimated){
+                countersAnimated = true;
+                document.querySelectorAll('.counter-num').forEach(el=>{
+                    const target = parseInt(el.getAttribute('data-target'));
+                    if(isNaN(target)) return;
+                    const duration=2000, start=performance.now();
+                    function update(now){
+                        const progress=Math.min((now-start)/duration,1);
+                        const eased=1-Math.pow(1-progress,3);
+                        let val=Math.floor(eased*target);
+                        el.textContent = target===99 ? Math.min(99,val)+'%' : val + (target===400?'+':'');
+                        if(progress<1) requestAnimationFrame(update);
+                        else el.textContent = target===99 ? '99%' : target + (target===400?'+':'');
+                    }
+                    requestAnimationFrame(update);
+                });
+            }
+        });
+    },{threshold:0.3});
+    document.querySelectorAll('.counter-num').forEach(el=> counterObserver.observe(el));
+
+    // ===== COOKIE CONSENT =====
+    function acceptCookies(){ localStorage.setItem('cookiesAccepted','1'); document.getElementById('cookie-banner').classList.add('hidden'); }
+    function declineCookies(){ localStorage.setItem('cookiesDeclined','1'); document.getElementById('cookie-banner').classList.add('hidden'); }
+    if(!localStorage.getItem('cookiesAccepted') && !localStorage.getItem('cookiesDeclined')){
+        setTimeout(()=> document.getElementById('cookie-banner').classList.remove('hidden'), 1500);
+    }
+
+    // ===== CONTACT FORM (Google Apps Script) =====
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    const formSubmit = document.getElementById('form-submit');
+    contactForm.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        formSubmit.disabled = true;
+        formSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+        formStatus.classList.add('hidden');
+        const data = {
+            nombre: document.getElementById('form-name').value,
+            empresa: document.getElementById('form-company').value,
+            email: document.getElementById('form-email').value,
+            telefono: document.getElementById('form-phone').value,
+            servicio: document.getElementById('form-service').value,
+            mensaje: document.getElementById('form-message').value,
+            timestamp: new Date().toLocaleString()
+        };
+        try {
+            await fetch('https://script.google.com/macros/s/AKfycbzZkDy8otPK79fOILgLfVr7t96BjCb6pfvlqMuhQhRkx95NrAibGqbygWGiMi8DwqN8/exec', {
+                method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
+            });
+        } catch(err){}
+        formStatus.className='text-center text-sm mt-2 text-green-400';
+        formStatus.textContent='Gracias por contactarnos. Te responderemos pronto.';
+        formStatus.classList.remove('hidden');
+        contactForm.reset();
+        formSubmit.disabled=false;
+        formSubmit.innerHTML='Enviar mensaje <i class="fa-solid fa-paper-plane"></i>';
+    });
+</script>
+</body>
+</html>
