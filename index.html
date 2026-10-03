@@ -954,7 +954,7 @@
                     </div>
                 </div>
                 <div class="px-6 pb-6">
-                    <a href="redil.html" target="_blank" rel="noopener"
+                    <a href="redil.html"
                        class="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all btn-glow" style="background:rgba(168,85,247,.15);color:#d8b4fe;border:1px solid rgba(168,85,247,.3)">
                         Ver Redil <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
@@ -975,7 +975,7 @@
                     </div>
                 </div>
                 <div class="px-6 pb-6">
-                    <a href="licitrackgt.html" target="_blank" rel="noopener"
+                    <a href="licitrackgt.html"
                        class="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all btn-glow" style="background:rgba(59,130,246,.15);color:#93c5fd;border:1px solid rgba(59,130,246,.3)">
                         Ver LicitrackGT <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
@@ -996,7 +996,7 @@
                     </div>
                 </div>
                 <div class="px-6 pb-6">
-                    <a href="contapro.html" target="_blank" rel="noopener"
+                    <a href="contapro.html"
                        class="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all btn-glow" style="background:rgba(52,211,153,.15);color:#86efac;border:1px solid rgba(52,211,153,.3)">
                         Ver ContaPro <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
@@ -1017,7 +1017,7 @@
                     </div>
                 </div>
                 <div class="px-6 pb-6">
-                    <a href="aulapro.html" target="_blank" rel="noopener"
+                    <a href="aulapro.html"
                        class="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all btn-glow" style="background:rgba(244,63,94,.15);color:#fda4af;border:1px solid rgba(244,63,94,.3)">
                         Ver AulaPro <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
@@ -1038,7 +1038,7 @@
                     </div>
                 </div>
                 <div class="px-6 pb-6">
-                    <a href="invenpro.html" target="_blank" rel="noopener"
+                    <a href="invenpro.html"
                        class="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all btn-glow" style="background:rgba(251,191,36,.15);color:#fcd34d;border:1px solid rgba(251,191,36,.3)">
                         Ver InvenPro <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
@@ -1800,11 +1800,11 @@
                 <p class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Sistemas</p>
                 <ul class="space-y-2.5 text-sm">
                     <li><a href="nominapro.html" class="text-gray-400 hover:text-brand-400 transition-colors">NominaPro</a></li>
-                            <li><a href="redil.html" target="_blank" rel="noopener" class="text-gray-400 hover:text-brand-400 transition-colors">Redil</a></li>
-                    <li><a href="licitrackgt.html" target="_blank" rel="noopener" class="text-gray-400 hover:text-brand-400 transition-colors">LicitrackGT</a></li>
-                    <li><a href="contapro.html" target="_blank" rel="noopener" class="text-gray-400 hover:text-brand-400 transition-colors">ContaPro</a></li>
-                    <li><a href="aulapro.html" target="_blank" rel="noopener" class="text-gray-400 hover:text-brand-400 transition-colors">AulaPro</a></li>
-                    <li><a href="invenpro.html" target="_blank" rel="noopener" class="text-gray-400 hover:text-brand-400 transition-colors">InvenPro</a></li>
+                            <li><a href="redil.html" class="text-gray-400 hover:text-brand-400 transition-colors">Redil</a></li>
+                    <li><a href="licitrackgt.html" class="text-gray-400 hover:text-brand-400 transition-colors">LicitrackGT</a></li>
+                    <li><a href="contapro.html" class="text-gray-400 hover:text-brand-400 transition-colors">ContaPro</a></li>
+                    <li><a href="aulapro.html" class="text-gray-400 hover:text-brand-400 transition-colors">AulaPro</a></li>
+                    <li><a href="invenpro.html" class="text-gray-400 hover:text-brand-400 transition-colors">InvenPro</a></li>
                     <li><a href="#sistemas" class="text-gray-400 hover:text-brand-400 transition-colors">Tienda en línea</a></li>
                 </ul>
             </div>
@@ -1981,6 +1981,18 @@
         formSubmit.disabled=false;
         formSubmit.innerHTML='Enviar mensaje <i class="fa-solid fa-paper-plane"></i>';
     });
+</script>
+<script>
+// Hace que TODA la tarjeta de sistema navegue a su landing (no solo el boton)
+document.querySelectorAll('.sys-card').forEach(function (card) {
+  var link = card.querySelector('a[href$=".html"]');
+  if (!link) return;
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', function (e) {
+    if (e.target.closest('a')) return;
+    window.location.href = link.getAttribute('href');
+  });
+});
 </script>
 </body>
 </html>
