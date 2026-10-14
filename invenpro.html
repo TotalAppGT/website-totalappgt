@@ -545,7 +545,7 @@
     mobileMenu.querySelectorAll('a').forEach(l=> l.addEventListener('click', ()=> mobileMenu.classList.add('hidden')));
 
     // ===== YEAR =====
-    document.getElementById('year').textContent = new Date().getFullYear();
+    var yearEl = document.getElementById('year'); if(yearEl) yearEl.textContent = new Date().getFullYear();
 
     // ===== TYPING =====
     const phrases = [
@@ -563,10 +563,10 @@
         typingEl.textContent = phrases[idx];
         typingEl.style.animation = 'typing 3.5s steps(40,end), blink .75s step-end infinite';
     }
-    if(window.innerWidth>640){
+    if(typingEl && window.innerWidth>640){
         typingEl.style.display='inline-block'; typingEl.style.overflow='hidden'; typingEl.style.borderRight='3px solid #3b82f6'; typingEl.style.whiteSpace='nowrap'; typingEl.style.width='0';
         setInterval(typeLoop, 6000);
-    } else {
+    } else if(typingEl){
         typingEl.style.whiteSpace='normal'; typingEl.style.borderRight='none'; typingEl.textContent = phrases[0];
     }
 
@@ -579,6 +579,7 @@
     });
     const revealObserver = new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('active'); }); },{threshold:0.1});
     document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el=> revealObserver.observe(el));
+    setTimeout(function(){ document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el){ el.classList.add('active'); }); }, 3000);
 
     // ===== COUNTERS =====
     let countersAnimated = false;
@@ -616,7 +617,7 @@
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
     const formSubmit = document.getElementById('form-submit');
-    contactForm.addEventListener('submit', async (e)=>{
+    if(contactForm) contactForm.addEventListener('submit', async (e)=>{
         e.preventDefault();
         formSubmit.disabled = true;
         formSubmit.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
