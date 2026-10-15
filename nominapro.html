@@ -40,9 +40,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preload" href="tailwind-compiled.css?v=2" as="style">
+    <link rel="preload" href="tailwind-compiled.css?v=3" as="style">
 
-    <link rel="stylesheet" href="tailwind-compiled.css?v=2">
+    <link rel="stylesheet" href="tailwind-compiled.css?v=3">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
@@ -207,6 +207,9 @@
             h1{font-size:2.4rem!important}
             .side-cta{display:none}
         }
+        /* Dropdown Sistemas */
+        .dropdown-menu{opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease,visibility .2s;pointer-events:none}
+        .dropdown:hover .dropdown-menu,.dropdown:focus-within .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
     </style>
 
     <!-- Schema.org: Software Applications -->
@@ -316,34 +319,49 @@
                      onerror="this.outerHTML='<div class=\'w-12 h-12 rounded-xl bg-gradient-to-br from-brand-500 to-blue-700 flex items-center justify-center shadow-lg shadow-brand-500/30\'><i class=\'fa-solid fa-code text-white text-2xl\'></i></div>'">
                 <span class="font-bold text-xl sm:text-2xl tracking-tight text-white whitespace-nowrap">Total App <span class="text-brand-500">GT</span></span>
             </a>
-            <div class="hidden lg:flex items-center space-x-5">
+            <div class="hidden lg:flex items-center gap-6">
                 <a href="index.html#inicio" class="nav-link text-sm font-medium text-gray-300">Inicio</a>
-                <a href="index.html#consultoria" class="nav-link text-sm font-semibold text-sky-400">Consultoría</a>
-                <a href="nominapro.html" class="nav-link text-sm font-semibold text-emerald-400">NominaPro</a>
-                <a href="nominapro.html#versiones" class="nav-link text-sm font-medium text-gray-300">Versiones</a>
-                <a href="index.html#servicios" class="nav-link text-sm font-medium text-gray-300">Servicios</a>
-                <a href="index.html#sistemas" class="nav-link text-sm font-medium text-gray-300">Sistemas</a>
-                <a href="index.html#automatizaciones" class="nav-link text-sm font-medium text-gray-300">Automatización</a>
-                <a href="index.html#agentes" class="nav-link text-sm font-medium text-gray-300">Agentes IA</a>
-                <a href="index.html#contacto" class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-all shadow-lg shadow-brand-500/30 btn-glow">
-                    Agendar consultoría <i class="fa-solid fa-arrow-right ml-1"></i>
-                </a>
+                <a href="index.html#consultoria" class="nav-link text-sm font-medium text-gray-300">Consultoría</a>
+                <div class="relative dropdown">
+                    <button class="nav-link text-sm font-medium text-gray-300 flex items-center gap-1" aria-haspopup="true">Sistemas <i class="fa-solid fa-chevron-down text-[10px]"></i></button>
+                    <div class="dropdown-menu absolute left-0 top-full pt-3 w-56">
+                        <div class="glass rounded-xl p-2 border border-gray-700/50 shadow-2xl">
+                            <a href="redil.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-church text-purple-400 mr-2"></i>Redil</a>
+                            <a href="contapro.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-calculator text-emerald-400 mr-2"></i>ContaPro</a>
+                            <a href="aulapro.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-graduation-cap text-amber-400 mr-2"></i>AulaPro</a>
+                            <a href="invenpro.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-boxes-stacked text-green-400 mr-2"></i>InvenPro</a>
+                            <a href="licitrackgt.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-file-contract text-sky-400 mr-2"></i>LicitrackGT</a>
+                            <a href="clinipro.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-tooth text-teal-400 mr-2"></i>CliniPro</a>
+                            <a href="nominapro.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-users-gear text-blue-400 mr-2"></i>NominaPro</a>
+                            <a href="resident.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-building-shield text-indigo-400 mr-2"></i>Resident</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="index.html#servicios-tec" class="nav-link text-sm font-medium text-gray-300">Servicios TI</a>
+                <a href="afiliados.html" class="nav-link text-sm font-semibold text-amber-400">Afiliados</a>
+                <a href="index.html#contacto" class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-500 text-white text-sm font-medium transition-all shadow-lg shadow-brand-500/30 btn-glow">Agendar consultoría <i class="fa-solid fa-arrow-right ml-1"></i></a>
             </div>
-            <button id="mobile-menu-btn" class="lg:hidden text-gray-300 hover:text-white p-2" aria-label="Menu">
-                <i class="fa-solid fa-bars text-2xl"></i>
-            </button>
+            <button id="mobile-menu-btn" class="lg:hidden text-gray-300 hover:text-white p-2" aria-label="Menu"><i class="fa-solid fa-bars text-2xl"></i></button>
         </div>
     </div>
     <div id="mobile-menu" class="hidden lg:hidden bg-dark-800/95 backdrop-blur-xl border-b border-gray-700">
-        <div class="px-4 pt-2 pb-6 space-y-2">
+        <div class="px-4 pt-2 pb-6 space-y-1">
             <a href="index.html#inicio" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Inicio</a>
-            <a href="index.html#consultoria" class="block px-3 py-2 text-base font-semibold text-sky-400 hover:text-white hover:bg-gray-800 rounded-md">Consultoría</a>
-            <a href="nominapro.html" class="block px-3 py-2 text-base font-semibold text-emerald-400 hover:text-white hover:bg-gray-800 rounded-md">NominaPro</a>
-            <a href="nominapro.html#versiones" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Versiones</a>
-            <a href="index.html#servicios" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Servicios</a>
-            <a href="index.html#sistemas" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Sistemas SaaS</a>
+            <a href="index.html#consultoria" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Consultoría</a>
+            <p class="px-3 pt-3 pb-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Sistemas</p>
+            <a href="redil.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Redil</a>
+            <a href="contapro.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">ContaPro</a>
+            <a href="aulapro.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">AulaPro</a>
+            <a href="invenpro.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">InvenPro</a>
+            <a href="licitrackgt.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">LicitrackGT</a>
+            <a href="clinipro.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">CliniPro</a>
+            <a href="nominapro.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">NominaPro</a>
+            <a href="resident.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Resident</a>
+            <p class="px-3 pt-3 pb-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Más</p>
+            <a href="index.html#servicios-tec" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Servicios TI</a>
             <a href="index.html#automatizaciones" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Automatización</a>
             <a href="index.html#agentes" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Agentes IA</a>
+            <a href="afiliados.html" class="block px-3 py-2 text-base font-semibold text-amber-400 hover:text-white hover:bg-gray-800 rounded-md">Afiliados</a>
             <a href="index.html#contacto" class="block px-3 py-2 mt-4 text-center rounded-md bg-brand-600 text-white font-medium">Agendar consultoría</a>
         </div>
     </div>
