@@ -6,8 +6,8 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Redil | Iglesias - Total App GT</title>
-    <meta name="description" content="Consultoría de procesos y operaciones (5S, inventarios, logística, controles) + sistemas SaaS a medida en Guatemala. Ordenamos tu operación y la digitalizamos. Daniel Martínez, consultor.">
+    <title>Redil | Sistema para iglesias - Total App GT</title>
+    <meta name="description" content="Redil: sistema para iglesias con miembros, ofrendas, diezmos, reportes, multi-sede y WhatsApp. Planes desde Q99/mes con hosting y soporte.">
     <meta name="keywords" content="consultoría empresarial Guatemala, consultor de procesos, metodología 5S, gestión de inventarios, levantamiento de procesos, controles operativos, controles administrativos, logística Guatemala, seguridad industrial, seguimiento de gestión, soluciones en Excel, automatización con IA, n8n, Neura, sistemas SaaS, software a medida, agentes IA, Google Apps Script, Python, ERP, CRM, Daniel Martínez Total App GT">
     <meta name="author" content="Total App GT">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -21,15 +21,15 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_GT">
     <meta property="og:site_name" content="Total App GT">
-    <meta property="og:title" content="Redil | Iglesias - Total App GT">
-    <meta property="og:description" content="Ordenamos tu operación y la digitalizamos: consultoría en procesos, inventarios y controles, más sistemas SaaS a medida para empresas en Guatemala.">
+    <meta property="og:title" content="Redil | Sistema para iglesias - Total App GT">
+    <meta property="og:description" content="Administra miembros, ofrendas, diezmos y reportes de tu iglesia. Multi-sede, con tu logo y dominio.">
     <meta property="og:url" content="https://totalappgt.com/redil.html">
     <meta property="og:image" content="https://totalappgt.com/logo.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Total App GT | Consultoría de Procesos y Sistemas SaaS">
-    <meta name="twitter:description" content="Consultoría en procesos, inventarios y controles + sistemas SaaS a medida en Guatemala.">
+    <meta name="twitter:description" content="Miembros, ofrendas, diezmos, reportes y comunicación para tu iglesia.">
     <meta name="twitter:image" content="https://totalappgt.com/logo.png">
 
     <!-- Favicons -->
@@ -40,9 +40,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preload" href="tailwind-compiled.css?v=6" as="style">
+    <link rel="preload" href="tailwind-compiled.css?v=7" as="style">
 
-    <link rel="stylesheet" href="tailwind-compiled.css?v=6">
+    <link rel="stylesheet" href="tailwind-compiled.css?v=7">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
@@ -210,8 +210,53 @@
         /* Dropdown Sistemas */
         .dropdown-menu{opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease,visibility .2s;pointer-events:none}
         .dropdown:hover .dropdown-menu,.dropdown:focus-within .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+        /* Landing premium */
+        .faq summary{list-style:none;cursor:pointer}
+        .faq summary::-webkit-details-marker{display:none}
+        .faq-chevron{transition:transform .3s ease}
+        .faq[open] .faq-chevron{transform:rotate(180deg)}
     </style>
 
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "¿Puedo migrar mis datos actuales?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí. Te ayudamos a importar miembros, historial de ofrendas y diezmos desde Excel o desde tu sistema anterior."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Sirve para varias sedes?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí. Desde el plan Ministerio puedes administrar varias iglesias y ver reportes consolidados."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Incluye capacitación?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí. Incluimos instalación, configuración inicial y capacitación para tu equipo, además de soporte en español."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "¿Puedo cancelar cuando quiera?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí. No manejamos contratos forzados. Puedes cancelar o cambiar de plan cuando lo necesites."
+            }
+        }
+    ]
+}
+    </script>
     <!-- Schema.org: Software Applications -->
     <script type="application/ld+json">
     {
@@ -222,7 +267,7 @@
         "operatingSystem": "Web",
         "description": "Sistema SaaS para administración de iglesias: miembros, ofrendas, diezmos, reportes digitales y seguimiento.",
         "url": "https://redil.totalappgt.com",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GTQ" },
+        "offers": { "@type": "Offer", "price": "99", "priceCurrency": "GTQ" },
         "publisher": { "@type": "Organization", "name": "Total App GT" }
     }
     </script>
@@ -319,22 +364,35 @@
                      onerror="this.outerHTML='<div class=\'w-12 h-12 rounded-xl bg-gradient-to-br from-brand-500 to-blue-700 flex items-center justify-center shadow-lg shadow-brand-500/30\'><i class=\'fa-solid fa-code text-white text-2xl\'></i></div>'">
                 <span class="font-bold text-xl sm:text-2xl tracking-tight text-white whitespace-nowrap">Total App <span class="text-brand-500">GT</span></span>
             </a>
-            <div class="hidden lg:flex items-center gap-6">
+            <div class="hidden lg:flex items-center gap-5">
                 <a href="index.html#inicio" class="nav-link text-sm font-medium text-gray-300">Inicio</a>
-                <a href="index.html#consultoria" class="nav-link text-sm font-medium text-gray-300">Consultoría</a>
                 <div class="relative dropdown">
                     <button class="nav-link text-sm font-medium text-gray-300 flex items-center gap-1" aria-haspopup="true">Sistemas <i class="fa-solid fa-chevron-down text-[10px]"></i></button>
+                    <div class="dropdown-menu absolute left-0 top-full pt-3 w-64">
+                        <div class="glass rounded-xl p-2 border border-gray-700/50 shadow-2xl">
+                            <p class="px-3 pt-2 pb-1 text-[10px] font-bold text-gray-500 uppercase tracking-widest">Plataformas</p>
+                            <a href="contapro.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-calculator text-emerald-400 mr-2"></i>ContaPro</a>
+                            <a href="nominapro.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-users-gear text-blue-400 mr-2"></i>NominaPro</a>
+                            <a href="invenpro.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-warehouse text-amber-400 mr-2"></i>InvenPro</a>
+                            <a href="aulapro.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-graduation-cap text-rose-400 mr-2"></i>AulaPro</a>
+                            <a href="clinipro.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-stethoscope text-teal-400 mr-2"></i>CliniPro</a>
+                            <a href="redil.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-church text-purple-400 mr-2"></i>Redil</a>
+                            <a href="resident.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-building-shield text-indigo-400 mr-2"></i>Resident</a>
+                            <a href="licitrackgt.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-file-contract text-sky-400 mr-2"></i>LicitrackGT</a>
+                            <a href="timepro.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-list-check text-cyan-400 mr-2"></i>TimePro</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="index.html#total-suite" class="nav-link text-sm font-medium text-gray-300">Suite</a>
+                <div class="relative dropdown">
+                    <button class="nav-link text-sm font-medium text-gray-300 flex items-center gap-1" aria-haspopup="true">Servicios <i class="fa-solid fa-chevron-down text-[10px]"></i></button>
                     <div class="dropdown-menu absolute left-0 top-full pt-3 w-56">
                         <div class="glass rounded-xl p-2 border border-gray-700/50 shadow-2xl">
-                            <a href="https://redil.totalappgt.com" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-church text-purple-400 mr-2"></i>Redil</a>
-                            <a href="https://contapro.totalappgt.com" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-calculator text-emerald-400 mr-2"></i>ContaPro</a>
-                            <a href="https://aulapro.totalappgt.com" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-graduation-cap text-amber-400 mr-2"></i>AulaPro</a>
-                            <a href="https://invenpro.totalappgt.com" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-boxes-stacked text-green-400 mr-2"></i>InvenPro</a>
-                            <a href="https://licitrackgt.totalappgt.com" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-file-contract text-sky-400 mr-2"></i>LicitrackGT</a>
-                            <a href="clinipro.html" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-tooth text-teal-400 mr-2"></i>CliniPro</a>
-                            <a href="https://nominapro.totalappgt.com" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-users-gear text-blue-400 mr-2"></i>NominaPro</a>
-                            <a href="https://resident.totalappgt.com" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-building-shield text-indigo-400 mr-2"></i>Resident</a>
-                            <a href="https://timepro.totalappgt.com" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-list-check text-cyan-400 mr-2"></i>TimePro</a>
+                            <a href="index.html#web" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-globe text-sky-400 mr-2"></i>Páginas web</a>
+                            <a href="index.html#servicios-tec" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-server text-blue-400 mr-2"></i>Hosting y dominios</a>
+                            <a href="index.html#automatizaciones" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-diagram-project text-emerald-400 mr-2"></i>Automatización</a>
+                            <a href="index.html#agentes" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-robot text-purple-400 mr-2"></i>Agentes IA</a>
+                            <a href="index.html#consultoria" class="block px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-gray-800 hover:text-white transition-colors"><i class="fa-solid fa-briefcase text-amber-400 mr-2"></i>Consultoría</a>
                         </div>
                     </div>
                 </div>
@@ -348,21 +406,24 @@
     <div id="mobile-menu" class="hidden lg:hidden bg-dark-800/95 backdrop-blur-xl border-b border-gray-700">
         <div class="px-4 pt-2 pb-6 space-y-1">
             <a href="index.html#inicio" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Inicio</a>
-            <a href="index.html#consultoria" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Consultoría</a>
             <p class="px-3 pt-3 pb-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Sistemas</p>
-            <a href="https://redil.totalappgt.com" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Redil</a>
-            <a href="https://contapro.totalappgt.com" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">ContaPro</a>
-            <a href="https://aulapro.totalappgt.com" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">AulaPro</a>
-            <a href="https://invenpro.totalappgt.com" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">InvenPro</a>
-            <a href="https://licitrackgt.totalappgt.com" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">LicitrackGT</a>
+            <a href="contapro.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">ContaPro</a>
+            <a href="nominapro.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">NominaPro</a>
+            <a href="invenpro.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">InvenPro</a>
+            <a href="aulapro.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">AulaPro</a>
             <a href="clinipro.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">CliniPro</a>
-            <a href="https://nominapro.totalappgt.com" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">NominaPro</a>
-            <a href="https://resident.totalappgt.com" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Resident</a>
-            <a href="https://timepro.totalappgt.com" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">TimePro</a>
-            <p class="px-3 pt-3 pb-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Más</p>
-            <a href="index.html#empresas" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Empresas</a>
+            <a href="redil.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Redil</a>
+            <a href="resident.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Resident</a>
+            <a href="licitrackgt.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">LicitrackGT</a>
+            <a href="timepro.html" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">TimePro</a>
+            <a href="index.html#total-suite" class="block px-3 py-2 text-base font-semibold text-emerald-300 hover:text-white hover:bg-gray-800 rounded-md">Suite</a>
+            <p class="px-3 pt-3 pb-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Servicios</p>
+            <a href="index.html#web" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Páginas web</a>
+            <a href="index.html#servicios-tec" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Hosting y dominios</a>
             <a href="index.html#automatizaciones" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Automatización</a>
             <a href="index.html#agentes" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Agentes IA</a>
+            <a href="index.html#consultoria" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Consultoría</a>
+            <a href="index.html#empresas" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800 rounded-md">Empresas</a>
             <a href="afiliados.html" class="block px-3 py-2 text-base font-semibold text-amber-400 hover:text-white hover:bg-gray-800 rounded-md">Afiliados</a>
             <a href="index.html#contacto" class="block px-3 py-2 mt-4 text-center rounded-md bg-brand-600 text-white font-medium">Agendar consultoría</a>
         </div>
@@ -370,77 +431,180 @@
 </nav>
 
 <!-- ======================= HERO ======================= -->
-        <!-- ======================= REDIL ======================= -->
-        <section id="detalle" class="relative pt-40 pb-16 sm:pt-48 sm:pb-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
-                <span class="badge-soft mb-6"><i class="fa-solid fa-cube"></i> Iglesias</span>
-                <h1 class="text-4xl sm:text-6xl font-black text-white leading-tight mb-6">El sistema para iglesias, <span class='gradient-text-multi'>tuyo y listo para usar</span></h1>
-                <p class="text-gray-400 max-w-3xl mx-auto text-base sm:text-lg mb-9">Gestión integral: miembros, líderes, ofrendas, diezmos, reportes digitales y seguimiento de feligreses. Multi-iglesia.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="https://redil.totalappgt.com" target="_blank" rel="noopener" class="px-8 py-4 rounded-xl bg-gradient-to-r from-sky-600 to-purple-600 hover:from-sky-500 hover:to-purple-500 text-white font-semibold transition-all shadow-lg shadow-sky-500/25 btn-glow">Acceder a Redil</a>
-                    <a href="https://wa.me/50258303182?text=Quiero%20una%20demo%20de%20Redil" target="_blank" rel="noopener" class="px-8 py-4 rounded-xl border border-gray-600 hover:border-sky-400 text-white font-semibold transition-all">Pedir demo</a>
+                <!-- ======================= REDIL LANDING ======================= -->
+        <section id="detalle" class="relative pt-40 pb-20 sm:pt-48 sm:pb-28 overflow-hidden">
+            <div class="parallax-shape" style="width:420px;height:420px;background:#8b5cf6;top:5%;right:-140px;animation:float 9s ease-in-out infinite"></div>
+            <div class="parallax-shape" style="width:320px;height:320px;background:#3b82f6;bottom:0;left:-120px;animation:float 7s ease-in-out infinite reverse"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div class="text-center lg:text-left reveal-left">
+                        <span class="badge-soft mb-6" style="background:rgba(168,85,247,.12);border-color:rgba(168,85,247,.3);color:#d8b4fe"><i class="fa-solid fa-church"></i> Sistema para iglesias</span>
+                        <h1 class="text-4xl sm:text-6xl font-black text-white leading-tight mb-6">Tu iglesia, <span class="gradient-text-multi">organizada y conectada</span></h1>
+                        <p class="text-gray-300 max-w-2xl mx-auto lg:mx-0 text-base sm:text-lg mb-8">Miembros, líderes, ofrendas, diezmos, reportes y comunicación en un solo sistema. Multi-iglesia, con tu logo y tu dominio.</p>
+                        <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                            <a href="https://redil.totalappgt.com" target="_blank" rel="noopener" class="px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-sky-600 hover:from-purple-500 hover:to-sky-500 text-white font-semibold transition-all shadow-lg shadow-purple-500/25 btn-glow">Acceder a Redil <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
+                            <a href="#planes" class="px-8 py-4 rounded-xl border border-gray-600 hover:border-purple-400 text-white font-semibold transition-all">Ver planes</a>
+                        </div>
+                        <div class="mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-xs text-gray-400">
+                            <span><i class="fa-solid fa-check text-emerald-400"></i> Instalación y capacitación incluidas</span>
+                            <span><i class="fa-solid fa-lock text-emerald-400"></i> Datos seguros y respaldos</span>
+                            <span><i class="fa-solid fa-headset text-emerald-400"></i> Soporte en español</span>
+                        </div>
+                    </div>
+                    <div class="relative reveal-right max-w-md mx-auto lg:max-w-none w-full">
+                        <div class="absolute -inset-6 bg-purple-600/20 blur-3xl rounded-full"></div>
+                        <div class="relative glass rounded-3xl p-4 sm:p-5 border border-purple-500/30 shadow-2xl">
+                            <div class="flex items-center gap-2 mb-4">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                                <span class="ml-auto text-[10px] uppercase tracking-widest text-purple-300 font-bold">Redil · Panel</span>
+                            </div>
+                            <div class="rounded-2xl bg-dark-800/90 border border-gray-700/60 p-4 sm:p-5">
+                                <div class="flex items-start justify-between mb-4">
+                                    <div><p class="text-xs text-gray-400">Resumen de la iglesia</p><p class="text-2xl font-black text-white">1,248 <span class="text-sm font-medium text-gray-400">miembros</span></p></div>
+                                    <span class="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 text-[10px] font-bold">Activo</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3 mb-4">
+                                    <div class="rounded-xl bg-purple-500/10 border border-purple-500/20 p-3"><p class="text-[10px] text-gray-400">Ofrendas del mes</p><p class="text-lg font-bold text-white">Q18,450</p></div>
+                                    <div class="rounded-xl bg-sky-500/10 border border-sky-500/20 p-3"><p class="text-[10px] text-gray-400">Diezmos</p><p class="text-lg font-bold text-white">Q12,300</p></div>
+                                </div>
+                                <div class="flex items-end gap-2 h-20 mb-4" aria-hidden="true">
+                                    <div class="flex-1 rounded-t-md bg-purple-500/40" style="height:45%"></div>
+                                    <div class="flex-1 rounded-t-md bg-purple-500/50" style="height:65%"></div>
+                                    <div class="flex-1 rounded-t-md bg-purple-500/60" style="height:52%"></div>
+                                    <div class="flex-1 rounded-t-md bg-purple-500/70" style="height:82%"></div>
+                                    <div class="flex-1 rounded-t-md bg-purple-500/80" style="height:70%"></div>
+                                    <div class="flex-1 rounded-t-md bg-purple-500" style="height:95%"></div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex items-center gap-3 rounded-xl bg-white/5 border border-white/5 p-2.5">
+                                        <span class="w-8 h-8 rounded-lg bg-purple-500/15 text-purple-300 flex items-center justify-center"><i class="fa-solid fa-calendar-check"></i></span>
+                                        <div><p class="text-xs font-semibold text-white">Culto dominical</p><p class="text-[10px] text-gray-400">Domingo · 10:00</p></div>
+                                        <span class="ml-auto text-[10px] text-emerald-300">Confirmado</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 rounded-xl bg-white/5 border border-white/5 p-2.5">
+                                        <span class="w-8 h-8 rounded-lg bg-sky-500/15 text-sky-300 flex items-center justify-center"><i class="fa-solid fa-users"></i></span>
+                                        <div><p class="text-xs font-semibold text-white">Reunión de líderes</p><p class="text-[10px] text-gray-400">Martes · 18:00</p></div>
+                                        <span class="ml-auto text-[10px] text-gray-400">12 asistentes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden sm:flex absolute -bottom-5 -left-5 glass rounded-2xl px-4 py-3 border border-emerald-500/30 items-center gap-2 shadow-xl">
+                            <i class="fa-solid fa-circle-check text-emerald-400"></i><div><p class="text-xs font-bold text-white">Todo en orden</p><p class="text-[10px] text-gray-400">Reportes al día</p></div>
+                        </div>
+                        <div class="hidden sm:flex absolute -top-5 -right-5 glass rounded-2xl px-4 py-3 border border-purple-500/30 items-center gap-2 shadow-xl">
+                            <i class="fa-solid fa-layer-group text-purple-300"></i><div><p class="text-xs font-bold text-white">Multi-sede</p><p class="text-[10px] text-gray-400">Todas tus iglesias</p></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="relative py-16 sm:py-20 overflow-hidden">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6">
-                <h2 class="text-2xl sm:text-4xl font-bold text-white text-center mb-10">Todo lo que incluye Redil</h2>
-                <div class="glass rounded-3xl p-8 sm:p-10 border border-gray-800/50 reveal">
-                    <ul class="grid sm:grid-cols-2 gap-4 text-sm">
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-violet-400 mt-2"></i><span class="text-gray-300">Miembros, líderes y pastores</span></li>
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-violet-400 mt-2"></i><span class="text-gray-300">Ofrendas, diezmas y gastos</span></li>
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-violet-400 mt-2"></i><span class="text-gray-300">Reportes digitales e imprimibles</span></li>
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-violet-400 mt-2"></i><span class="text-gray-300">Seguimiento de feligreses</span></li>
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-violet-400 mt-2"></i><span class="text-gray-300">Formulario digital con QR</span></li>
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-violet-400 mt-2"></i><span class="text-gray-300">Multi-iglesia (ideal para vender)</span></li>
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-violet-400 mt-2"></i><span class="text-gray-300">Avisos por WhatsApp</span></li>
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check text-violet-400 mt-2"></i><span class="text-gray-300">Portal del miembro</span></li>
-                    </ul>
+        <section id="funciones" class="relative py-16 sm:py-24 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 reveal">
+                    <span class="badge-soft mb-4" style="background:rgba(168,85,247,.12);border-color:rgba(168,85,247,.3);color:#d8b4fe"><i class="fa-solid fa-cubes"></i> Todo incluido</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 mb-3">Todo lo que tu iglesia necesita, en un solo lugar</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">Deja las hojas de Excel y los cuadernos. Redil centraliza la información y te da claridad para decidir.</p>
                 </div>
-                <div class="mt-10 text-center">
-                    <a href="https://wa.me/50258303182?text=Quiero%20informacion%20de%20Redil" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition-all btn-glow">Cotizar Redil <i class="fa-solid fa-arrow-right"></i></a>
-                    <p class="text-gray-400 text-xs mt-4">Incluye dominio, hosting, SSL, respaldos y soporte. Instalación y capacitación incluidas.</p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div class="glass rounded-2xl p-6 border border-gray-800/50 reveal h-full">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/15 text-purple-300 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-users"></i></div>
+                        <h3 class="text-lg font-bold text-white mb-2">Miembros y líderes</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Ficha completa de cada miembro, roles, pastores y seguimiento de feligreses.</p>
+                    </div>
+                    <div class="glass rounded-2xl p-6 border border-gray-800/50 reveal h-full">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-300 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                        <h3 class="text-lg font-bold text-white mb-2">Ofrendas y diezmos</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Registra ingresos por culto, categorías y cierre de caja sin errores.</p>
+                    </div>
+                    <div class="glass rounded-2xl p-6 border border-gray-800/50 reveal h-full">
+                        <div class="w-12 h-12 rounded-xl bg-sky-500/15 text-sky-300 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3 class="text-lg font-bold text-white mb-2">Reportes claros</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Reportes digitales e imprimibles de ingresos, gastos y comparativos mensuales.</p>
+                    </div>
+                    <div class="glass rounded-2xl p-6 border border-gray-800/50 reveal h-full">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-300 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-layer-group"></i></div>
+                        <h3 class="text-lg font-bold text-white mb-2">Multi-iglesia</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Administra varias sedes desde un solo panel, con reportes consolidados.</p>
+                    </div>
+                    <div class="glass rounded-2xl p-6 border border-gray-800/50 reveal h-full">
+                        <div class="w-12 h-12 rounded-xl bg-green-500/15 text-green-300 flex items-center justify-center text-xl mb-4"><i class="fa-brands fa-whatsapp"></i></div>
+                        <h3 class="text-lg font-bold text-white mb-2">Comunicación</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Avisos por WhatsApp y formulario digital con QR para visitantes y nuevos miembros.</p>
+                    </div>
+                    <div class="glass rounded-2xl p-6 border border-gray-800/50 reveal h-full">
+                        <div class="w-12 h-12 rounded-xl bg-rose-500/15 text-rose-300 flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-id-card"></i></div>
+                        <h3 class="text-lg font-bold text-white mb-2">Portal del miembro</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Cada miembro consulta sus datos, historial de aportes y próximos eventos.</p>
+                    </div>
                 </div>
             </div>
         </section>
-        <!-- ======================= PLANES ======================= -->
-        <section id="planes" class="relative py-16 sm:py-20 overflow-hidden">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6">
-                <div class="text-center mb-10">
+
+        <section class="relative py-16 sm:py-24 bg-dark-800/40 overflow-hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 reveal">
+                    <span class="badge-soft mb-4"><i class="fa-solid fa-rocket"></i> Así de simple</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 mb-3">Tu iglesia en línea en 3 pasos</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">Nosotros te acompañamos en todo el proceso, desde la demo hasta la capacitación de tu equipo.</p>
+                </div>
+                <div class="grid sm:grid-cols-3 gap-6">
+                    <div class="glass rounded-2xl p-7 border border-gray-800/50 reveal h-full">
+                        <div class="step-number mb-5" style="background:linear-gradient(135deg,#a855f7,#6d28d9);box-shadow:0 10px 30px rgba(168,85,247,.3)">1</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Agenda una demo</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Te mostramos Redil con datos de ejemplo y resolvemos tus dudas.</p>
+                    </div>
+                    <div class="glass rounded-2xl p-7 border border-gray-800/50 reveal h-full">
+                        <div class="step-number mb-5" style="background:linear-gradient(135deg,#a855f7,#6d28d9);box-shadow:0 10px 30px rgba(168,85,247,.3)">2</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Configuramos tu iglesia</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Cargamos miembros, usuarios, categorías y tu identidad visual.</p>
+                    </div>
+                    <div class="glass rounded-2xl p-7 border border-gray-800/50 reveal h-full">
+                        <div class="step-number mb-5" style="background:linear-gradient(135deg,#a855f7,#6d28d9);box-shadow:0 10px 30px rgba(168,85,247,.3)">3</div>
+                        <h3 class="text-lg font-bold text-white mb-2">Empieza a operar</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Capacitamos a tu equipo y te damos soporte en español.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="planes" class="relative py-16 sm:py-24 overflow-hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 reveal">
                     <span class="badge-soft mb-4"><i class="fa-solid fa-tags"></i> Planes</span>
-                    <h2 class="text-2xl sm:text-4xl font-bold text-white mt-3 mb-3">Elige el plan de tu iglesia</h2>
-                    <p class="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">Incluye hosting, SSL, respaldos y soporte. <strong class="text-white">Primer mes de prueba gratis.</strong></p>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 mb-3">Elige el plan de tu iglesia</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">Incluye hosting, SSL, respaldos y soporte. <strong class="text-white">Primer mes de prueba gratis.</strong></p>
                 </div>
                 <div class="grid sm:grid-cols-3 gap-6">
                     <div class="glass rounded-3xl p-8 border border-gray-800/50 flex flex-col">
                         <h3 class="text-xl font-black text-white">Iglesia</h3>
                         <p class="text-gray-400 text-sm mt-1">Una congregación</p>
                         <p class="mt-4 text-3xl font-black text-white">Q99<span class="text-base font-medium text-gray-400">/mes</span></p>
-                        <p class="text-gray-400 text-xs mt-1">Hasta 200 miembros</p>
+                        <p class="text-gray-400 text-xs mt-1">Hasta 200 miembros · 3 usuarios</p>
                         <ul class="mt-5 space-y-2 text-sm text-gray-300 flex-1">
                             <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> Miembros, líderes y pastores</li>
                             <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> Ofrendas, diezmos y gastos</li>
                             <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> Reportes digitales e imprimibles</li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> 3 usuarios</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> Avisos por WhatsApp</li>
                         </ul>
-                        <a href="https://app.recurrente.com/s/total-app-gt/redil-iglesia" target="_blank" rel="noopener" class="mt-6 w-full text-center py-3 rounded-xl text-sm font-semibold border border-gray-600 hover:border-purple-400 text-white transition-all">Empezar</a>
+                        <a href="https://app.recurrente.com/s/total-app-gt/redil-iglesia" target="_blank" rel="noopener" class="mt-6 w-full text-center py-3 rounded-xl text-sm font-semibold border border-gray-600 hover:border-purple-400 text-white transition-all">Contratar</a>
                     </div>
                     <div class="glass rounded-3xl p-8 border-2 border-purple-500/60 flex flex-col relative">
                         <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[.65rem] font-bold uppercase tracking-wider bg-purple-500 text-white">Más vendido</span>
                         <h3 class="text-xl font-black text-white">Ministerio</h3>
                         <p class="text-gray-400 text-sm mt-1">Varias sedes</p>
                         <p class="mt-4 text-3xl font-black text-white">Q149<span class="text-base font-medium text-gray-400">/mes</span></p>
-                        <p class="text-gray-400 text-xs mt-1">Multi-sede · miembros ilimitados</p>
+                        <p class="text-gray-400 text-xs mt-1">Miembros ilimitados · 10 usuarios</p>
                         <ul class="mt-5 space-y-2 text-sm text-gray-300 flex-1">
                             <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> Todo lo de Iglesia</li>
                             <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> Multi-iglesia / multi-sede</li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> Avisos por WhatsApp</li>
                             <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> Seguimiento de feligreses</li>
                             <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> Formulario digital con QR</li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> 10 usuarios</li>
                         </ul>
-                        <a href="https://app.recurrente.com/s/total-app-gt/redil-ministerio" target="_blank" rel="noopener" class="mt-6 w-full text-center py-3 rounded-xl text-sm font-bold bg-purple-500 hover:bg-purple-400 text-white transition-all btn-glow">Empezar ahora</a>
+                        <a href="https://app.recurrente.com/s/total-app-gt/redil-ministerio" target="_blank" rel="noopener" class="mt-6 w-full text-center py-3 rounded-xl text-sm font-bold bg-purple-500 hover:bg-purple-400 text-white transition-all btn-glow">Contratar ahora</a>
                     </div>
                     <div class="glass rounded-3xl p-8 border border-gray-800/50 flex flex-col">
                         <h3 class="text-xl font-black text-white">Red</h3>
@@ -452,13 +616,56 @@
                             <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> Iglesias ilimitadas</li>
                             <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> Marca blanca</li>
                             <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> Portal del miembro</li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> Dominio propio incluido</li>
-                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> Soporte prioritario</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-check text-purple-400 mt-1"></i> Dominio propio y soporte prioritario</li>
                         </ul>
-                        <a href="https://app.recurrente.com/s/total-app-gt/redil-red" target="_blank" rel="noopener" class="mt-6 w-full text-center py-3 rounded-xl text-sm font-semibold border border-gray-600 hover:border-purple-400 text-white transition-all">Cotizar</a>
+                        <a href="https://app.recurrente.com/s/total-app-gt/redil-red" target="_blank" rel="noopener" class="mt-6 w-full text-center py-3 rounded-xl text-sm font-semibold border border-gray-600 hover:border-purple-400 text-white transition-all">Contratar</a>
                     </div>
                 </div>
-                <p class="mt-8 text-center text-xs text-gray-400">Sin contrato forzado · Cancela cuando quieras · Datos seguros con respaldo diario</p>
+                <p class="mt-8 text-center text-xs text-gray-400">Pago seguro con Recurrente (tarjeta y transferencia) · Sin contrato forzado · Cancela cuando quieras.</p>
+            </div>
+        </section>
+
+        <section id="faq" class="relative py-16 sm:py-24 overflow-hidden">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10 reveal">
+                    <span class="badge-soft mb-4"><i class="fa-solid fa-circle-question"></i> Preguntas frecuentes</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 mb-3">Resolvemos tus dudas</h2>
+                </div>
+                <div class="space-y-3">
+                    <details class="faq glass rounded-2xl border border-gray-800/50 p-5 reveal">
+                        <summary class="flex items-center justify-between gap-4 text-white font-semibold">¿Puedo migrar mis datos actuales? <i class="fa-solid fa-chevron-down faq-chevron text-purple-300 text-sm"></i></summary>
+                        <p class="mt-3 text-sm text-gray-400 leading-relaxed">Sí. Te ayudamos a importar miembros, historial de ofrendas y diezmos desde Excel o desde tu sistema anterior.</p>
+                    </details>
+                    <details class="faq glass rounded-2xl border border-gray-800/50 p-5 reveal">
+                        <summary class="flex items-center justify-between gap-4 text-white font-semibold">¿Sirve para varias sedes? <i class="fa-solid fa-chevron-down faq-chevron text-purple-300 text-sm"></i></summary>
+                        <p class="mt-3 text-sm text-gray-400 leading-relaxed">Sí. Desde el plan Ministerio puedes administrar varias iglesias y ver reportes consolidados.</p>
+                    </details>
+                    <details class="faq glass rounded-2xl border border-gray-800/50 p-5 reveal">
+                        <summary class="flex items-center justify-between gap-4 text-white font-semibold">¿Incluye capacitación? <i class="fa-solid fa-chevron-down faq-chevron text-purple-300 text-sm"></i></summary>
+                        <p class="mt-3 text-sm text-gray-400 leading-relaxed">Sí. Incluimos instalación, configuración inicial y capacitación para tu equipo, además de soporte en español.</p>
+                    </details>
+                    <details class="faq glass rounded-2xl border border-gray-800/50 p-5 reveal">
+                        <summary class="flex items-center justify-between gap-4 text-white font-semibold">¿Puedo cancelar cuando quiera? <i class="fa-solid fa-chevron-down faq-chevron text-purple-300 text-sm"></i></summary>
+                        <p class="mt-3 text-sm text-gray-400 leading-relaxed">Sí. No manejamos contratos forzados. Puedes cancelar o cambiar de plan cuando lo necesites.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative py-16 sm:py-24 overflow-hidden">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass rounded-3xl p-8 sm:p-12 border border-purple-500/30 relative overflow-hidden reveal text-center">
+                    <div class="absolute -top-24 -right-24 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
+                    <div class="relative">
+                        <span class="badge-soft mb-5" style="background:rgba(168,85,247,.12);border-color:rgba(168,85,247,.3);color:#d8b4fe"><i class="fa-solid fa-bolt"></i> Empieza hoy</span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-white mb-4">Haz que tu iglesia opere con claridad</h2>
+                        <p class="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base mb-8">Te acompañamos en la configuración, migración y capacitación de tu equipo. Tú enfócate en las personas; nosotros en la tecnología.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="https://redil.totalappgt.com" target="_blank" rel="noopener" class="px-8 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-sky-600 hover:from-purple-500 hover:to-sky-500 text-white font-semibold transition-all shadow-lg shadow-purple-500/25 btn-glow">Acceder a Redil <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
+                            <a href="https://wa.me/50258303182?text=Quiero%20una%20demo%20de%20Redil" target="_blank" rel="noopener" class="px-8 py-4 rounded-xl border border-gray-600 hover:border-purple-400 text-white font-semibold transition-all">Agendar demo</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -471,7 +678,7 @@
                          onerror="this.outerHTML='<div class=\'w-11 h-11 rounded-lg bg-gradient-to-br from-brand-500 to-blue-700 flex items-center justify-center shadow-lg shadow-brand-500/30\'><i class=\'fa-solid fa-code text-white text-lg\'></i></div>'">
                     <span class="font-bold text-xl text-white">Total App <span class="text-brand-500">GT</span></span>
                 </a>
-                <p class="text-gray-400 text-sm leading-relaxed">Sistemas SaaS, automatización inteligente con IA y software a medida para negocios de Guatemala y el mundo.</p>
+                <p class="text-gray-400 text-sm leading-relaxed">Sistemas SaaS, automatización con IA y software a medida para negocios de Guatemala y el mundo.</p>
                 <div class="flex space-x-3 mt-5">
                     <a href="https://facebook.com/totalappgt" target="_blank" rel="noopener" aria-label="Facebook de Total App GT" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#1877F2] transition-all"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://wa.me/50258303182" target="_blank" rel="noopener" aria-label="WhatsApp de Total App GT" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#25D366] transition-all"><i class="fa-brands fa-whatsapp"></i></a>
@@ -481,33 +688,37 @@
             <div>
                 <p class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Sistemas</p>
                 <ul class="space-y-2.5 text-sm">
-                    <li><a href="https://nominapro.totalappgt.com" class="text-gray-400 hover:text-brand-400 transition-colors">NominaPro</a></li>
-                            <li><a href="https://redil.totalappgt.com" target="_blank" rel="noopener" class="text-gray-400 hover:text-brand-400 transition-colors">Redil</a></li>
-                    <li><a href="https://licitrackgt.totalappgt.com" target="_blank" rel="noopener" class="text-gray-400 hover:text-brand-400 transition-colors">LicitrackGT</a></li>
-                    <li><a href="https://contapro.totalappgt.com" target="_blank" rel="noopener" class="text-gray-400 hover:text-brand-400 transition-colors">ContaPro</a></li>
-                    <li><a href="https://aulapro.totalappgt.com" target="_blank" rel="noopener" class="text-gray-400 hover:text-brand-400 transition-colors">AulaPro</a></li>
-                    <li><a href="https://invenpro.totalappgt.com" target="_blank" rel="noopener" class="text-gray-400 hover:text-brand-400 transition-colors">InvenPro</a></li>
-                    <li><a href="index.html#sistemas" class="text-gray-400 hover:text-brand-400 transition-colors">Tienda en línea</a></li>
+                    <li><a href="contapro.html" class="text-gray-400 hover:text-brand-400 transition-colors">ContaPro</a></li>
+                    <li><a href="nominapro.html" class="text-gray-400 hover:text-brand-400 transition-colors">NominaPro</a></li>
+                    <li><a href="invenpro.html" class="text-gray-400 hover:text-brand-400 transition-colors">InvenPro</a></li>
+                    <li><a href="aulapro.html" class="text-gray-400 hover:text-brand-400 transition-colors">AulaPro</a></li>
+                    <li><a href="clinipro.html" class="text-gray-400 hover:text-brand-400 transition-colors">CliniPro</a></li>
+                    <li><a href="redil.html" class="text-gray-400 hover:text-brand-400 transition-colors">Redil</a></li>
+                    <li><a href="resident.html" class="text-gray-400 hover:text-brand-400 transition-colors">Resident</a></li>
+                    <li><a href="licitrackgt.html" class="text-gray-400 hover:text-brand-400 transition-colors">LicitrackGT</a></li>
+                    <li><a href="timepro.html" class="text-gray-400 hover:text-brand-400 transition-colors">TimePro</a></li>
+                    <li><a href="index.html#total-suite" class="text-emerald-300 hover:text-emerald-200 transition-colors font-semibold">Total Suite</a></li>
                 </ul>
             </div>
             <div>
                 <p class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Servicios</p>
                 <ul class="space-y-2.5 text-sm">
-                    <li><a href="index.html#problema" class="text-gray-400 hover:text-brand-400 transition-colors">Digitalización y eficiencia</a></li>
-                    <li><a href="index.html#servicios" class="text-gray-400 hover:text-brand-400 transition-colors">Sistemas SaaS</a></li>
-                    <li><a href="index.html#automatizaciones" class="text-gray-400 hover:text-brand-400 transition-colors">Automatización con n8n</a></li>
+                    <li><a href="index.html#web" class="text-gray-400 hover:text-brand-400 transition-colors">Páginas web</a></li>
+                    <li><a href="index.html#servicios-tec" class="text-gray-400 hover:text-brand-400 transition-colors">Hosting y dominios</a></li>
+                    <li><a href="index.html#automatizaciones" class="text-gray-400 hover:text-brand-400 transition-colors">Automatización</a></li>
                     <li><a href="index.html#agentes" class="text-gray-400 hover:text-brand-400 transition-colors">Agentes IA</a></li>
-                    <li><a href="index.html#neura" class="text-gray-400 hover:text-brand-400 transition-colors">Neura — Asistente IA</a></li>
-                    <li><a href="index.html#consultoria" class="text-gray-400 hover:text-brand-400 transition-colors">Consultoría empresarial</a></li>
-                    <li><a href="index.html#consultoria" class="text-gray-400 hover:text-brand-400 transition-colors">Metodología 5S</a></li>
+                    <li><a href="index.html#consultoria" class="text-gray-400 hover:text-brand-400 transition-colors">Consultoría</a></li>
                     <li><a href="index.html#servicios" class="text-gray-400 hover:text-brand-400 transition-colors">Software a medida</a></li>
                 </ul>
             </div>
             <div>
-                <p class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Legal</p>
+                <p class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Empresa</p>
                 <ul class="space-y-2.5 text-sm">
-                    <li><a href="terminos.html" class="text-gray-400 hover:text-brand-400 transition-colors"><i class="fa-solid fa-scale-balanced mr-1"></i> Términos y Condiciones</a></li>
-                    <li><a href="privacidad.html" class="text-gray-400 hover:text-brand-400 transition-colors"><i class="fa-solid fa-user-shield mr-1"></i> Política de Privacidad</a></li>
+                    <li><a href="index.html#empresas" class="text-gray-400 hover:text-brand-400 transition-colors">Empresas B2B</a></li>
+                    <li><a href="afiliados.html" class="text-gray-400 hover:text-brand-400 transition-colors">Afiliados</a></li>
+                    <li><a href="index.html#contacto" class="text-gray-400 hover:text-brand-400 transition-colors">Contacto</a></li>
+                    <li><a href="terminos.html" class="text-gray-400 hover:text-brand-400 transition-colors"><i class="fa-solid fa-scale-balanced mr-1"></i> Términos</a></li>
+                    <li><a href="privacidad.html" class="text-gray-400 hover:text-brand-400 transition-colors"><i class="fa-solid fa-user-shield mr-1"></i> Privacidad</a></li>
                 </ul>
             </div>
         </div>
